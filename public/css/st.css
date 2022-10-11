@@ -6,29 +6,60 @@
     background-image: radial-gradient(#ffde59, #e45d0b);
 }
 
+.ft{font: 7em "Jazz LET", Jazz-LET }
+
 .just{
     position: absolute;
-    text-align: center;
-    top: 100px;
-    left: 100px;
-
+    background-color: gray;
+    height: 150px;
+    width: 600px;
+    border-radius: 20px;
+    left: 110px;
+    top: 200px;
 
     transition: 3s;
-    animation: bounceInRight 5s;
+    animation: bounceInRight 4s;
 }
-.tm{
-    position: relative;
-    width: 350px;
-    height: 500px;
-    border-radius: 5px;
-}
-.tn{
-    position: absolute;
-    top: 100%;
-    left: 15%;
 
+.just0{
+  position: absolute;
+  background-color: gray;
+  height: 150px;
+  width: 600px;
+  border-radius: 20px;
+  left: 110px;
+  top: 365px;
 
+  transition: 3s;
+  animation: bounceInRight 4s;
 }
+
+.just1{
+  position: absolute;
+  background-color: gray;
+  height: 150px;
+  width: 600px;
+  border-radius: 20px;
+  left: 110px;
+  top: 530px;
+
+  transition: 3s;
+  animation: bounceInRight 4s;
+}
+
+.just2{
+  position: absolute;
+  background-color: gray;
+  height: 150px;
+  width: 600px;
+  border-radius: 20px;
+  left: 110px;
+  top: 695px;
+
+  transition: 3s;
+  animation: bounceInRight 4s;
+}
+
 
 
 @keyframes bounceInRight {
