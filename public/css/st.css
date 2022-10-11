@@ -19,6 +19,7 @@
 
     transition: 3s;
     animation: bounceInRight 4s;
+
 }
 
 .just0{
@@ -60,6 +61,15 @@
   animation: bounceInRight 4s;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Concert+One&family=Noto+Serif&display=swap');
+#font{
+  position: absolute;
+  left: 440px;
+  top: 50px;
+  font-family: 'Anton', sans-serif;
+  font-size: 45px;
+  color: black;
+}
 
 
 @keyframes bounceInRight {

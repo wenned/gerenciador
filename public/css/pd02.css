@@ -212,3 +212,16 @@ body{
     opacity: 0.5;
 
 }
+
+/* home */
+
+.icon{
+    position: absolute;
+    font-size: 40px;
+    top: -42px;
+    left: 10px;
+    text-decoration: none;
+    color: #363535;
+}.icon:hover{
+    animation: alternate;
+}
