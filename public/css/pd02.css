@@ -181,3 +181,34 @@ body{
 /*marcacao isolada valor dos itens*/
 #tm{font-size: 30px;}
 #tn{position: absolute;top: 3px;}
+
+
+/*circulos*/
+
+.circulo{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    left: 430px;
+    top: 330px;
+    background: #616060;
+
+    border-radius: 41% 39% 48% 52% /
+                    61% 44% 58% 38%;
+    opacity: 0.6;
+
+}
+
+.circulo1{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    left: 430px;
+    top: 310px;
+    background: #616060;
+
+    border-radius: 70% 30% 56% 33% /
+                    35% 25% 47% 70%;
+    opacity: 0.5;
+
+}

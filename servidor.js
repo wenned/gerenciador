@@ -26,14 +26,6 @@ app.get('/', function (req, res) {
 	});
 });
 
-app.get('/pedido', function (req, res) {
-	fs.readFile('ped01.html', function(erro, dad){
-		res.writeHead(200, {'Content-Type': 'text/html'});
-		res.write(dad);
-		res.end();
-	});
-});
-
 app.get('/ped02', function (req, res) {
 	fs.readFile('ped02.html', function(erro, dad){
 		res.writeHead(200, {'Content-Type': 'text/html'});
