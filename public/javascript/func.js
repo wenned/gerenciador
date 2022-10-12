@@ -1,16 +1,47 @@
+var dados = [
+    {item0:7.89},
+    {item1:14.89},
+    {item2:100.89},
+    {item3:20.19}
+    ];
+
 var valor = 0;
-var total = 3.89;
-var men = 3.89;
+var total = 0;
+var men = 0;
+
+function retorno (x){
+    switch(x){
+        case 0:
+            men = dados[0].item0;
+            break
+
+        case 1:
+            dados[1].item1
+            break
+
+        case 2:
+            dados[2].item2
+            break
+
+        case 3:
+            dados[3].item3
+            break
+
+    };
+};
+retorno(0)
+console.log(men)
 
 
 function mais(){
+
     var dado = document.getElementById('valor');
     var vtotal = document.getElementById('prec')
 
     valor++;
     dado.innerText = valor;
 
-    total = valor + total
+    total = total + men
 
     if(total < 10){
         vtotal.innerHTML = `
