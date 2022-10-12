@@ -60,7 +60,7 @@ body{
 #preco{
     position: absolute;
     top: 580px;
-    left: 138px;
+    left: 115px;
     font-size: 15px;
     color: #616060;
     height: auto;
@@ -134,10 +134,12 @@ body{
 
 .e4{
     position: absolute;
-    width: 20px;
+    width: 10px;
     height: 20px;
     top: 572px;
     left: 293px;
+    text-align: center;
+
 }
 
 .e4::before{
@@ -222,6 +224,10 @@ body{
     left: 10px;
     text-decoration: none;
     color: #363535;
-}.icon:hover{
-    animation: alternate;
+}
+.valor{
+    position: absolute;
+    background: none;
+    border: none;
+    width: 20px;
 }
