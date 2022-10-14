@@ -11,20 +11,24 @@
 <body class="corpo">
     <section>
 
-        <a href="ped02" onclick="retorno(0)">
-            <div class="just"><span id="font">ITEM 0</span></div>
-        </a>
-        <a href="ped02">
-            <div class="just0"><span id="font">ITEM 1</span></div>
-        </a>
-        <a href="ped02">
-            <div class="just1"><span id="font">ITEM 2</span></div>
-        </a>
-        <a href="ped02">
-            <div class="just2"><span id="font">ITEM 3</span></div>
-        </a>
+        <form action="ped02" method="get">
+            <button class="just" type="submit" name="nunpedido" value="0"><span id="font">ITEM 0</span></button>
+        </form>
+
+        <form action="ped02" method="get" >
+            <button class="just0" type="submit" name="nunpedido" value="1"><span id="font">ITEM 1</span></button>
+        </form>
+
+        <form action="ped02" method="get" >
+            <button class="just1" type="submit" name="nunpedido" value="2"><span id="font">ITEM 2</span></button>
+        </form>
+        
+        <form action="ped02" method="get" >
+            <button class="just2" type="submit" name="nunpedido" value="3"><span id="font">ITEM 3</span></button>
+        </form>
+
     </section>
 
-    <script src="public/javascript/func.js"></script>
+    <script src="javascript/func.js"></script>
 </body>
 </html>
