@@ -13,7 +13,7 @@ body{
     border-radius: 20px;
     width: 700px;
     height: 375px;
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff;
     box-shadow: 5px 5px 5px black;
 
 }
@@ -58,12 +58,16 @@ body{
     height: auto;
 }
 #preco{
+
     position: absolute;
-    top: 580px;
-    left: 115px;
-    font-size: 15px;
-    color: #616060;
+    top: 597px;
+    font-size: 25px;
     height: auto;
+    border: none;
+    width: none;
+    left: 127px;
+    background: none;
+    opacity: 60%;
 }
 #finaly{
     position: absolute;
@@ -79,6 +83,13 @@ body{
     text-decoration: none;
 }
 
+#finaly button{
+    width: none;
+    height: none;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+}
 
 .t2{
     position: absolute;
@@ -178,7 +189,15 @@ body{
     border-radius: 2px;
 
 }
-
+#quant{
+    position: absolute;
+    width: 50px;
+    left: 40px;
+    font-size: 23px;
+    background: none;
+    border: none;
+    color: #616060;
+}
 
 /*marcacao isolada valor dos itens*/
 #tm{font-size: 30px;}
@@ -225,9 +244,9 @@ body{
     text-decoration: none;
     color: #363535;
 }
-.valor{
+/* #valor{
     position: absolute;
     background: none;
     border: none;
     width: 20px;
-}
+} */

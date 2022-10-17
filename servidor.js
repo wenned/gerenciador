@@ -8,10 +8,21 @@ var app = express(); // iniciar a variavel EXPRESS
 
 var bodyParser = require('body-parser');
 const path = require('path');
-//var urlencodedParser = bodyParser.urlencoded({ extended: true });
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 app.use(express.static(__dirname + '/public'));
 
+// Configuracoes com banco de dados: ======================
+
+ //const db = require('./public/javascript/link')
+
+// async function roots(){
+//     await db.connect()
+//     await db.query('create table mais()')
+//     await db.query('drop table mais')
+//     await db.end()
+
+// ======================================================== 
 
 var servidor = app.listen(8080, function(){
 	var porta = servidor.address().port;
@@ -19,8 +30,20 @@ var servidor = app.listen(8080, function(){
 }); //Iniciando o serviço de servidor na porta 8080
 
 //iniciando o conteudo da pagina dinanmicamente abaixo
-app.get('/', function (req, res) {
+
+app.get('/', urlencodedParser, function (req, res) {
 	fs.readFile('index.html', function(erro, dad){
+
+		
+		console.log(req.body)
+		console.log(req.query)
+		console.log(req.params)
+	
+
+
+
+
+
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.write(dad);
 		res.end();
@@ -84,4 +107,5 @@ app.get('/ped02', function (req, res) {
 		res.write(dad);
 		res.end();
 	});
+
 });

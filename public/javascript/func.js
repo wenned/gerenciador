@@ -10,7 +10,8 @@ var dados = [
 var valor = 0;
 var total = 0;
 var men = 7.89;
-//var path = '/nunpedido.txt';
+//ar path = __dirname+'/nunpedido.txt';
+
 
 function retorno (){
     
@@ -50,64 +51,89 @@ function mais(){
       //  men = x
     //};
 
-    var dado = document.getElementById('valor');
+    var dado = document.getElementById('qnt');
     var vtotal = document.getElementById('prec');
 
     valor++;
 
-    dado.innerText = valor;
+    dado.innerHTML =`<input id="quant" name="valor" value="${valor}">` ;
+
 
     total = total + men
 
     if(total < 10){
-        vtotal.innerHTML = `
-        <p id="preco" >R$ <span id="tm">${total.toString()[0]}</span><span id="tn">${total.toString()[1]+total.toString()[2]+total.toString()[3]}</span></p>`
+        vtotal.innerHTML = `<input id="preco" name="preco" value="${total}">`
+        // vtotal.innerHTML = `
+        // <p id="preco" >R$ <span id="tm">${total.toString()[0]}</span><span id="tn">${total.toString()[1]+total.toString()[2]+total.toString()[3]}</span></p>`
+
     }else{
         if(total < 100){
-            vtotal.innerHTML = `
-            <p id="preco" >R$ <span id="tm">${total.toString()[0]+total.toString()[1]}</span><span id="tn">${total.toString()[2]+total.toString()[3]+total.toString()[4]}</span></p>`
+            vtotal.innerHTML = `<input id="preco" name="preco" value="${total}">`
+            // vtotal.innerHTML = `
+            // <p id="preco" >R$ <span id="tm">${total.toString()[0]+total.toString()[1]}</span><span id="tn">${total.toString()[2]+total.toString()[3]+total.toString()[4]}</span></p>`
 
         }else{
-            vtotal.innerHTML = `
-            <p id="preco" >R$ <span id="tm">${total.toString()[0]+total.toString()[1]+total.toString()[2]}</span><span id="tn">${total.toString()[3]+total.toString()[4]+total.toString()[5]}</span></p>`
+            vtotal.innerHTML = `<input id="preco" name="preco" value="${total}">`
+
+            // vtotal.innerHTML = `
+            // <p id="preco" >R$ <span id="tm">${total.toString()[0]+total.toString()[1]+total.toString()[2]}</span><span id="tn">${total.toString()[3]+total.toString()[4]+total.toString()[5]}</span></p>`
         };
     };
 };
 
 function menos(){
 
-    var dado = document.getElementById('valor');
+    var dado = document.getElementById('qnt');
     var vtotal = document.getElementById('prec');
 
     valor--;
-    dado.innerText = valor
+    //dado.innerText = valor
+
+    dado.innerHTML =`<input id="quant" name="valor" value="${valor}">` ;
 
     total = total - men
 
 
     if (valor < 0){
+
         valor = 0
         dado.innerText = valor
-        vtotal.innerHTML= `<p id="preco" >R$ <strong id="tm">0</strong><strong id="tn">.00</strong></p>`
+
+        vtotal.innerHTML = `<input id="preco" name="preco" value="${total}">`
+
+        // vtotal.innerHTML= `<p id="preco" >R$ <strong id="tm">0</strong><strong id="tn">.00</strong></p>`
 
     }else{
         if(valor == 0){
-        dado.innerText = valor
-        vtotal.innerHTML= `<p id="preco" >R$ <strong id="tm">0</strong><strong id="tn">.00</strong></p>`
+
+        vtotal.innerHTML = `<input id="preco" name="preco" value="${total}">`
+
+        // dado.innerText = valor
+        // vtotal.innerHTML= `<p id="preco" >R$ <strong id="tm">0</strong><strong id="tn">.00</strong></p>`
         };
     };
 
 
     if (total != 0 & total < 10){
-        vtotal.innerHTML = `
-        <p id="preco" >R$ <span id="tm">${total.toString()[0]}</span><span id="tn">${total.toString()[1]+total.toString()[2]+total.toString()[3]}</span></p>`
+
+
+        vtotal.innerHTML = `<input id="preco" name="preco" value="${total}">`
+
+        // vtotal.innerHTML = `
+        // <p id="preco" >R$ <span id="tm">${total.toString()[0]}</span><span id="tn">${total.toString()[1]+total.toString()[2]+total.toString()[3]}</span></p>`
     };
     if(total > 10 & total < 100){
-        vtotal.innerHTML = `
-        <p id="preco" >R$ <span id="tm">${total.toString()[0]+total.toString()[1]}</span><span id="tn">${total.toString()[2]+total.toString()[3]+total.toString()[4]}</span></p>`
+
+        vtotal.innerHTML = `<input id="preco" name="preco" value="${total}">`
+
+        // vtotal.innerHTML = `
+        // <p id="preco" >R$ <span id="tm">${total.toString()[0]+total.toString()[1]}</span><span id="tn">${total.toString()[2]+total.toString()[3]+total.toString()[4]}</span></p>`
     }else{
-        vtotal.innerHTML = `
-        <p id="preco" >R$ <span id="tm">${total.toString()[0]+total.toString()[1]+total.toString()[2]}</span><span id="tn">${total.toString()[3]+total.toString()[4]+total.toString()[5]}</span></p>`
+
+        vtotal.innerHTML = `<input id="preco" name="preco" value="${total}">`
+
+        // vtotal.innerHTML = `
+        // <p id="preco" >R$ <span id="tm">${total.toString()[0]+total.toString()[1]+total.toString()[2]}</span><span id="tn">${total.toString()[3]+total.toString()[4]+total.toString()[5]}</span></p>`
     }
 
 

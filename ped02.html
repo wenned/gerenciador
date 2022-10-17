@@ -17,26 +17,38 @@
         <p id="n3">AT LOW PRICE</p>
         <p id="n4">Get the best of your take away<br> food with a low budget.</p>
 
-        <div id="prec"></div>
+        
 
-        <a id="finaly" href="#">Buy Now</a>
+        
 
     <a href="/">
         <div class="e2"></div>
     </a>
 
     <a href="#" onclick="menos(), retorno()">
-        <div class="e3" title="diminuir"></div>
-    </a>
-        <a href="#" onclick="mais(), retorno()">
-            <div class="e4" title="adicionar"></div>
-        </a>
-            <div id="qnt"><span id="valor">0</span></div>
-            
-                <div id="linha2"></div>
+        <div class="e3" title="diminuir"></div></a>
 
+    <a href="#" onclick="mais(), retorno()">
+            <div class="e4" title="adicionar"></div></a>
+            
+            
+        <div id="linha2"></div>
+
+<!--FORMULARIO-->
+
+    <form action="/" method="get">
+
+        <div id="prec" itemtype="button"></div>
+
+        <div id="qnt">0</div>
+
+        <a id="finaly" href="/"><button type="submit"><span style="color: white;">Buy Now</span></button></a>
+    </form>
+
+
+<!-- ========================================================== -->
     <div class="circulo"></div>
-        <div class="circulo1"></div>
+    <div class="circulo1"></div>
 
     
 
@@ -44,7 +56,9 @@
 
     <script>
         let inicio = document.getElementById('prec')
-        inicio.innerHTML= `<p id="preco" >R$ <strong id="tm">0</strong><strong id="tn">.00</strong></p>`
+
+        inicio.innerHTML = `<input id="preco" name="preco" value="${total}">`
+        // inicio.innerHTML= `<p id="preco" >R$ <strong id="tm">0</strong><strong id="tn">.00</strong></p>`
     </script>
 </body>
 </html>
