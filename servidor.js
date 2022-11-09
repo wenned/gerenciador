@@ -21,9 +21,9 @@ const db = require('./public/javascript/link');
 const { notEqual } = require('assert');
 const { json } = require('express');
 
-async function updateValue(nome, quant){
+async function updateValue(x){
 
-    var un = "select * from produtos where nome_prod='"+x+"';"
+    var un = "select * from produtos where nome_prod='"+x[0]+"';"
 
     await db.connect()
     await db.query(un, (err, res) => {
@@ -32,21 +32,21 @@ async function updateValue(nome, quant){
             db.end()
 
         } else {
-			var nome = res.rows[0]['nome_prod'];
-            var quantidade = res.rows[0]['quantidade'];
 
-			db.query(`update produtos set quantidade=1 where nome_prod='queijo';`)
-            db.end()
-        }
-    })
+			var quantidade = res.rows[0]['quantidade'];
+
+
+			if (quantidade > 0){
+
+				
+				db.query(`update produtos set quantidade=${x[1]} where nome_prod='${x[0]}';`)
+			db.end()};
+
+        };
+    });
     
-}
-
-
-// ======================================================== 
-
-
-
+};
+// /==============================================================/ 
 
 
 var servidor = app.listen(8080, function(){
@@ -94,11 +94,10 @@ app.get('/ped02', function (req, res) {
 
 
 app.get('/final', urlencodedParser, function (req, res) {
+
 	fs.readFile('final.html', function(erro, dad){
 
-
-		updateValue('carne')
-		// console.log(req.query)
+		var s = ['carne', 2]
 
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.write(dad);
