@@ -32,32 +32,46 @@ function AddItenQT(){
 
 }
 
-function apagar(){
-
-    localStorage.removeItem('tipo')
-
-}
-
 function gerartabelaitens(){
 
-    const keys = Object.keys(localStorage)
-    const valores = Object.values(localStorage)
+    itensDB = JSON.parse(localStorage.getItem('size'))
 
-    for (size = 0; size < keys.length; size++){
+    setDB = itensDB
 
-        const conteudo = `${valores[size]} --  ${keys[size]} -- \n'$ 7,79'`
+    setDB.forEach((iten, indice) => {
+        creatElement(iten['iten'], iten['qnt'])
+    })
 
 
-        creatElement(conteudo)
-    }
 
+    // const keys = Object.keys(localStorage)
+    // const valores = Object.values(localStorage)
+
+    // for (size = 0; size < keys.length; size++){
+
+    //     const conteudo = `${valores[size]} --  ${keys[size]} -- \n'$ 7,79'`
+
+
+    //     creatElement(conteudo)
+    // }
+
+    // apagar()
 }
 
-function creatElement (element){
+function apagar(){
+    localStorage.clear()
+}
 
-    const valortabela = document.getElementById('none')
+function creatElement (x,y){
 
-    valortabela.innerHTML = element
+    const tabela = document.getElementById('none')
+
+    const valortabela = document.createElement('p')
+
+    valortabela.innerText = `${x},${y}`
+
+    tabela.appendChild(valortabela)
+
 }
 
 
