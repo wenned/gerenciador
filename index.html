@@ -5,27 +5,104 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/st.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body class="corpo">
-    <section>
+    <body >
+        <section id="ItensOne">
+            <button onclick="MostraItens()">PASTEL SALGADO</button>
+            <button>PASTEL DOCE</button>
+            <button>CREPE SUICO</button>
+            <button>CREPE FRANCES</button>
+            <button>BEBIDAS</button>
 
-        <form action="itens" method="get">
+        </section>
+<br>
+        <section class="itensSalt">
 
-            <button class="just" type="submit" name="nunpedido" value="0"><span id="font">ITEM 0</span></button>
+                <ul>
+                    <li><a href="#" onclick="AddIten('PastelCarne')">PASTEL CARNE</a></li>
+                    <li><a href="#" onclick="AddIten('PastelCarneQueijo')">PASTEL CARNE/QUEIJO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo','PastelFrango'])">PASTEL FRANGO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo','PastelFrangoQueijo'])">PASTEL FRANGO/QUEIJO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo','PastelPresunto'])">PASTEL PRESUNTO/QUEIJO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo','PastelQueijo'])">PASTEL QUEIJO</a></li>
+                </ul>
+        <br>
+                <ul>
+                
+                <li><a href="#" onclick="AddIten(['tipo','PastelBanana'])">BANANA</a></li>
+                <li><a href="#" onclick="AddIten(['tipo','PastelBananaCanela'])">PASTEL BANANCA CANELA</a></li>
+                <li><a href="#" onclick="AddIten(['tipo','PastelBananaChocolate'])">PASTEL BANANA CHOCOLATE</a></li>
+                <li><a href="#" onclick="AddIten(['tipo','PastelChocolateQueijo'])">PASTEL CHOCOLATE QUEIJO</a></li>
+            </ul>
 
-            <button class="just0" type="submit" name="nunpedido" value="1"><span id="font">ITEM 1</span></button>
+        <br>
+            <ul>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE CARNE SOL</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE CARNE QUEIJO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE FRANGO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE FRANGO QUEIJO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE PRESUNTO QUEIJO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE QUEIJO</a></li>
+                </ul>
 
-            <button class="just1" type="submit" name="nunpedido" value="2"><span id="font">ITEM 2</span></button>
- 
-            <button class="just2" type="submit" name="nunpedido" value="3"><span id="font">ITEM 3</span></button>
 
-        </form>
+        <br>
+        
+                <ul>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE FRANCES CARNE SOL</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE FRANCES CARNE QUEIJO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE FRANCES FRANGO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE FRANCES FRANGO QUEIJO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE FRANCES PRESUNTO QUEIJO</a></li>
+                    <li><a href="#" onclick="AddIten(['tipo',''])">CREPE FRANCES QUEIJO</a></li>
+                </ul>
+        
+        <br>
+                <ul>
+                
+                <li> <a href="#" onclick="AddIten(['tipo','Pepsi'])">PEPSI</a></li>
+                <li><a href="#" onclick="AddIten(['tipo','Coca-Cola'])" >COCA-COLA</a></li>
+                <li><a href="" onclick="AddIten(['tipo','Franta'])" >FRANTA</a></li>
+                <li><a href="" onclick="AddIten(['tipo','FrantaUva'])" >FANTA UVA</a></li>
+                <li><a href="" onclick="AddIten(['tipo','Agua'])" >AGUA</a></li>
+                <li><a href="" onclick="AddIten(['tipo','AguaGás'])" >AGUA COM GAS</a></li>
+                <br>
+                <li>Sucos</li>
+                <br>
+                <li><a href="" onclick="AddIten(['tipo','Laranja'])">LARANJA</a></li>
+                <li><a href="" onclick="AddIten(['tipo', 'Acerola'])">ACEROLA</a></li>
+                <li><a href="" onclick="AddIten(['tipo','Cajá'])">CAJÁ</a></li>
+                <li><a href="" onclick="AddIten(['tipo', 'Maracujá'])">MARACUJÁ</a></li>
 
-    </section>
 
-    <script src="javascript/func.js"></script>
 
-</body>
+
+            </ul>
+        
+<br>
+        
+            <form action="" >
+                <input id="valor" type="number">
+
+                <button type="submit" onclick="AddItenQT()">adicionar</button>
+
+            </form>
+
+        </section>
+<br>
+        <button onclick="apagar()"> Voltar</button>
+        <button onclick="apagar(), gerartabelaitens()"> Finalizar</button>
+
+
+<br>
+
+        <section class="final" id="pop">
+            <br>
+            <div id="none"></div>
+        </section>
+
+        <script src="javascript/folhas.js"></script>
+    </body>
 </html>

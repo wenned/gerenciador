@@ -1,0 +1,14 @@
+/* *{
+    height: 100%;
+}
+*/
+body{
+    background-image: radial-gradient(#ffde59, #e45d0b);
+} 
+#none{
+    background-color: aquamarine;
+    width: 20%;
+    right: 40%;
+    border: 2px solid black;
+
+}
