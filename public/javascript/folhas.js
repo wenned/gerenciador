@@ -32,6 +32,36 @@ function AddItenQT(){
 
 }
 
+function apagar(){
+    localStorage.clear()
+}
+
+function Popup(){
+
+    const alterar = document.getElementById('pop')
+
+    alterar.innerHTML = `
+    
+    <div id="alt">
+    <h1>Pastelaria Sabor Mineiro</h1>
+    <p>Pedido numero 7</p>
+    <p>itens -- </p>
+    <p>-- Quant. -- Descricao -- valor</p>
+
+    <div id="none"></div>
+    <br>
+    <form action="#" method="post">
+        <input type="hidden">
+        <button type="submit">Enviar Pedido</button>
+    </form>
+    <button onclick="AlterPedido()">Alterar Pedido</button>
+
+    </div>
+    `
+    gerartabelaitens()
+
+}
+
 function gerartabelaitens(){
 
     itensDB = JSON.parse(localStorage.getItem('size'))
@@ -39,76 +69,31 @@ function gerartabelaitens(){
     setDB = itensDB
 
     setDB.forEach((iten, indice) => {
-        creatElement(iten['iten'], iten['qnt'])
+        creatElement(iten['iten'], iten['qnt'], indice)
     })
 
-
-
-    // const keys = Object.keys(localStorage)
-    // const valores = Object.values(localStorage)
-
-    // for (size = 0; size < keys.length; size++){
-
-    //     const conteudo = `${valores[size]} --  ${keys[size]} -- \n'$ 7,79'`
-
-
-    //     creatElement(conteudo)
-    // }
-
-    // apagar()
+    apagar()
 }
 
-function apagar(){
-    localStorage.clear()
-}
-
-function creatElement (x,y){
+function creatElement (IteN,Qnt, indc){
 
     const tabela = document.getElementById('none')
-
     const valortabela = document.createElement('p')
 
-    valortabela.innerText = `${x},${y}`
-
+    valortabela.innerText = `${indc} - ${Qnt} -- ${IteN} --`
+    
     tabela.appendChild(valortabela)
 
 }
 
+function AlterPedido(){
 
-
-
-function Popup(){
-
-    const valoItensDesc = document.getElementById('itens') 
+    localStorage.setItem('size', JSON.stringify(setDB))
 
     const alterar = document.getElementById('pop')
+    var child = document.getElementById('alt')
+    alterar.removeChild(child)
 
-    const keys = Object.keys(localStorage)
-    const valores = Object.values(localStorage)
-
-    alterar.innerHTML = `
-    
-    <div class="pop">
-    <h1>Pastelaria Sabor Mineiro</h1>
-    <br>
-    <p>Pedido numero 7</p>
-    <br>
-    <p>itens -- </p>
-    <br>
-    <p>Quant. -- Descricao -- valor</p>
-    <div id="itens">
-    ${dice}
-    </div>
-
-
-
-    <form action="#" method="post">
-        <input type="hidden">
-        <button type="submit">Enviar Pedido</button>
-    </form>
-
-    </div>
-    `
 
 
 }
