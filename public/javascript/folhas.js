@@ -93,7 +93,5 @@ function AlterPedido(){
     const alterar = document.getElementById('pop')
     var child = document.getElementById('alt')
     alterar.removeChild(child)
-
-
-
+    
 }

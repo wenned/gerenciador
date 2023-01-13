@@ -48,6 +48,25 @@ async function updateValue(x){
     
 };
 
+
+async function UpdatePrice (){
+
+	var consulta = "select * from preco;"
+
+	await db.connect()
+	await db.query(consulta, (err, res) =>{
+		if (err){
+			console.log('erro de retorno de dados '+ err)
+		}else{
+			
+			console.log( JSON.stringify(res.rows))
+
+
+			db.end()
+		}
+	})
+}
+
 // /==============================================================/ 
 
 
@@ -60,6 +79,20 @@ var servidor = app.listen(8080, function(){
 app.get('/', urlencodedParser, function (req, res) {
 
 	fs.readFile('index.html', function(erro, dad){
+
+		// var consulta = "select * from preco;"
+
+		//  db.connect()
+		//  db.query(consulta, (err, res) =>{
+		// 	if (err){
+		// 		console.log('erro de retorno de dados '+ err)
+		// 	}else{
+				
+		// 		dados = JSON.stringify(res.rows)
+	
+		// 		db.end()
+		// 	}
+		// })
 
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.write(dad);
