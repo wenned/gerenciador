@@ -87,18 +87,18 @@ function gerartabelaitens(){
     setDB = itensDB
 
     setDB.forEach((iten, indice) => {
-        creatElement(iten['iten'], iten['qnt'], indice)
+        creatElement(iten['iten'], iten['qnt'], iten['valor'], indice)
     })
 
     apagar()
 }
 
-function creatElement (IteN,Qnt, indc){
+function creatElement (IteN,Qnt, Valor, indc){
 
     const tabela = document.getElementById('none')
     const valortabela = document.createElement('p')
 
-    valortabela.innerText = `${indc} - ${Qnt} -- ${IteN} --`
+    valortabela.innerText = `${indc} - ${Qnt} -- ${IteN} -- ${Valor}`
     
     tabela.appendChild(valortabela)
 
@@ -111,6 +111,8 @@ function AlterPedido(){
     const alterar = document.getElementById('pop')
     var child = document.getElementById('alt')
     alterar.removeChild(child)
+
+    Gravar()
     
 }
 
