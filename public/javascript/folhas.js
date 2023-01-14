@@ -10,7 +10,7 @@ function MostraItens(){
 
 function AddIten(x){
 
-    setDB.push({'iten':x, 'qnt':''})
+    setDB.push({'iten':x, 'qnt':'', 'valor':''})
     localStorage.setItem('size', JSON.stringify(setDB))
 
 }
@@ -18,17 +18,35 @@ function AddIten(x){
 function AddItenQT(){
 
     let addvalor = document.getElementById('valor')
-
     itensDB = JSON.parse(localStorage.getItem('size'))
 
+    var iteM, Item;
     itensDB.forEach((iten, indice) => {
 
         if (itensDB[indice]['qnt'] == ''){
+
+            iteM = itensDB[indice]['iten']
+            Item = indice
             setDB[indice]['qnt'] = addvalor.value
-            localStorage.setItem('size', JSON.stringify(setDB))
 
         }
     });
+
+    AddPrice(iteM, Item)
+}
+
+function AddPrice(x,y){
+
+
+    itensDB = JSON.parse(localStorage.getItem('price'))
+
+    itensDB.forEach((i,ind)=>{
+        setDB[y]['valor'] = i[`${x}`]
+        localStorage.setItem('size', JSON.stringify(setDB))
+
+    })
+
+
 
 }
 
@@ -94,4 +112,13 @@ function AlterPedido(){
     var child = document.getElementById('alt')
     alterar.removeChild(child)
     
+}
+
+function Gravar(){
+    fetch("http://192.168.31.3:8080/")
+    .then((response)=>{
+        return response.json()
+    }).then((jsonBody) =>{
+        localStorage.setItem('price', JSON.stringify([jsonBody]))
+    })
 }
