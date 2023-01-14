@@ -13,6 +13,7 @@ function AddIten(x){
     setDB.push({'iten':x, 'qnt':'', 'valor':''})
     localStorage.setItem('size', JSON.stringify(setDB))
 
+    PriceItems()
 }
 
 function AddItenQT(){
@@ -29,6 +30,8 @@ function AddItenQT(){
             Item = indice
             setDB[indice]['qnt'] = addvalor.value
 
+        }else{
+            console.log('ecolha novo item')
         }
     });
 
@@ -112,11 +115,10 @@ function AlterPedido(){
     var child = document.getElementById('alt')
     alterar.removeChild(child)
 
-    Gravar()
-    
+    PriceItems()    
 }
 
-function Gravar(){
+function PriceItems(){
     fetch("http://192.168.31.3:8080/")
     .then((response)=>{
         return response.json()
