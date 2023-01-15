@@ -49,8 +49,6 @@ function AddPrice(x,y){
 
     })
 
-
-
 }
 
 function apagar(){
@@ -93,7 +91,8 @@ function gerartabelaitens(){
         creatElement(iten['iten'], iten['qnt'], iten['valor'], indice)
     })
 
-    apagar()
+    localStorage.clear()
+
 }
 
 function creatElement (IteN,Qnt, Valor, indc){
