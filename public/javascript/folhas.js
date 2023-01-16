@@ -30,8 +30,6 @@ function AddItenQT(){
             Item = indice
             setDB[indice]['qnt'] = addvalor.value
 
-        }else{
-            console.log('ecolha novo item')
         }
     });
 
@@ -40,14 +38,10 @@ function AddItenQT(){
 
 function AddPrice(x,y){
 
-
     itensDB = JSON.parse(localStorage.getItem('price'))
 
-    itensDB.forEach((i,ind)=>{
-        setDB[y]['valor'] = i[`${x}`]
-        localStorage.setItem('size', JSON.stringify(setDB))
-
-    })
+    setDB[y]['valor'] = itensDB[x]
+    localStorage.setItem('size', JSON.stringify(setDB))
 
 }
 
@@ -118,10 +112,17 @@ function AlterPedido(){
 }
 
 function PriceItems(){
-    fetch("http://192.168.31.3:8080/")
-    .then((response)=>{
-        return response.json()
-    }).then((jsonBody) =>{
-        localStorage.setItem('price', JSON.stringify([jsonBody]))
-    })
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.responseType = "json"
+    xhr.onreadystatechange = ()=>{
+        if (xhr.readyState == 4 && xhr.status == 200){
+
+            localStorage.setItem('price', JSON.stringify(xhr.response))
+        }
+    };
+
+    xhr.open("GET", "http://192.168.31.3:8080/");
+    xhr.send();
 }
