@@ -2,6 +2,7 @@ import './App.css';
 import Home from './area_Adm/Home';
 import { Routes, Route } from 'react-router-dom';
 import Tipo from './area_Cliente/Tipo';
+import Sabores from './area_Cliente/Sabores';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
 
           <Route exact path='/' element={<Home/>}/>
           <Route path='/tipo' element={<Tipo/>}/>
+          <Route path='/pastel' element={<Sabores/>}/>
 
         </Routes>
       </>
