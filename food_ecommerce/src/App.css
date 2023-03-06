@@ -7,8 +7,6 @@
 .App{
     position: relative;
     display: flex;
-    width: 480px;
-    overflow: hidden;
     text-align: center;
     justify-content: center;
     background-color: #ffffff;    

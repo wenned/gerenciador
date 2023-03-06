@@ -1,0 +1,26 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    position:relative;
+    top: 35%;
+    right: 10%;
+}
+
+.bodY{
+    position:relative;
+    background-color: #2e5e2e;
+    color: #ffff;
+    width: 325px;
+    height: 50px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.texto{
+    position: relative;
+    top: 13%;
+    font-size: 1.5rem;
+    font-weight: lighter;
+}

@@ -1,0 +1,24 @@
+.conteiner{
+    position: relative;
+    height: 10%;
+    top:40%;
+}
+.conteiner div {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteiner div span{
+    position: absolute;
+    height: 7px;
+    background-color: black;
+    top: -10%;
+    width: 100%;
+}
+
+.conteiner div h4{
+    font-size: 2rem;
+}
+.conteiner div h1{
+    font-size: 7rem;
+}

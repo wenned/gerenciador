@@ -1,0 +1,30 @@
+.conteiner{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 900px;
+    height:600px;
+    top: 10%;
+}
+
+.estilo{
+    width: 10em;
+    height: 7em;
+    background-color: black;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.estilo span{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.estilo span button{
+    position: relative;
+    bottom: -20px;
+    height: 23px;
+    margin: 5px;
+}
