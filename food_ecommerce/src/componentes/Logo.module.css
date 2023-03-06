@@ -1,0 +1,18 @@
+.conteiner{
+    position: relative;
+    height: 10%;
+    top: 17%;
+}
+.conteiner div {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteiner div span{
+    height: 10px;
+    background-color: black;
+    width: 100%;
+}
+.conteiner div h1{
+    font-size: 2.5rem;
+}

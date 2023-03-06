@@ -1,0 +1,13 @@
+*{
+  height: 100%;
+  font-family: 'Righteous', cursive;
+}
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-image: linear-gradient(180deg, black,grey);
+}
