@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     position:relative;
-    top: 28%;
+    height: 70%;
+    top: 7%;
 }
 
 .bodY{
@@ -11,7 +12,7 @@
     color: #ffff;
     width: 325px;
     height: 50px;
-    margin-top: 15px;
+    margin-top: 5px;
     text-align: center;
     border-radius: 10px;
     cursor: pointer;

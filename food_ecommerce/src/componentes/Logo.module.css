@@ -9,7 +9,11 @@
 }
 
 .conteiner div span{
-    height: 10px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -20%;
+    height: 5px;
     background-color: black;
     width: 100%;
 }

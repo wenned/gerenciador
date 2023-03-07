@@ -1,5 +1,5 @@
 import { useState} from 'react';
-import Logo from '../componentes/Logo';
+import Pasteis from './Pasteis';
 
 function Sabores(){
 
@@ -11,7 +11,7 @@ function Sabores(){
         switch(e.target.id){
 
             case 'pastel':
-                setValor(<Logo/>)
+                setValor(<Pasteis/>)
                 break
 
             case 'frances':
