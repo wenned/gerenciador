@@ -8,23 +8,23 @@ function Tipo(){
         <>
         <section className={style.conteiner}>
 
-                <Link to='/pastel'>
+                <Link to='/pastel/menu_pasteis'>
                     <div id='pastel' className={style.bodY}><span className={style.texto}>PASTEIS</span></div>
                 </Link>
                 
-                <Link to='/frances'>
+                <Link to='/pastel/menu_frances'>
                     <div id='frances' className={style.bodY}><span className={style.texto}>CREPE FRANCES</span></div>
                 </Link>
 
-                <Link to='/suico'>
+                <Link to='/pastel/menu_suicos'>
                     <div id='suico' className={style.bodY}><span className={style.texto}>CREPE SUICO</span></div>
                 </Link>
 
-                <Link to='/hamburgue'>
+                <Link to='/pastel/menu_hamburgue'>
                     <div id='hamburgue' className={style.bodY}><span className={style.texto}>HAMBURGUE</span></div>
                 </Link>
 
-                <Link to='/bebida'>
+                <Link to='/pastel/menu_bebidas'>
                     <div id='bebida' className={style.bodY}><span className={style.texto}>BEBIDAS</span></div>
                 </Link>
 

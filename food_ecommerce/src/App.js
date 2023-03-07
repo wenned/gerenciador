@@ -5,6 +5,7 @@ import Tipo from './area_Cliente/Tipo';
 import Sabores from './area_Cliente/Sabores';
 
 function App() {
+
   return (
     <div className="App">
       <>
@@ -12,7 +13,7 @@ function App() {
 
           <Route exact path='/' element={<Home/>}/>
           <Route path='/tipo' element={<Tipo/>}/>
-          <Route path='/pastel' element={<Sabores/>}/>
+          <Route path='/pastel/:id?' element={<Sabores/>}/>
 
         </Routes>
       </>
