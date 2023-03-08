@@ -1,0 +1,26 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    position:relative;
+    height: 70%;
+    top: 3%;
+}
+
+.bo{
+    position:relative;
+    background-color: black;
+    color: #ffff;
+    width: 325px;
+    height: 50px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.texto{
+    position: relative;
+    top: 13%;
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
