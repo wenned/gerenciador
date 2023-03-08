@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Tipo from './area_Cliente/Tipo';
 import Sabores from './area_Cliente/Sabores';
 import Quantidade from './area_Cliente/Quantidade';
+import Finalizar from './area_Cliente/Finalizar';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Route path='/tipo' element={<Tipo/>}/>
           <Route path='/pastel/:id?' element={<Sabores/>}/>
           <Route path='/quantidade' element={<Quantidade/>}/>
+          <Route path='/finalizar' element={<Finalizar/>}/>
 
         </Routes>
       </>

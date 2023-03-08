@@ -1,0 +1,19 @@
+.container{
+    position: relative;
+    background-color: #2e5e2e;
+    height: 330px;
+    width: 330px;
+    border-radius: 100%;
+    top: 17%;
+}
+
+.texto{
+    position: relative;
+    color: white;
+    font-size: 1.5rem;
+    top: 45%;
+}
+.cont{
+    position: relative;
+    top: 13rem;
+}

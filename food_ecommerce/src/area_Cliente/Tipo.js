@@ -1,13 +1,30 @@
 import Logo from '../componentes/Logo';
 import style from './styles/Tipo.module.css'
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Tipo(){
+   
+
+    useEffect(() => { 
+         const GetItems = ["menu_bebidas","menu_frances", "menu_pasteis", "menu_suicos"]
+
+        async function carregaDados (x) {
+          const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
+          const RESULT = await resposta.json();
+            localStorage.setItem(`${x}`, JSON.stringify(RESULT));
+        }
+
+        for(var l=0; l < GetItems.length; l++){
+            carregaDados(GetItems[l]);
+        };
+        
+      }, []);
 
     var Model = {
         "Data":"",
         "Itens":[
-            {"Item":{"Sabor":[], "valor": "", "quantidade":"", "Tipo":"","Status":"Pendente"}}
+            {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}
         ],
         "valor_total": "",
         "Status":"Pendente",
