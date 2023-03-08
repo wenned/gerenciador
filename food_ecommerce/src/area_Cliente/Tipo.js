@@ -4,8 +4,25 @@ import { Link } from 'react-router-dom';
 
 function Tipo(){
 
-    function AddValor(y){
-        console.log(y)
+    var Model = {
+        "Data":"",
+        "Itens":[
+            {"Item":{"Sabor":[], "valor": "", "quantidade":"", "Tipo":"","Status":"Pendente"}}
+        ],
+        "valor_total": "",
+        "Status":"Pendente",
+        "Id":"",
+        "Nu_Pedido":""
+    }
+
+    function AddValor(arg){
+        
+        if(localStorage.getItem('Modelo')){
+            //
+        }else{
+            Model['Itens'][0]['Item']['Tipo'] = arg
+            localStorage.setItem('Modelo', JSON.stringify(Model))
+        }
       }
     
     return (

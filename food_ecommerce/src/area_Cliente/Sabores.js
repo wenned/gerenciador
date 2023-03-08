@@ -19,8 +19,18 @@ function Sabores(){
         carregaDados();
       }, [id]);
 
-    function AddValor(y){
-      console.log(y)
+    function AddValor(arg){
+
+      var dado;      
+      var reload = JSON.parse(localStorage.getItem('Modelo'))
+      dado = reload
+
+      dado['Itens'].forEach((element, index)=> {
+        if(element['Item']['Sabor'].length === 0){
+          dado['Itens'][0]['Item']['Sabor'] = arg
+          localStorage.setItem('Modelo', JSON.stringify(dado))
+        }
+      });
     }
 
     return (
