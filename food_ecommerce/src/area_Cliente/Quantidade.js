@@ -22,24 +22,56 @@ function Quantidade(){
         localStorage.clear();
     }
 
-      function addQuantidade(){
+      function addValores(){
 
         var reload;      
         reload = dado
-
 
         reload['Itens'].forEach((element, index)=> {
           if(element['Item']['Valor'].length === 0){
             reload['Itens'][index]['Item']['Quantidade'] = Valor
 
-            var h = JSON.parse(localStorage.getItem('menu_pasteis'))
-            
-            for (var i=0; i < h.length; i++){
-              console.log(h[i][i])
-            }
+            var h;
 
-            // reload['Itens'][index]['Item']['Valor'] = 
-            localStorage.setItem('Modelo', JSON.stringify(reload))
+            switch(element['Item']['Tipo']){
+
+              case 'Pastel':
+                h = JSON.parse(localStorage.getItem('menu_pasteis'))
+                break
+
+                case 'Frances':
+                  h = JSON.parse(localStorage.getItem('menu_frances'))
+                  break
+
+                  case 'Suico':
+                    h = JSON.parse(localStorage.getItem('menu_suicos'))
+                    break
+
+                    case 'Bebida':
+                      h = JSON.parse(localStorage.getItem('menu_bebidas'))
+                      break
+
+                      case 'Hamburguer':
+                        h = JSON.parse(localStorage.getItem('menu_hamburgues'))
+                        break
+
+                        default:
+                          break
+            };
+
+            
+            for (item in h){
+              var verf = element['Item']['Sabor'] in h[item]
+              
+              if(verf === true){
+               var o = Object.values(h[item][element['Item']['Sabor']])
+               reload['valor_total'] = Valor * parseFloat(o[0])
+
+                reload['Itens'][index]['Item']['Valor'] = o[0]
+                localStorage.setItem('Modelo', JSON.stringify(reload))
+
+              }
+            }
           }
         });
 
@@ -66,14 +98,14 @@ function Quantidade(){
             </div>
 
             <div>
-                <Link onClick={addQuantidade} to='/tipo'>
+                <Link onClick={addValores} to='/tipo'>
                     <div className={style.Novo}><span className={style.texto}>Novo Item</span></div>
                 </Link>
             </div>
 
             <div>
                 <Link to='/finalizar'>
-                    <div onClick={()=>{ addQuantidade(); LimpaDados()}} className={style.New}><span className={style.texto}>Finalizar</span></div>
+                    <div onClick={()=>{ addValores(); LimpaDados()}} className={style.New}><span className={style.texto}>Finalizar</span></div>
                 </Link>
             </div>
             <Logo/>

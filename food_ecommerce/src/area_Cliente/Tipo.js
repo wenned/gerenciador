@@ -58,7 +58,7 @@ function Tipo(){
                     <div id='suico' className={style.bodY}><span className={style.texto}>CREPE SUICO</span></div>
                 </Link>
 
-                <Link onClick={()=>{AddValor('Hamburger')}} to='/pastel/menu_hamburgue'>
+                <Link onClick={()=>{AddValor('Hamburguer')}} to='/pastel/menu_hamburgue'>
                     <div id='hamburgue' className={style.bodY}><span className={style.texto}>HAMBURGUE</span></div>
                 </Link>
 
