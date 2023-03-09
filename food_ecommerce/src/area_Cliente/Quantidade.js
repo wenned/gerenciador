@@ -18,10 +18,6 @@ function Quantidade(){
         }
       });
 
-      function LimpaDados(){
-        localStorage.clear();
-    }
-
       function addValores(){
 
         var reload;      
@@ -59,15 +55,15 @@ function Quantidade(){
                           break
             };
 
-            
             for (item in h){
               var verf = element['Item']['Sabor'] in h[item]
               
               if(verf === true){
                var o = Object.values(h[item][element['Item']['Sabor']])
-               reload['valor_total'] = Valor * parseFloat(o[0])
+              //  reload['valor_total'] = Valor * parseFloat(o[0])
 
-                reload['Itens'][index]['Item']['Valor'] = o[0]
+                reload['Itens'][index]['Item']['Valor'] = parseInt(o[0])
+                reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split("-")
                 localStorage.setItem('Modelo', JSON.stringify(reload))
 
               }
@@ -105,7 +101,7 @@ function Quantidade(){
 
             <div>
                 <Link to='/finalizar'>
-                    <div onClick={()=>{ addValores(); LimpaDados()}} className={style.New}><span className={style.texto}>Finalizar</span></div>
+                    <div onClick={()=>{ addValores()}} className={style.New}><span className={style.texto}>Finalizar</span></div>
                 </Link>
             </div>
             <Logo/>
