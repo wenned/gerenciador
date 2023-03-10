@@ -1,49 +1,55 @@
 import { useEffect, useState } from "react";
 import Logo from "../componentes/Logo";
-import style from './styles/Finalizar.module.css'
+import style from './styles/Finalizar.module.css';
+import debounce from 'lodash/debounce';
 
 function Finalizar(){
 
-    const [valor, setvalor] = useState('Processando peido...');
-
-    function LimpaDados(){
-        localStorage.clear();
-    }
+    const [valor, setvalor] = useState('Processando pedido...');
 
     useEffect(()=>{
         async function sendDados(){
+            try {
+                const response = await fetch('http://192.168.31.3:8080/inserir', {
+                    method: "POST",
+                    body: localStorage.getItem('Modelo'),
+                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                });
 
-            fetch('http://192.168.31.3:8080/inserir', {
-            method: "POST",
-            body: localStorage.getItem('Modelo'),
-            headers: {"Content-type": "application/json; charset=UTF-8"}
-            })
-            .then(response => {
-                return response}) 
-            .then(jsonB => {
+                if(response.status === 200){
 
-                if(jsonB.status === 200){
-                    setvalor('PEDIDO ENVIADO')
-                    setTimeout(LimpaDados(), 5)
+                    const data = await response.json();
+                    if(data === true){
+                        localStorage.clear();
+                        setTimeout(setvalor('PEDIDO ENVIADO'), 5);
+                    }else{
+                        setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 5);
+                    }
+                    
                 }
-            
-            })
-            .catch(err => console.log(err));
+            } catch (error) {
+                console.log(error);
+            }
+        }
 
-        };
+        const debouncedSendDados = debounce(sendDados, 500);
 
-        sendDados();
+        debouncedSendDados();
 
-    })
+        return () => {
+            debouncedSendDados.cancel();
+        }
+
+    },[]);
 
     return(
         <section>
-        <div className={style.container}><span className={style.texto}>{valor}</span></div>
-        <div className={style.cont}>
-            <Logo/>
-        </div>
+            <div className={style.container}><span className={style.texto}>{valor}</span></div>
+            <div className={style.cont}>
+                <Logo/>
+            </div>
         </section>
-    )
+    );
 };
 
 export default Finalizar;

@@ -23,9 +23,7 @@ function Tipo(){
 
     var Model = {
         "Data":"",
-        "Itens":[
-            {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}
-        ],
+        "Itens":"",
         "valor_total": "",
         "Status":"Pendente",
         "Id":"",
@@ -37,7 +35,9 @@ function Tipo(){
         if(localStorage.getItem('Modelo')){
             //
         }else{
-            Model['Itens'][0]['Item']['Tipo'] = arg
+            var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}]
+            PEDIDO[0]['Item']['Tipo'] = arg
+            Model['Itens']= PEDIDO
             localStorage.setItem('Modelo', JSON.stringify(Model))
         }
       }
