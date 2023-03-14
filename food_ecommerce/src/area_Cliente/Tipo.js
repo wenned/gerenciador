@@ -2,15 +2,19 @@ import Logo from '../componentes/Logo';
 import style from './styles/Tipo.module.css'
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 function Tipo(){
-    localStorage.clear()
+
+    const {keyS} = useParams();
+
 
     useEffect(() => { 
          const GetItems = ["menu_bebidas","menu_frances", "menu_pasteis", "menu_suicos"]
 
         async function carregaDados (x) {
           const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
+
           const RESULT = await resposta.json();
             localStorage.setItem(`${x}`, JSON.stringify(RESULT));
         }
@@ -30,10 +34,24 @@ function Tipo(){
         "Nu_Pedido":""
     }
 
-    function AddValor(arg){
+    var acss = false
+    var dd;
+
+    function AddTipo(arg){
         
         if(localStorage.getItem('Modelo')){
-            //
+            
+            if(acss === true){
+                dd = JSON.parse(localStorage.getItem('Modelo'))
+
+                var PED = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}
+                PED['Item']['Tipo'] = arg
+                dd['Itens'].push(PED)
+                localStorage.setItem('Modelo', JSON.stringify(dd))
+                acss = false
+            }
+
+
         }else{
             var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}]
             PEDIDO[0]['Item']['Tipo'] = arg
@@ -41,28 +59,44 @@ function Tipo(){
             localStorage.setItem('Modelo', JSON.stringify(Model))
         }
       }
-    
+
+      try {
+        if(keyS === undefined){
+            //
+        }else{
+            if(keyS === 'newitem'){
+                var KeItem = JSON.parse(localStorage.getItem('Modelo'))
+                for(var i=0; i< KeItem['Itens'].length; i++){
+                    if(KeItem['Itens'][i]['Item']['Quantidade'] >= 1){acss = true}
+                }
+
+            }
+        }
+      } catch (error) {
+        
+      }
+
     return (
         <>
         <section className={style.conteiner}>
 
-                <Link onClick={()=>{AddValor('Pastel')}} to='/pastel/menu_pasteis'>
+                <Link onClick={()=>{AddTipo('Pastel')}} to={`/pastel/menu_pasteis/`}>
                     <div id='pastel' className={style.bodY}><span className={style.texto}>PASTEIS</span></div>
                 </Link>
                 
-                <Link onClick={()=>{AddValor('Frances')}} to='/pastel/menu_frances'>
+                <Link onClick={()=>{AddTipo('Frances')}} to='/pastel/menu_frances'>
                     <div id='frances' className={style.bodY}><span className={style.texto}>CREPE FRANCES</span></div>
                 </Link>
 
-                <Link  onClick={()=>{AddValor('Suico')}} to='/pastel/menu_suicos'>
+                <Link  onClick={()=>{AddTipo('Suico')}} to='/pastel/menu_suicos'>
                     <div id='suico' className={style.bodY}><span className={style.texto}>CREPE SUICO</span></div>
                 </Link>
 
-                <Link onClick={()=>{AddValor('Hamburguer')}} to='/pastel/menu_hamburgue'>
+                <Link onClick={()=>{AddTipo('Hamburguer')}} to='/pastel/menu_hamburgue'>
                     <div id='hamburgue' className={style.bodY}><span className={style.texto}>HAMBURGUE</span></div>
                 </Link>
 
-                <Link onClick={()=>{AddValor('Bebida')}} to='/pastel/menu_bebidas'>
+                <Link onClick={()=>{AddTipo('Bebida')}} to='/pastel/menu_bebidas'>
                     <div id='bebida' className={style.bodY}><span className={style.texto}>BEBIDAS</span></div>
                 </Link>
 

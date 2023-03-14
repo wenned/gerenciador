@@ -15,13 +15,13 @@ function Finalizar(){
                     body: localStorage.getItem('Modelo'),
                     headers: {"Content-type": "application/json; charset=UTF-8"}
                 });
-
                 if(response.status === 200){
 
                     const data = await response.json();
-                    if(data === true){
+                    if(data['Status'] === true){
                         localStorage.clear();
                         setTimeout(setvalor('PEDIDO ENVIADO'), 5);
+                        localStorage.setItem('Pedido', data['Pedido'])
                         setTimeout(()=>{window.location.href ='/pedido'}, 5)
                     }else{
                         setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 20);

@@ -100,7 +100,7 @@ function Quantidade(){
             </div>
 
             <div>
-                <Link onClick={addValores} to='/tipo'>
+                <Link onClick={addValores} to='/tipo/newitem'>
                     <div className={style.Novo}><span className={style.texto}>Novo Item</span></div>
                 </Link>
             </div>

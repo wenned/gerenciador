@@ -20,20 +20,18 @@ function Sabores(){
       }, [id]);
 
     function AddValor(arg){
-
       var dado;      
       var reload = JSON.parse(localStorage.getItem('Modelo'))
       dado = reload
 
       dado['Itens'].forEach((element, index)=> {
         if(element['Item']['Sabor'].length === 0){
-          dado['Itens'][0]['Item']['Sabor'] = arg
+          dado['Itens'][index]['Item']['Sabor'] = arg
           localStorage.setItem('Modelo', JSON.stringify(dado))
         }
       });
     }
 
-    
     var verif;
 
     if(JSON.parse(localStorage.getItem(`${id}`) === null)){
@@ -41,6 +39,7 @@ function Sabores(){
     }else{
       verif = JSON.parse(localStorage.getItem(`${id}`))
     } 
+    
 
     return (
       <section className={style.conteiner}>
