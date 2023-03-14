@@ -33,9 +33,18 @@ function Sabores(){
       });
     }
 
+    
+    var verif;
+
+    if(JSON.parse(localStorage.getItem(`${id}`) === null)){
+      verif = 0
+    }else{
+      verif = JSON.parse(localStorage.getItem(`${id}`))
+    } 
+
     return (
       <section className={style.conteiner}>
-        {valor ? (
+        {verif.length > 0 ? (
           Object.values(valor).map((pastel) => (
             <Link onClick={ ()=> AddValor(Object.keys(pastel)[1])} key={pastel['_id']} to='/quantidade'>
               <div className={style.bo}><span className={style.texto}>{Object.keys(pastel)[1]}</span></div>

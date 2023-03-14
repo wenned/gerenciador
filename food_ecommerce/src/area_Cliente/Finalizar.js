@@ -22,8 +22,9 @@ function Finalizar(){
                     if(data === true){
                         localStorage.clear();
                         setTimeout(setvalor('PEDIDO ENVIADO'), 5);
+                        setTimeout(()=>{window.location.href ='/pedido'}, 5)
                     }else{
-                        setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 5);
+                        setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 20);
                     }
                     
                 }

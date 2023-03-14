@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function Tipo(){
-   
+    localStorage.clear()
 
     useEffect(() => { 
          const GetItems = ["menu_bebidas","menu_frances", "menu_pasteis", "menu_suicos"]
