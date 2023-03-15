@@ -1,13 +1,12 @@
 import Logo from '../componentes/Logo';
 import style from './styles/Tipo.module.css'
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 
 function Tipo(){
 
     const {keyS} = useParams();
-
 
     useEffect(() => { 
          const GetItems = ["menu_bebidas","menu_frances", "menu_pasteis", "menu_suicos"]
@@ -37,26 +36,47 @@ function Tipo(){
     var acss = false
     var dd;
 
-    function AddTipo(arg){
-        
-        if(localStorage.getItem('Modelo')){
-            
-            if(acss === true){
-                dd = JSON.parse(localStorage.getItem('Modelo'))
+    async function AddTipo(arg){
 
-                var PED = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}
-                PED['Item']['Tipo'] = arg
-                dd['Itens'].push(PED)
-                localStorage.setItem('Modelo', JSON.stringify(dd))
-                acss = false
+        if(localStorage.getItem('Pedido') === null){
+
+            if(localStorage.getItem('Modelo')){
+                
+                if(acss === true){
+                    dd = JSON.parse(localStorage.getItem('Modelo'))
+
+                    var PED = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}
+                    PED['Item']['Tipo'] = arg
+                    dd['Itens'].push(PED)
+                    localStorage.setItem('Modelo', JSON.stringify(dd))
+                    acss = false
+                }else{
+                    // localStorage.clear('Modelo')
+                }
+
+
+            }else{
+                var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}]
+                PEDIDO[0]['Item']['Tipo'] = arg
+                Model['Itens']= PEDIDO
+                localStorage.setItem('Modelo', JSON.stringify(Model))
             }
-
-
         }else{
-            var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}]
-            PEDIDO[0]['Item']['Tipo'] = arg
-            Model['Itens']= PEDIDO
-            localStorage.setItem('Modelo', JSON.stringify(Model))
+            const pedidoId = localStorage.getItem('Pedido');
+            await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`)
+            .then((res) =>{
+                return res.json()
+            }).then(doc =>{
+                localStorage.setItem('temp', JSON.stringify(doc))
+            });
+
+            dd = JSON.parse(localStorage.getItem('temp'))
+
+            var PEd = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}
+            PEd['Item']['Tipo'] = arg
+            dd['Itens'].push(PEd)
+            localStorage.setItem('Modelo', JSON.stringify(dd))
+
         }
       }
 
