@@ -69,13 +69,44 @@ a{
     height: 1.3rem;
     margin: 3px;
 }
-.preco{
+.pro{
     position: absolute;
-    top: 7%;
-    left: 50%;
-    height: 2rem;
+    flex-direction: column;
+    top: -5%;
+    left: 60%;
+    height: 5rem;
+    width: 5rem;
     display: flex;
+    border-radius: 100%;
+    color: aliceblue;
+    background-color: #2e5e2e;
 }
+
+.vli{
+    position: relative;
+    
+    bottom: 15%;
+    font-size: 3.5rem;
+    font-family: 'Cormorant Garamond', serif;
+
+}
+.vlf{
+    position: relative;
+    bottom: 23%;
+    font-size: 1.3rem;
+    font-family: 'Cormorant Garamond', serif;
+
+}
+
+.vlt{
+    position: fixed;
+    top: 11%;
+    right: 27%;
+    font-size: 0.70rem;
+    height: 0;
+}
+
+
 .ped{position: absolute;}
 
 .Qnt{
@@ -94,4 +125,11 @@ a{
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+.cn{
+    height: 1rem;
+    position: fixed;
+    bottom: 21%;
+    left: 25%;
 }

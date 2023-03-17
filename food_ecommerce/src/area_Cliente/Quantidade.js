@@ -69,7 +69,7 @@ function Quantidade(){
               var o = Object.values(h[item][element['Item']['Sabor']])
               //  reload['valor_total'] = Valor * parseFloat(o[0])
   
-                reload['Itens'][index]['Item']['Valor'] = parseInt(o[0])
+                reload['Itens'][index]['Item']['Valor'] = o[0]
                 reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split("-")
                 localStorage.setItem('Modelo', JSON.stringify(reload))
   
@@ -120,7 +120,7 @@ function Quantidade(){
               var o = Object.values(h[item][element['Item']['Sabor']])
               //  reload['valor_total'] = Valor * parseFloat(o[0])
   
-                reload['Itens'][index]['Item']['Valor'] = parseInt(o[0])
+                reload['Itens'][index]['Item']['Valor'] = o[0]
                 reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split("-")
                 localStorage.setItem('Modelo', JSON.stringify(reload))
   
@@ -158,7 +158,7 @@ function Quantidade(){
 
             <div>
                 <Link onClick={addValores} to='/tipo/newitem'>
-                    <div className={style.Novo}><span className={style.texto}>Novo Item</span></div>
+                    <div className={style.Novo}><span className={style.texto}>Adicionar Novo Item</span></div>
                 </Link>
             </div>
 

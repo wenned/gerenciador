@@ -11,6 +11,9 @@ async function fetchPedido(pedidoId) {
 function Pedido(){
 
     const [pedido, setPedido] = useState(<Logo/>);
+    const [preco, setpreco] = useState ('xx.xx')
+    
+     var pro = preco.split('.')
 
     var p = localStorage.getItem('Pedido');
 
@@ -19,14 +22,17 @@ function Pedido(){
     useEffect(() => {
       const pedidoId = localStorage.getItem('Pedido');
       fetchPedido(pedidoId)
-        .then(data => setPedido(data))
+        .then(data => {
+            setPedido(data)
+            setpreco(data.valor_total)
+        })
         .catch(error => console.error(error));
     }, []);
  
     return(
         <>
         <section className={style.conteiner}>
-            <div className={style.preco}>TOTAL : {pedido.valor_total}</div>
+            <div className={style.pro}><div className={style.valO}><span className={style.vli}>{pro[0]}</span><span className={style.vlf}>.{pro[1]}</span></div><span className={style.vlt}>TOTAL</span></div>
             <div className={style.cabeca}><span>Quantidade</span><span>Itens</span><span>Valor Unit</span></div>
 
             <div className={style.c} >
@@ -41,17 +47,17 @@ function Pedido(){
             <div  className={style.bodY} >
 
                 <Link to='/tipo/newitem'>
-                    <div id='pastel'><span className={style.texto}>ADICIONAR NOVO ITEM</span></div>
+                    <div id='pastel'><span className={style.texto}>Adicionar Novo Item</span></div>
                 </Link>
             </div>
 
             <div className={style.bod}>
                 <Link to='/tipo'>
-                    <div id='pastel'  onClick={apagar}><span className={style.texto}>PAGAR</span></div>
+                    <div id='pastel'  onClick={apagar}><span className={style.texto}>Pagar</span></div>
                 </Link>
             </div>
             <span className={style.ped}>Pedido : {p}</span>
-
+            <div className={style.cn}><strong>CNPJ :</strong> 19.375.999/0001-81</div>
             <Logo/>
 
         </section> 
