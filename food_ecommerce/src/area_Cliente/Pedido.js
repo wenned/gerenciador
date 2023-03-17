@@ -27,27 +27,27 @@ function Pedido(){
         <>
         <section className={style.conteiner}>
             <div className={style.preco}>TOTAL : {pedido.valor_total}</div>
-            <div className={style.cabeca}>Itens</div>
+            <div className={style.cabeca}><span>Quantidade</span><span>Itens</span><span>Valor Unit</span></div>
 
             <div className={style.c} >
                 {
                         pedido && pedido.Itens &&
                         Object.keys(pedido.Itens).map((p) => {
-                            return <div key={p}>{pedido['Itens'][p]['Item']['Quantidade']} - {pedido['Itens'][p]['Item']['Sabor']} - {pedido['Itens'][p]['Item']['Valor']}</div>;
+                            return <div key={p} className={style.cab}><span >{pedido['Itens'][p]['Item']['Quantidade']}</span> - <span>{pedido['Itens'][p]['Item']['Sabor']}</span> - <span>{pedido['Itens'][p]['Item']['Valor']}</span></div>;
                         })
                     }
             </div>
 
-            <div className={style.c}>
+            <div  className={style.bodY} >
 
                 <Link to='/tipo/newitem'>
-                    <div id='pastel' className={style.bodY} ><span className={style.texto}>ADICIONAR NOVO ITEM</span></div>
+                    <div id='pastel'><span className={style.texto}>ADICIONAR NOVO ITEM</span></div>
                 </Link>
             </div>
 
-            <div>
+            <div className={style.bod}>
                 <Link to='/tipo'>
-                    <div id='pastel' className={style.bod} onClick={apagar}><span className={style.texto}>PAGAR</span></div>
+                    <div id='pastel'  onClick={apagar}><span className={style.texto}>PAGAR</span></div>
                 </Link>
             </div>
             <span className={style.ped}>Pedido : {p}</span>

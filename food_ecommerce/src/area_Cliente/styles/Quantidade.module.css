@@ -1,3 +1,8 @@
+a{
+    text-decoration: none;
+    color: white;
+}
+
 .conteiner{
     display: flex;
     position: relative;
