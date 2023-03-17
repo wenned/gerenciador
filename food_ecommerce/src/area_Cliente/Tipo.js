@@ -45,7 +45,7 @@ function Tipo(){
                 if(acss === true){
                     dd = JSON.parse(localStorage.getItem('Modelo'))
 
-                    var PED = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}
+                    var PED = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
                     PED['Item']['Tipo'] = arg
                     dd['Itens'].push(PED)
                     localStorage.setItem('Modelo', JSON.stringify(dd))
@@ -56,7 +56,7 @@ function Tipo(){
 
 
             }else{
-                var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}]
+                var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}]
                 PEDIDO[0]['Item']['Tipo'] = arg
                 Model['Itens']= PEDIDO
                 localStorage.setItem('Modelo', JSON.stringify(Model))
@@ -72,7 +72,7 @@ function Tipo(){
 
             dd = JSON.parse(localStorage.getItem('temp'))
 
-            var PEd = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":"Pendente"}}
+            var PEd = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
             PEd['Item']['Tipo'] = arg
             dd['Itens'].push(PEd)
             localStorage.setItem('Modelo', JSON.stringify(dd))
