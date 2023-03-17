@@ -1,3 +1,9 @@
 .conteiner{
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
     display: flex;
+    height: 30rem;
+    text-align: center;
+    top: 16%;
 }

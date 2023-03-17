@@ -3,28 +3,43 @@
     position: relative;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 900px;
-    height:600px;
-    top: 10%;
+    width: 120vh;
+    height:80vh;
+    bottom: 25%;
+    background-color: rgb(204, 204, 204);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.at{
+    position: relative;
+    bottom: 20%;
+    height: 7rem;
 }
 
 .estilo{
     width: 10em;
-    height: 7em;
-    background-color: black;
-    margin: 5px;
+    height: 9em;
+    background-color: rgb(63, 62, 62);
     border-radius: 5px;
 }
 
 .estilo span{
+    position: relative;
     display: flex;
     flex-direction: column;
     color: white;
 }
-
-.estilo span button{
+.estilo span span{
     position: relative;
-    bottom: -20px;
-    height: 23px;
+    top: 1%;
+    font-size: 1.5rem;
+}
+.estilo span a{
+    background-color: #2e5e2e;
+    height: 1.5rem;
     margin: 5px;
+    padding: 3px;
+    border-radius: 3px;
+    font-size: 1.1rem;
 }

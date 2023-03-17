@@ -53,20 +53,21 @@ a{
     position: absolute;
     display: flex;
     top: 15%;
-    /* left: 0%; */
     height: 1.3rem;
     width: 100%;
     justify-content: space-between;
-    background-color: rgb(212, 210, 210);
-    border-radius: 10%;
 }
+
 .cab{
     position: relative;
     text-align: center;
     display: flex;
     justify-content: space-around;
-    /* background-color: aqua; */
-    height: 2rem;
+    background-color: rgb(212, 210, 210);
+    border-radius: 3px;
+    padding-top: 1px;
+    height: 1.3rem;
+    margin: 3px;
 }
 .preco{
     position: absolute;
@@ -76,3 +77,21 @@ a{
     display: flex;
 }
 .ped{position: absolute;}
+
+.Qnt{
+    position: absolute;
+    left: 10px;
+    width: 2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.vlu{
+    position: absolute;
+    right: 10px;
+    width: 2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

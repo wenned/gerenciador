@@ -22,7 +22,7 @@ function Pedido(){
         .then(data => setPedido(data))
         .catch(error => console.error(error));
     }, []);
-
+ 
     return(
         <>
         <section className={style.conteiner}>
@@ -33,7 +33,7 @@ function Pedido(){
                 {
                         pedido && pedido.Itens &&
                         Object.keys(pedido.Itens).map((p) => {
-                            return <div key={p} className={style.cab}><span >{pedido['Itens'][p]['Item']['Quantidade']}</span> - <span>{pedido['Itens'][p]['Item']['Sabor']}</span> - <span>{pedido['Itens'][p]['Item']['Valor']}</span></div>;
+                            return <div key={p} className={style.cab}><span className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</span>  <span>{pedido['Itens'][p]['Item']['Sabor']}</span>  <span className={style.vlu}>{pedido['Itens'][p]['Item']['Valor']}</span></div>;
                         })
                     }
             </div>
