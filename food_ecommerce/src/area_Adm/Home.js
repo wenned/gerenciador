@@ -1,14 +1,14 @@
-import LogoLarge from '../componentes/LogoLarge';
 import style from './styles/Home.module.css'
 import MenuH from './MenuH'
 
 import { useState } from 'react';
 import Mesa from './components/Mesa';
+import Producao from './components/Producao';
 
 
 function Home(){
 
-    const [valor, setvalor] = useState(<LogoLarge/>)
+    const [valor, setvalor] = useState(<Mesa/>)
 
 
     document.addEventListener('click', (e)=>{
@@ -20,7 +20,7 @@ function Home(){
                 break
 
             case 'producao':
-                setvalor('producao')
+                setvalor(<Producao/>)
                 break
 
             case 'fechar':
@@ -36,8 +36,8 @@ function Home(){
 
     return (
         <section className={style.conteiner}>
-            <MenuH/>
-            <div>{valor}</div>
+            <div className={style.cont}><MenuH/></div>
+            <div className={style.cont}>{valor}</div>
         </section>
     )
 };

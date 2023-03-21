@@ -6,6 +6,7 @@ import Sabores from './area_Cliente/Sabores';
 import Quantidade from './area_Cliente/Quantidade';
 import Finalizar from './area_Cliente/Finalizar';
 import Pedido from './area_Cliente/Pedido';
+import Pasteis from './area_Adm/components/Pasteis';
 
 function App() {
 
@@ -20,6 +21,10 @@ function App() {
           <Route path='/quantidade' element={<Quantidade/>}/>
           <Route path='/finalizar' element={<Finalizar/>}/>
           <Route path='/pedido' element={<Pedido/>}/>
+
+
+          {/* AREA PRODUCAO */}
+          <Route path='/pasteis' element={<Pasteis/>}/>
 
         </Routes>
       </>

@@ -7,8 +7,8 @@ function Finalizar(){
 
     const [valor, setvalor] = useState('Processando pedido...');
 
-    const [Url, setUrl] = useState('http://192.168.31.3:8080/inserir')
-    const [Metodo, setMetodo] = useState('POST')
+    const [Url, setUrl] = useState('')
+    const [Metodo, setMetodo] = useState('')
 
     useEffect(()=>{
 

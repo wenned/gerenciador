@@ -1,5 +1,5 @@
-import style from './Mesa.module.css'
-import LogoLarge from '../../componentes/Logo';
+import style from './Styles/Mesa.module.css'
+// import LogoLarge from '../../componentes/Logo';
 
 function Mesa(){
 
@@ -128,7 +128,7 @@ function Mesa(){
                     </span></div>
                     
             </section>
-            <section className={style.at}><LogoLarge/></section>
+            {/* <section className={style.at}><LogoLarge/></section> */}
         </>
     )
 };

@@ -3,7 +3,8 @@
     flex-direction: column;
     position:relative;
     top: 35%;
-    right: 10%;
+    left: 5%;
+    height: 14rem;
 }
 
 .bodY{
