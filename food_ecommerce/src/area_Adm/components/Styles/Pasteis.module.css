@@ -1,0 +1,43 @@
+a{
+    text-decoration: none;
+    color: #ffffff;
+    bottom: 0;
+}
+
+.conteiner{
+    position: relative;
+    flex-direction: column;
+    top: 5%;
+    height: 80vh;
+}
+
+.btn{
+    position: relative;
+    background-color: #2e5e2e;
+    height: 2.5rem;
+    margin: 1rem;
+    width: 21rem;
+    border-radius: 7px;
+}
+
+.btn span{
+    position: relative;
+    top: 20%;
+}
+
+.lg{
+    position: relative;
+    top: 40%;
+    height: 11rem;
+}
+
+.element{
+    position: absolute;
+    height: 0;
+}
+.element span{
+    position: relative;
+    left: 10rem;
+    cursor: pointer;
+    background-color: red;
+}

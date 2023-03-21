@@ -99,7 +99,7 @@ function Tipo(){
     return (
         <>
         <section className={style.conteiner}>
-
+            
                 <Link onClick={()=>{AddTipo('Pastel')}} to={`/pastel/menu_pasteis/`}>
                     <div id='pastel' className={style.bodY}><span className={style.texto}>PASTEIS</span></div>
                 </Link>

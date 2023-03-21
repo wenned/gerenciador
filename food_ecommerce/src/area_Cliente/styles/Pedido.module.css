@@ -71,7 +71,7 @@ a{
     position: absolute;
     flex-direction: column;
     top: -5%;
-    left: 68%;
+    left: 70%;
     height: 5.5rem;
     width: 5.5rem;
     display: flex;
@@ -98,7 +98,7 @@ a{
 .vlt{
     position: fixed;
     top: 11%;
-    right: 27%;
+    right: 31%;
     font-size: 0.70rem;
     height: 0;
 }

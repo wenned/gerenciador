@@ -1,0 +1,90 @@
+.conteiner{
+    position:fixed;
+    flex-wrap: wrap;
+    display: flex;
+    top: 5%;
+    background-color: #ffffff;
+    height: 80vh;
+    width: 21rem;
+    margin: 1rem;
+    z-index: 1;
+    border-radius: 7px;
+    align-items: center;
+}
+
+.cabeca{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    height: 2rem;
+    width: 17rem;
+    flex-direction: row;
+    top: 25%;
+}
+
+.cabeca div{
+    height: 0;
+}
+
+
+.cab{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    height: 2rem;
+    width: 17rem;
+    flex-direction: row;
+    top: 27%;
+
+}
+
+.Qnt{
+    position: absolute;
+    left: 3.3rem;
+    width: 2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.itn {
+    position: relative;
+    left: 25%;
+}
+
+.ped{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    height: 0;
+}
+
+.cn{
+    position: relative;
+    bottom: 30%;
+    left: 20%;
+    height: 0;
+}
+
+.log{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 8rem;
+    bottom: 25%;
+    left: 10%;
+}
+
+.bnt{
+    background-color: #2e5e2e;
+    height: 2rem;
+    width: 4rem;
+    margin: 5px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+

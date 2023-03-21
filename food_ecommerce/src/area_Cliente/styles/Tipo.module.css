@@ -3,11 +3,10 @@ a{
     color: white;
 }
 .conteiner{
-    display: flex;
     flex-direction: column;
     position:relative;
-    height: 70%;
-    top: 7%;
+    height: 30%;
+    top: 23%;
 }
 
 .bodY{
@@ -20,6 +19,7 @@ a{
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
+    margin-top: 30px;
 }
 
 .texto{

@@ -4,11 +4,10 @@ a{
 }
 
 .conteiner{
-    display: flex;
     flex-direction: column;
     position:relative;
     height: 70%;
-    top: 3%;
+    top: 20%;
 }
 
 .bo{
