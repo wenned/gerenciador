@@ -19,9 +19,10 @@
 }
 
 .estilo{
+    position: relative;
     width: 10em;
     height: 9em;
-    background-color: rgb(63, 62, 62);
+    background-color: #3f3e3e;
     border-radius: 5px;
     margin: 5px ;
 }
@@ -31,13 +32,13 @@
     display: flex;
     flex-direction: column;
     color: white;
-    top: 20%;
+    top: -3%;
 }
 
 .estilo span span{
     position: relative;
-    top: -15%;
     font-size: 1.5rem;
+    top: 5%;
 }
     
 .estilo span a{

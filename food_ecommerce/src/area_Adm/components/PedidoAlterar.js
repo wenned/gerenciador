@@ -8,6 +8,20 @@ async function fetchPedido(pedidoId) {
     return resposta.json();
   }
 
+  async function alterar(i,e) {
+
+    const body = JSON.stringify({ codigo: e });
+    
+    await fetch(`http://192.168.31.3:8080/input/feito/${i}`, {
+      method: 'PUT',
+      body: body,
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+    });
+    
+  }
+  
+
+
 function PedidoAlterar(props){
 
     const [pedido, setPedido] = useState('');
@@ -22,6 +36,8 @@ function PedidoAlterar(props){
         })
         .catch(error => console.error(error));
     }, [props.pedido]);
+
+
  
     return(
         <>
@@ -33,16 +49,15 @@ function PedidoAlterar(props){
                 {
                         pedido && pedido.Itens &&
                         Object.keys(pedido.Itens).map((p) => {
-                            return <div key={p} className={style.cab}><div className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</div>  <div className={style.itn}>{pedido['Itens'][p]['Item']['Sabor']}</div></div>;
+                            return <div key={p} className={style.cab}><div className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</div>  <div className={style.itn}>{pedido['Itens'][p]['Item']['Sabor']} - {pedido['Itens'][p]['Item']['Tipo']}</div> <div className={style.bnt} onClick={()=>alterar(p, props.pedido)}>Feito</div></div>;
                         })
                     }
             </div>
 
-            {/* <div >
-                <Link to='/tipo'>
-                    <div id='pastel' ><span>Pagar</span></div>
-                </Link>
-            </div> */}
+            <div className={style.despache}>
+                    <div>Despachar</div>
+            </div>
+
             <div className={style.ped}>Pedido : {props.pedido}</div>
 
             <div className={style.cn}><strong>CNPJ :</strong> 19.375.999/0001-81</div>

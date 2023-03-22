@@ -39,7 +39,7 @@ function Pedido(){
                 {
                         pedido && pedido.Itens &&
                         Object.keys(pedido.Itens).map((p) => {
-                            return <div key={p} className={style.cab}><span className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</span>  <span>{pedido['Itens'][p]['Item']['Sabor']}</span>  <span className={style.vlu}>{pedido['Itens'][p]['Item']['Valor']}</span></div>;
+                            return <div key={p} className={style.cab}><span className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</span>  <span>{pedido['Itens'][p]['Item']['Sabor']} - {pedido['Itens'][p]['Item']['Tipo']}</span>  <span className={style.vlu}>{pedido['Itens'][p]['Item']['Valor']}</span></div>;
                         })
                     }
             </div>
@@ -58,7 +58,7 @@ function Pedido(){
             </div>
             <span className={style.ped}>Pedido : {p}</span>
             <div className={style.cn}><strong>CNPJ :</strong> 19.375.999/0001-81</div>
-            <Logo/>
+            <div className={style.cnn}><Logo/></div>
 
         </section> 
         </>

@@ -1,17 +1,9 @@
-a{
-    position: relative;
-    bottom: 23%;
-    height: 0;
-    color: white;
-    text-decoration: none;
-}
-
 .conteiner{
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    left: 10%;
+    width: 60rem;
+    left: 5%;
     align-content: space-around;
 }
 
@@ -24,6 +16,7 @@ a{
     border-radius: 10%;
     cursor: pointer;
 }
+
 .vl{
     position: relative;
     top: 45%;
