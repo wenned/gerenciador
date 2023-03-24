@@ -137,7 +137,7 @@ function Quantidade(){
 
 
     return (
-
+      <>
         <section className={style.conteiner}>
             <h1>{item}</h1>
             <div className={style.IMg}><img src={pastel} alt='Imagem Pastel'/></div>
@@ -148,28 +148,29 @@ function Quantidade(){
                     if(Valor > 0){
                         setValor(Valor - 1)
                         }
-                    }} className={style.But}><span>-</span></button>
+                    }} className={style.But}>-</button>
 
                 <span className={style.Valor}>{Valor}</span>
 
-                <button onClick={()=>setValor(Valor + 1)} className={style.But}><span>+</span></button>
+                <div onClick={()=>setValor(Valor + 1)} className={style.But}>+</div>
         
             </div>
 
             <div>
                 <Link onClick={addValores} to='/tipo/newitem'>
-                    <div className={style.Novo}><span className={style.texto}>Adicionar Novo Item</span></div>
+                    <div className={style.Novo}>Adicionar Novo Item</div>
                 </Link>
             </div>
 
             <div>
                 <Link to='/finalizar'>
-                    <div onClick={()=>{ addValores()}} className={style.New}><span className={style.texto}>Finalizar</span></div>
+                    <div onClick={()=>{ addValores()}} className={style.New}>Finalizar</div>
                 </Link>
             </div>
-            <Logo/>
         </section>
+        <div className={style.Log}><Logo/></div>
 
+    </>
     )
 };
 

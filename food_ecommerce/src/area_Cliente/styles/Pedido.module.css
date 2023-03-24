@@ -2,8 +2,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 70%;
+    height: 80vh;
     top: 7%;
+    background-color: #c2c1c1;
 }
 
 .bodY{
@@ -16,25 +17,25 @@
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
+    margin: 9px;
 }
 
 .bod{
     position:relative;
-    top: 22%;
+    top: 18%;
     background-color: black;
     width: 350px;
     height: 50px;
-    margin-top: 5px;
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
+    margin: 9px;
 }
 
 .texto{
     position: relative;
     top: 13%;
     font-size: 1.5rem;
-    font-weight: lighter;
 }
 
 .c{
@@ -47,12 +48,13 @@
 }
 
 .cabeca{
-    position: absolute;
+    position: fixed;
     display: flex;
-    top: 15%;
+    top: 18%;
     height: 1.3rem;
-    width: 100%;
+    width: 21.5rem;
     justify-content: space-between;
+    margin: 10px;
 }
 
 .cab{
@@ -60,7 +62,7 @@
     text-align: center;
     display: flex;
     justify-content: space-around;
-    background-color: rgb(212, 210, 210);
+    background-color: #ffffff;
     border-radius: 3px;
     padding-top: 1px;
     height: 1.3rem;
@@ -69,13 +71,12 @@
 .pro{
     position: fixed;
     flex-direction: column;
-    top: 2%;
-    left: 70%;
+    top: 6%;
+    left: 52rem;
     height: 6rem;
     width: 6rem;
     border-radius: 100%;
-    color: aliceblue;
-    background-color: #2e5e2e;
+    color: #ff0000;
     justify-content: center;
     align-items: center;
 }
@@ -102,13 +103,17 @@
 
 .vlt{
     position: absolute;
-    bottom: 20%;
+    bottom: 33%;
     right: 40%;
     font-size: 0.70rem;
     height: 0;
 }
 
-.ped{position: absolute;}
+.ped{
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
 
 .Qnt{
     position: absolute;
@@ -131,13 +136,12 @@
 .cn{
     position: relative;
     height: 1rem;
-    bottom: -25%;
+    bottom: -17.5%;
 }
 
 .cnn{
     position: relative;
-    height: 1rem;
-    bottom: -25%;
+    bottom: -18%;
     height: 7rem;
 }
 

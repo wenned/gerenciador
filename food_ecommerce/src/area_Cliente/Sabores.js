@@ -48,7 +48,7 @@ function Sabores(){
         {verif.length > 0 ? (
           Object.values(valor).map((pastel) => (
             <Link onClick={ ()=> AddValor(Object.keys(pastel)[1])} key={pastel['_id']} to='/quantidade'>
-              <div className={style.bo}><span className={style.texto}>{Object.keys(pastel)[1]}</span></div>
+              <div className={style.bo}>{Object.keys(pastel)[1]}</div>
             </Link>
           ))
         ) : (

@@ -6,8 +6,9 @@ a{
 .conteiner{
     flex-direction: column;
     position:relative;
-    height: 30%;
-    top: 23%;
+    height: 80vh;
+    top: 3%;
+    background-color: #c2c1c1;
 }
 
 .bodY{
