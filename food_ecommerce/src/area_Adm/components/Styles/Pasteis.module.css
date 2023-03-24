@@ -3,6 +3,7 @@
     flex-direction: column;
     top: 5%;
     height: 80vh;
+    background-color: #c2c1c1;
 }
 
 .lg{
@@ -28,11 +29,11 @@
 }
 
 .close{
-    position: fixed;
+    position: absolute;
     z-index: 2;
     height: 2rem;
-    top: 10%;
-    left: 19rem;
+    top: 5%;
+    left: 18rem;
     font-size: 2rem;
     color: red;
 }

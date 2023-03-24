@@ -1,9 +1,8 @@
 .conteiner{
-    position:fixed;
+    position:absolute;
     flex-wrap: wrap;
     display: flex;
-    top: 5%;
-    background-color: #ffffff;
+    background-color: #c2c1c1;
     height: 80vh;
     width: 21rem;
     margin: 1rem;
@@ -68,21 +67,7 @@
     height: 0;
 }
 
-.cn{
-    position: relative;
-    top: 17%;
-    left: 25%;
-    height: 0;
-}
 
-.log{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    height: 8rem;
-    top: 15%;
-    left: 15%;
-}
 
 .bnt{
     position: absolute;
@@ -116,8 +101,8 @@
 
 .despache{
     position: fixed;
-    bottom: 23%;
-    right: 10%;
+    bottom: 26%;
+    right: 40%;
     width: 19rem;
     height: 3rem;
     border-radius: 7px;
@@ -126,12 +111,22 @@
     align-items: center;
     background-color: #000000;
     cursor: pointer;
+    color: #ffffff;
+    font-size: 1.5rem;
 }
 
-.despache div {
-    position: absolute;
-    top: 17%;
+.cn{
+    position: relative;
+    top: 13%;
     left: 25%;
-    font-size: 1.5rem;
-    color: #ffffff;
+    height: 0;
+}
+
+.log{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 8rem;
+    top: 9%;
+    left: 15%;
 }

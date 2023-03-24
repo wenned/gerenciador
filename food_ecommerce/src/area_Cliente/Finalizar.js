@@ -14,11 +14,13 @@ function Finalizar(){
 
         if(localStorage.getItem('Pedido') === null){
             setUrl('http://192.168.31.3:8080/inserir')
+            // setUrl('http://192.168.2.9:8080/inserir')
             setMetodo('POST')
         }else{
             var s = localStorage.getItem('Pedido')
             if(s.length > 2){
                 setUrl('http://192.168.31.3:8080/input/addnew')
+                // setUrl('http://192.168.2.9:8080/input/addnew')
                 setMetodo('PUT')
             }
         }
@@ -30,9 +32,11 @@ function Finalizar(){
                     body: localStorage.getItem('Modelo'),
                     headers: {"Content-type": "application/json; charset=UTF-8"}
                 });
+                
+                const data = await response.json();
+
 
                 if(response.status === 200){
-                    const data = await response.json();
 
                     if(data['Status'] === true && localStorage.getItem('Pedido') === null){
 
@@ -55,7 +59,16 @@ function Finalizar(){
                             setTimeout(()=>{window.location.href ='/pedido'}, 5)
                             
                         }else{
+                            // console.log(JSON.parse(data))
+                            var It = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'temp', 'Modelo']
+
+                            for(var Y=0; Y < It.length; Y++){
+                                localStorage.removeItem(It[Y])
+                            }
                             setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 20);
+
+                            setTimeout(()=>{window.location.href ='/pedido'}, 30)
+
                         }
                         
                     }

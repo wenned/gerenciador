@@ -20,6 +20,7 @@ function Pasteis(){
         
         async function carregaDados () {
           const resposta = await fetch(`http://192.168.31.3:8080/pedidos`);
+          // const resposta = await fetch(`http://192.168.2.9:8080/pedidos`);
           const repositorios = await resposta.json();
             setValor(repositorios);
             sethora(actual)

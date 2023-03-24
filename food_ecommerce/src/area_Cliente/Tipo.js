@@ -1,18 +1,25 @@
 import Logo from '../componentes/Logo';
 import style from './styles/Tipo.module.css'
-import { Link } from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 import { useEffect} from 'react';
-import { useParams } from 'react-router-dom';
 
 function Tipo(){
 
     const {keyS} = useParams();
 
-    useEffect(() => { 
+    useEffect(() => {
+
+        var items = ['temp', 'Modelo']
+
+        for(var y=0; y < items.length; y++){
+            localStorage.removeItem(items[y])
+        }
+
          const GetItems = ["menu_bebidas","menu_frances", "menu_pasteis", "menu_suicos"]
 
         async function carregaDados (x) {
           const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
+        //   const resposta = await fetch(`http://192.168.2.9:8080/${x}`);
 
           const RESULT = await resposta.json();
             localStorage.setItem(`${x}`, JSON.stringify(RESULT));
@@ -62,20 +69,33 @@ function Tipo(){
                 localStorage.setItem('Modelo', JSON.stringify(Model))
             }
         }else{
-            const pedidoId = localStorage.getItem('Pedido');
-            await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`)
-            .then((res) =>{
-                return res.json()
-            }).then(doc =>{
-                localStorage.setItem('temp', JSON.stringify(doc))
-            });
+            
+            if(localStorage.getItem('Modelo')){
+                dd = JSON.parse(localStorage.getItem('Modelo'))
 
-            dd = JSON.parse(localStorage.getItem('temp'))
+                var PEds = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
+                PEds['Item']['Tipo'] = arg
+                dd['Itens'].push(PEds)
+                localStorage.setItem('Modelo', JSON.stringify(dd))
 
-            var PEd = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
-            PEd['Item']['Tipo'] = arg
-            dd['Itens'].push(PEd)
-            localStorage.setItem('Modelo', JSON.stringify(dd))
+            }else{
+                const pedidoId = localStorage.getItem('Pedido');
+                await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`)
+                // await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`)
+                .then((res) =>{
+                    return res.json()
+                }).then(doc =>{
+                    localStorage.setItem('temp', JSON.stringify(doc))
+                });
+
+                dd = JSON.parse(localStorage.getItem('temp'))
+
+                var PEd = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
+                PEd['Item']['Tipo'] = arg
+                dd['Itens'].push(PEd)
+                localStorage.setItem('Modelo', JSON.stringify(dd))
+
+            }
 
         }
       }

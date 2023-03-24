@@ -13,6 +13,8 @@ function Sabores(){
         
         async function carregaDados () {
           const resposta = await fetch(`http://192.168.31.3:8080/${id}`);
+          // const resposta = await fetch(`http://192.168.2.9:8080/${id}`);
+
           const repositorios = await resposta.json();
             setValor(repositorios);
         }
@@ -25,7 +27,7 @@ function Sabores(){
       dado = reload
 
       dado['Itens'].forEach((element, index)=> {
-        if(element['Item']['Sabor'].length === 0){
+        if(element['Item']['Valor'].length === 0){
           dado['Itens'][index]['Item']['Sabor'] = arg
           localStorage.setItem('Modelo', JSON.stringify(dado))
         }

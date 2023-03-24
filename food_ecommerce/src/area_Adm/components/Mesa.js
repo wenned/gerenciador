@@ -24,7 +24,7 @@ function Mesa(){
                     <a href='/tipo' >Fechar</a>
                     <a href='/tipo' >Emitir Cumpon</a>
                     </span></div>
-
+        
                     <div className={style.estilo}><span><span>MESA 4</span>
                     <a href='/tipo' >Pedido</a>
                     <a href='/tipo' >Fechar</a>

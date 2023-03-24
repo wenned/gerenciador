@@ -67,37 +67,43 @@
     margin: 3px;
 }
 .pro{
-    position: absolute;
+    position: fixed;
     flex-direction: column;
-    top: -5%;
+    top: 2%;
     left: 70%;
-    height: 5.5rem;
-    width: 5.5rem;
-    display: flex;
+    height: 6rem;
+    width: 6rem;
     border-radius: 100%;
     color: aliceblue;
     background-color: #2e5e2e;
+    justify-content: center;
+    align-items: center;
+}
+
+.valO{
+    position: relative;
+    left: 10%;
 }
 
 .vli{
     position: relative;
-    bottom: 15%;
+    bottom: 2%;
     font-size: 3.5rem;
     font-family: 'Cormorant Garamond', serif;
 
 }
 .vlf{
     position: relative;
-    bottom: 23%;
+    bottom: 10%;
     font-size: 1.3rem;
     font-family: 'Cormorant Garamond', serif;
 
 }
 
 .vlt{
-    position: fixed;
-    top: 11%;
-    right: 31%;
+    position: absolute;
+    bottom: 20%;
+    right: 40%;
     font-size: 0.70rem;
     height: 0;
 }
@@ -133,4 +139,8 @@
     height: 1rem;
     bottom: -25%;
     height: 7rem;
+}
+
+.tmn{
+    font-size: 13px;
 }
