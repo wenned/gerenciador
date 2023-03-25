@@ -12,6 +12,12 @@
     overflow: hidden;
 }
 
+::-webkit-scrollbar{
+    width: 5px;
+    background: #2e5e2e;
+    border-radius: 7px;
+}
+
 .cabeca{
     position: relative;
     display: flex;

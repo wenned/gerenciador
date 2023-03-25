@@ -4,6 +4,8 @@
     height: 80vh;
     top: 3%;
     background-color: #c2c1c1;
+    overflow: auto;
+    border-radius: 7px;
 }
 
 .bo{
@@ -19,4 +21,10 @@
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+    background: #2e5e2e;
+    border-radius: 7px;
 }

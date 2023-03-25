@@ -3,11 +3,14 @@
     flex-direction: column;
     top: 5%;
     height: 80vh;
+    width: 45vh;
     background-color: #c2c1c1;
+    border-radius: 7px;
 }
 
 .lg{
     position: relative;
+    left: 11%;
     bottom: 60%;
     height: 11rem;
     width: 17rem;

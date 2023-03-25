@@ -9,24 +9,23 @@ a{
     height: 80vh;
     top: 3%;
     background-color: #c2c1c1;
+    border-radius: 7px;
 }
 
 .bodY{
     position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
     color: #ffff;
     width: 325px;
     height: 50px;
-    margin-top: 5px;
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
     margin-top: 30px;
-}
-
-.texto{
-    position: relative;
-    top: 13%;
+    margin-left: 7px;
+    margin-right: 7px;
     font-size: 1.5rem;
-    font-weight: lighter;
 }

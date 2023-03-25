@@ -121,23 +121,23 @@ function Tipo(){
         <section className={style.conteiner}>
             
                 <Link onClick={()=>{AddTipo('Pastel')}} to={`/pastel/menu_pasteis/`}>
-                    <div id='pastel' className={style.bodY}><span className={style.texto}>PASTEIS</span></div>
+                    <div id='pastel' className={style.bodY}>PASTEIS</div>
                 </Link>
                 
                 <Link onClick={()=>{AddTipo('Frances')}} to='/pastel/menu_frances'>
-                    <div id='frances' className={style.bodY}><span className={style.texto}>CREPE FRANCES</span></div>
+                    <div id='frances' className={style.bodY}>CREPE FRANCES</div>
                 </Link>
 
                 <Link  onClick={()=>{AddTipo('Suico')}} to='/pastel/menu_suicos'>
-                    <div id='suico' className={style.bodY}><span className={style.texto}>CREPE SUICO</span></div>
+                    <div id='suico' className={style.bodY}>CREPE SUICO</div>
                 </Link>
 
                 <Link onClick={()=>{AddTipo('Hamburguer')}} to='/pastel/menu_hamburgue'>
-                    <div id='hamburgue' className={style.bodY}><span className={style.texto}>HAMBURGUE</span></div>
+                    <div id='hamburgue' className={style.bodY}>HAMBURGUE</div>
                 </Link>
 
                 <Link onClick={()=>{AddTipo('Bebida')}} to='/pastel/menu_bebidas'>
-                    <div id='bebida' className={style.bodY}><span className={style.texto}>BEBIDAS</span></div>
+                    <div id='bebida' className={style.bodY}>BEBIDAS</div>
                 </Link>
 
                 <Logo/>

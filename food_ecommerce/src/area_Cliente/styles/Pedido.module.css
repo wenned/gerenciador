@@ -2,9 +2,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: 83vh;
     top: 7%;
     background-color: #c2c1c1;
+    border-radius: 7px;
 }
 
 .bodY{
@@ -64,15 +65,14 @@
     justify-content: space-around;
     background-color: #ffffff;
     border-radius: 3px;
-    padding-top: 1px;
     height: 1.3rem;
-    margin: 3px;
+    margin: 7px;
 }
 .pro{
-    position: fixed;
+    position: absolute;
     flex-direction: column;
-    top: 6%;
-    left: 52rem;
+    top: -1%;
+    left: 15rem;
     height: 6rem;
     width: 6rem;
     border-radius: 100%;
