@@ -29,7 +29,6 @@ async function fetchPedido(pedidoId) {
 function PedidoAlterar(props){
 
     const [pedido, setPedido] = useState('');
-    const [classeBotao, setClasseBotao] = useState('bnt');
 
     function efeito(r){
       var ty = document.getElementById(`${r}`)
@@ -63,7 +62,7 @@ function PedidoAlterar(props){
                             return <div key={p} className={style.cab}>
                                       <div className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</div>
                                         <div className={style.itn}>{pedido['Itens'][p]['Item']['Sabor']} - {pedido['Itens'][p]['Item']['Tipo']}</div>
-                                        <div id={RDID} className={style[classeBotao]} onClick={()=>{efeito(RDID); alterar(p, props.pedido)}}>Feito</div>
+                                        <div id={RDID} className={style.bnt} onClick={()=>{efeito(RDID); alterar(p, props.pedido)}}>Feito</div>
                                   </div>;
                         })
                     }

@@ -1,10 +1,12 @@
 .conteiner{
     position:absolute;
+    bottom: -2.3%;
+    left: -4.4%;
     flex-wrap: wrap;
     display: flex;
-    background-color: #c2c1c1;
+    background-color: #cccccc;
     height: 80vh;
-    width: 21rem;
+    width: 22.5rem;
     margin: 1rem;
     z-index: 1;
     border-radius: 7px;
@@ -79,8 +81,8 @@
 .bnt{
     position: absolute;
     color: #ffffff;
-    background-color: red;
-    right: -3rem;
+    background-color: #ff0000;
+    right: -4.3rem;
     height: 1.6rem;
     width: 3.5rem;
     margin: 5px;
@@ -90,7 +92,7 @@
     justify-content: center;
     cursor: pointer;
 }
-
+/* 
 .bntFeito{
     position: fixed;
     color: #ffffff;
@@ -104,7 +106,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-}
+} */
 
 .despache{
     position: relative;

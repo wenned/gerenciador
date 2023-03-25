@@ -1,10 +1,34 @@
 import style from './styles/Quantidade.module.css'
 import { Link } from 'react-router-dom';
-import pastel from './imagens/pastel.png'
 import Logo from '../componentes/Logo'
 import { useState } from 'react';
 
+
+// IMAGENS 
+import carne from './imagens/carne.png'
+import queijo from './imagens/Queijo.png'
+import carnequeijo from './imagens/CarneQueijo.png'
+import palmitoqueijo from './imagens/palmitoqueijo.png'
+import bananaqueijocanela from './imagens/bananaqueijocanela.png'
+import bananaqueijochocolate from './imagens/bananaqueijochocolate.png'
+
+
+
+
+
+
 function Quantidade(){
+
+    const imagensItens = {
+      "Carne": carne,
+      "Queijo": queijo,
+      "Carne-Queijo": carnequeijo,
+      "Palmito-Queijo": palmitoqueijo,
+      "Banana-Queijo-Canela": bananaqueijocanela,
+      "Banana-Queijo-Chocolate": bananaqueijochocolate,
+
+    }
+    
 
     const [Valor, setValor] = useState(0)
          
@@ -130,9 +154,6 @@ function Quantidade(){
         });
 
       }
-
-
-
     }
 
 
@@ -140,7 +161,7 @@ function Quantidade(){
       <>
         <section className={style.conteiner}>
             <h1>{item}</h1>
-            <div className={style.IMg}><img src={pastel} alt='Imagem Pastel'/></div>
+            <div className={style.IMg}><img src={imagensItens[item]} alt='Imagem Pastel'/></div>
 
             <div className={style.conteiner_Button}>
 
