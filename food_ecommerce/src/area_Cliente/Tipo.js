@@ -10,10 +10,39 @@ function Tipo(){
     useEffect(() => {
 
         var items = ['temp', 'Modelo']
+        var confi = JSON.parse(localStorage.getItem('Modelo'))
+        var cont=0
+        var IsertDAdo = []
+        
+        if(confi == null){
+            //
+        }else{
 
-        for(var y=0; y < items.length; y++){
-            localStorage.removeItem(items[y])
+            for(var JIten=0; JIten < confi.Itens.length; JIten++){
+                if(confi.Itens[JIten]['Item']['Valor'] > 0){
+                    cont++
+                }
+            }
+
+            if(keyS === undefined){
+                for(var y=0; y < items.length; y++){
+                    localStorage.removeItem(items[y])
+                }
+            }
+            var letv = cont === confi.Itens.length
+
+            if(letv === false){
+                for(var JItens=0; JItens < confi.Itens.length; JItens++){
+                    if(confi.Itens[JItens]['Item']['Valor'] > 0){
+                        IsertDAdo.push(confi.Itens[JItens])
+                    }
+                }
+                confi.Itens = IsertDAdo
+                localStorage.setItem('Modelo', JSON.stringify(confi))
+
+            }
         }
+
 
          const GetItems = ["menu_bebidas","menu_frances", "menu_pasteis", "menu_suicos"]
 
@@ -29,7 +58,7 @@ function Tipo(){
             carregaDados(GetItems[l]);
         };
         
-      }, []);
+      }, [keyS]);
 
     var Model = {
         "Data":"",
