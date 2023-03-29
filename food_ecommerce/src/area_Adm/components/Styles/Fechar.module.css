@@ -1,0 +1,14 @@
+.conteiner{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vh;
+    height: 80vh;
+    align-content: space-around;    
+    background-color: #cccccc;
+    padding: 1rem;
+    border-radius: 10px;
+    justify-content: space-between;
+    top: 10%;
+
+}

@@ -161,9 +161,9 @@ function Tipo(){
                     <div id='suico' className={style.bodY}>CREPE SUICO</div>
                 </Link>
 
-                <Link onClick={()=>{AddTipo('Hamburguer')}} to='/pastel/menu_hamburgue'>
+                {/* <Link onClick={()=>{AddTipo('Hamburguer')}} to='/pastel/menu_hamburgue'> */}
                     <div id='hamburgue' className={style.bodY}>HAMBURGUE</div>
-                </Link>
+                {/* </Link> */}
 
                 <Link onClick={()=>{AddTipo('Bebida')}} to='/pastel/menu_bebidas'>
                     <div id='bebida' className={style.bodY}>BEBIDAS</div>

@@ -1,9 +1,10 @@
 .conteiner{
     position: relative;
+    top: 10%;
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    left: 10%;
+    width: 120vh;
+    height: 80vh;
     align-content: space-around;    
     background-color: #cccccc;
     padding: 1rem;
@@ -20,8 +21,8 @@
 
 .estilo{
     position: relative;
-    width: 10em;
-    height: 9em;
+    width: 10rem;
+    height: 9rem;
     background-color: #3f3e3e;
     border-radius: 5px;
     margin: 5px ;

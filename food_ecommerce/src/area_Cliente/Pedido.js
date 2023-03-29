@@ -30,7 +30,7 @@ function Pedido(){
         })
         .catch(error => console.error(error));
     }, []);
- 
+
     return(
         <>
         <section className={style.conteiner}>

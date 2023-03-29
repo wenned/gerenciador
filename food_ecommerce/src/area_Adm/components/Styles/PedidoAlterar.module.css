@@ -92,21 +92,6 @@
     justify-content: center;
     cursor: pointer;
 }
-/* 
-.bntFeito{
-    position: fixed;
-    color: #ffffff;
-    right: 40%;
-    background-color: #2e5e2e;
-    height: 1.6rem;
-    width: 3.5rem;
-    margin: 5px;
-    border-radius: 7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-} */
 
 .despache{
     position: relative;
@@ -138,4 +123,20 @@
     height: 8rem;
     top: 4%;
     left: 15%;
+}
+
+
+.feito{
+    position: absolute;
+    color: #ffffff;
+    background-color: #2e5e2e;
+    right: -4.3rem;
+    height: 1.6rem;
+    width: 3.5rem;
+    margin: 5px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }

@@ -1,14 +1,13 @@
 .conteiner{
     position: relative;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
-    justify-content: space-between;
     display: flex;
-    height: 40rem;
-    text-align: center;
-    bottom: 10%;
+    justify-content: space-around;
 }
 
 .cont{
     position: relative;
-    top: 20%;
+    right: 5%;
 }

@@ -55,6 +55,26 @@ import carnesolazeitonaf from './imagens/carnesolazeitonaf.png'
 import carnesolpalmitof from './imagens/carnesolpalmitof.png'
 import carnesolbananaf from './imagens/carnesolbananaf.png'
 
+// BEBIDAS
+
+import laranja from './imagens/laranja.png'
+import acerola from './imagens/acerola.png'
+import maracuja from './imagens/maracuja.png'
+import cocalata from './imagens/cocalata.png'
+import fantalata from './imagens/fantalata.png'
+import pepsilata from './imagens/pepsilata.png'
+import guaranalata from './imagens/guaranalata.png'
+import guaranalitro from './imagens/guaranalitro.png'
+import cocalitro from './imagens/cocalitro.png'
+import fantalitro from './imagens/fantalitro.png'
+import agua from './imagens/agua.png'
+import aguagas from './imagens/aguagas.png'
+
+
+// IMAGENS SUICO
+
+import salsichaqueijos from './imagens/salsichaqueijos.png'
+
     const Pastel = {
       "Carne": carne,
       "Queijo": queijo,
@@ -109,6 +129,37 @@ import carnesolbananaf from './imagens/carnesolbananaf.png'
 
     const Suico = {
 
+      "Frango-Catupiry": frangocatupiry,
+      "Frango-Queijo": frangoqueijo,
+      "Frango-Cheddar": frangocheddar,
+      "Frango": frango,
+      "Presunto-Queijo": presuntoqueijo,
+      "Calabresa-Queijo": calabresaqueijo,
+      "Carnesol-Queijo": carnesolqueijo,
+      "Carnesol": carnesol,
+      "Salsicha-Queijo": salsichaqueijos,
+      "Chocolate": carne,
+      "Queijo": queijo,
+      "Carnesol-Cheddar": carnesolcheddar,
+      "Carnesol-Catupiry": carnesolcatupiry,
+      "Chocolate-Queijo": chocolatequeijo,
+      "Goiabada-Queijo": goiabadaqueijo,
+
+    }
+
+    const Bebida ={
+      "Laranja": laranja,
+      "Maracuja": maracuja,
+      "Acerola": acerola,
+      "Agua": agua,
+      "AguaGas": aguagas,
+      "CocaLata": cocalata,
+      "FrantaLata": fantalata,
+      "GuaranaLata": guaranalata,
+      "PepsiLata": pepsilata,
+      "CocaLitro": cocalitro,
+      "FantaLitro": fantalitro,
+      "GuaranaLitro": guaranalitro
     }
     
 function Quantidade(){
@@ -179,7 +230,6 @@ function Quantidade(){
               
               if(verf === true){
               var o = Object.values(h[item][element['Item']['Sabor']])
-              //  reload['valor_total'] = Valor * parseFloat(o[0])
   
                 reload['Itens'][index]['Item']['Valor'] = o[0]
                 reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split("-")
@@ -191,7 +241,6 @@ function Quantidade(){
         });
         
       }else{
-        // =============================================================================
         
         reload['Itens'].forEach((element, index)=> {
           if(element['Item']['Valor'].length === 0){
@@ -230,7 +279,6 @@ function Quantidade(){
               
               if(verf === true){
               var o = Object.values(h[item][element['Item']['Sabor']])
-              //  reload['valor_total'] = Valor * parseFloat(o[0])
   
                 reload['Itens'][index]['Item']['Valor'] = o[0]
                 reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split("-")
@@ -245,6 +293,7 @@ function Quantidade(){
     }
 
     var IMAGEM = Pastel
+
     switch(tip){
       case 'Paslte':
         IMAGEM = Pastel
@@ -255,8 +304,11 @@ function Quantidade(){
           case 'Suico':
             IMAGEM = Suico
             break
-            default:
+            case 'Bebida':
+              IMAGEM = Bebida
               break
+              default:
+                break
     }
     
     return (

@@ -2,17 +2,18 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 60rem;
-    left: 5%;
-    align-content: space-around;
+    width: 90vh;
+    align-content: space-between;
+    height: 70vh;
+    top: 10%;
 }
 
 .bnt{
     position: relative;
     background-color: #2e5e2e;
-    height: 19rem;
-    width: 19rem;
-    margin: 7px;
+    height: 13rem;
+    width: 13rem;
+    margin: 10px;
     border-radius: 10%;
     cursor: pointer;
 }
@@ -20,5 +21,5 @@
 .vl{
     position: relative;
     top: 45%;
-    font-size: 2rem;
+    font-size: 1.3rem;
 }

@@ -4,6 +4,7 @@ import MenuH from './MenuH'
 import { useState } from 'react';
 import Mesa from './components/Mesa';
 import Producao from './components/Producao';
+import Fechar from './components/Fechar';
 
 
 function Home(){
@@ -24,7 +25,7 @@ function Home(){
                 break
 
             case 'fechar':
-                setvalor('fechar')
+                setvalor(<Fechar/>)
                 break
 
             default:
@@ -37,7 +38,7 @@ function Home(){
     return (
         <section className={style.conteiner}>
             <div className={style.cont}><MenuH/></div>
-            <div className={style.cont}>{valor}</div>
+            <div>{valor}</div>
         </section>
     )
 };
