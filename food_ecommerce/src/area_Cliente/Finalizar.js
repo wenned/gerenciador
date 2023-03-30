@@ -40,7 +40,11 @@ function Finalizar(){
 
                     if(data['Status'] === true && localStorage.getItem('Pedido') === null){
 
-                        localStorage.clear();
+                        var REMOVE = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'Modelo']
+
+                        for(var REMOV=0; REMOV < REMOVE.length; REMOV++){
+                            localStorage.removeItem(REMOVE[REMOV])
+                        }
                         setTimeout(setvalor('PEDIDO ENVIADO'), 5);
                         localStorage.setItem('Pedido', data['Pedido'])
                         setTimeout(()=>{window.location.href ='/pedido'}, 5)

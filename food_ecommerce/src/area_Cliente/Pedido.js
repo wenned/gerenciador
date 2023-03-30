@@ -3,12 +3,27 @@ import { Link} from 'react-router-dom';
 import Logo from '../componentes/Logo';
 import { useEffect, useState } from 'react';
 
+const MESAKEY =JSON.parse(localStorage.getItem('Key'))
+
+
 async function fetchPedido(pedidoId) {
     const resposta = await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`);
     // const resposta = await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`);
 
     return resposta.json();
   }
+
+async function apagar(){
+    const APAGARKEY = await fetch(`http://192.168.31.3:8080/${MESAKEY[1]['Mesa']}/apagar`);
+
+    var REMOVE = ['Key', 'Pedido']
+
+    for(var REMOVKEY=0; REMOVKEY < REMOVE.length; REMOVKEY++){
+        localStorage.removeItem(REMOVE[REMOVKEY])
+    }
+
+    return APAGARKEY.json();
+};
 
 function Pedido(){
 
@@ -19,7 +34,7 @@ function Pedido(){
 
     var p = localStorage.getItem('Pedido');
 
-    function apagar(){localStorage.clear('Pedido');}
+
 
     useEffect(() => {
       const pedidoId = localStorage.getItem('Pedido');
@@ -55,7 +70,7 @@ function Pedido(){
 
             <div  className={style.bodY} >
 
-                <Link to='/tipo/newitem'>
+                <Link to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
                     <div id='pastel'><span className={style.texto}>Adicionar Novo Item</span></div>
                 </Link>
             </div>

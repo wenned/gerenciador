@@ -161,9 +161,11 @@ import salsichaqueijos from './imagens/salsichaqueijos.png'
       "FantaLitro": fantalitro,
       "GuaranaLitro": guaranalitro
     }
-    
+
+
 function Quantidade(){
 
+const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
 
 
@@ -332,7 +334,7 @@ function Quantidade(){
             </div>
 
             <div>
-                <Link onClick={addValores} to='/tipo/newitem'>
+                <Link onClick={addValores} to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
                     <div className={style.Novo}>Adicionar Novo Item</div>
                 </Link>
             </div>
