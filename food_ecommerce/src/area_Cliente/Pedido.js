@@ -16,15 +16,18 @@ async function fetchPedido(pedidoId) {
 async function apagar(){
     const APAGARKEY = await fetch(`http://192.168.31.3:8080/${MESAKEY[1]['Mesa']}/apagar`);
 
+    return APAGARKEY.json();
+};
+
+function apagarLocal(){
+    
     var REMOVE = ['Key', 'Pedido']
 
     for(var REMOVKEY=0; REMOVKEY < REMOVE.length; REMOVKEY++){
         localStorage.removeItem(REMOVE[REMOVKEY])
     }
-
-    return APAGARKEY.json();
-};
-
+    // localStorage.clear()
+}
 function Pedido(){
 
     const [pedido, setPedido] = useState(<Logo/>);
@@ -77,7 +80,7 @@ function Pedido(){
 
             <div className={style.bod}>
                 <Link to='/tipo'>
-                    <div id='pastel'  onClick={apagar}><span className={style.texto}>Pagar</span></div>
+                    <div id='pastel'  onClick={()=>{apagarLocal(); apagar()}}><span className={style.texto}>Pagar</span></div>
                 </Link>
             </div>
             <span className={style.ped}>Pedido : {p}</span>
