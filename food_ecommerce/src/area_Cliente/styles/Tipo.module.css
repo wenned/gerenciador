@@ -29,3 +29,75 @@ a{
     margin-right: 7px;
     font-size: 1.5rem;
 }
+
+.busy{
+    position: relative;
+    height: 80vh;
+    background-color: #c2c1c1;
+    top: 5%;
+    border-radius: 7px;
+}
+
+.busy :nth-child(1){
+    position: relative;
+    font-size: 1.7rem;
+    height: 2rem;
+    top: 10%;
+}
+
+.busy :nth-child(2){
+    position: relative;
+    width: 350px;
+    height: 10rem;
+    padding: 5px;
+    font-size: 1.5rem;
+    text-align: center;
+    top: 20%;
+}
+
+.busy :nth-child(3){
+    position: relative;
+    width: 350px;
+    height: 10rem;
+    top: 40%;
+}
+
+.Err{
+    position: relative;
+    background-color: #c2c1c1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 5%;
+    border-radius: 7px;
+    height: 80vh;
+    width: 300px;
+    font-size: 1.7rem;
+
+}
+
+.Npedido{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c2c1c1;
+    border-radius: 7px;
+    height: 80vh;
+    width: 350px;
+    top: 5%;
+    font-size: 1.5rem;
+}
+.Div{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    top: 40%;
+    background-color: black;
+    height: 3rem;
+    width: 250px;
+    border-radius: 7px;
+}

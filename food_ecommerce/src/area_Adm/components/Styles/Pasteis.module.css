@@ -6,6 +6,7 @@
     width: 45vh;
     background-color: #c2c1c1;
     border-radius: 7px;
+    overflow: auto;
 }
 
 .lg{

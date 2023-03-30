@@ -84,19 +84,30 @@ function Tipo(){
         var keyConst = []
 
         async function libera(){
-            const RespostaKEY = await fetch(`http://192.168.31.3:8080/${Mesa}/${iD}`)
+
     
-            const ResultKey = await RespostaKEY.json()
+            try {
+
+                const RespostaKEY = await fetch(`http://192.168.31.3:8080/${Mesa}/${iD}`)
+                const ResultKey = await RespostaKEY.json()
             
-            keyConst.push(ResultKey)
-            keyConst.push({"Mesa":`${Mesa}`})
-            
-            if(ResultKey === false){
-                //
-            }else{
-                localStorage.setItem('Key', JSON.stringify(keyConst))
-                setvalor(true)
+                keyConst.push(ResultKey)
+                keyConst.push({"Mesa":`${Mesa}`})
+                
+                if(ResultKey === false){
+                    //
+                }else{
+                    localStorage.setItem('Key', JSON.stringify(keyConst))
+                    setvalor(true)
+                }
+
+            } catch (error) {
+                if(String(error) === 'TypeError: Failed to fetch'){
+                    setvalor(3)
+                }
             }
+
+            
         }    
 
         var items = ['temp', 'Modelo']
@@ -184,7 +195,7 @@ function Tipo(){
       }
 
     return (
-        <>{valor?
+        <>{valor && valor !== 3?
                 <section className={style.conteiner}>
             
                 <Link onClick={()=>{AddTipo('Pastel')}} to={`/pastel/menu_pasteis/`}>
@@ -211,7 +222,24 @@ function Tipo(){
 
         </section>
         
-        :<Logo/>}
+        :valor === 3?
+            <div className={style.Err}>
+                Erro ao conectar ao servidor!
+                <Logo/>
+                </div>
+        
+        :valor === false && Mesa === undefined && iD === null?
+         <div className={style.Npedido}>
+            Faca um novo pedido!
+            <Link to='/tipo/Mesa1'><div className={style.Div}>CLICK AQUI</div></Link>
+            <Logo/>
+         </div>
+         :<section className={style.busy}>
+            <div>{Mesa} - OCUPADA</div>
+            <div>Escanei outro QRCode ou solicite a quem fez o primeiro escaneamento a adicionar o seu item ao pedido que esta aberto!</div>
+            <div><Logo/></div>
+        </section>
+    }
 
         </>
     )
