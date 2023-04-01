@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import Logo from '../../componentes/Logo'
 
 async function fetchPedido(pedidoId) {
+  // const resposta = await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`);
+
     const resposta = await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`);
     // const resposta = await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`);
     
@@ -13,8 +15,9 @@ async function fetchPedido(pedidoId) {
   async function alterar(i,e) {
 
     const body = JSON.stringify({ codigo: e });
-    
-    await fetch(`http://192.168.31.3:8080/input/feito/${i}`, {
+    // await fetch(`http://192.168.3.52:8080/input/feito/${i}`, {
+
+   await fetch(`http://192.168.31.3:8080/input/feito/${i}`, {
     // await fetch(`http://192.168.2.9:8080/input/feito/${i}`, {
 
     method: 'PUT',

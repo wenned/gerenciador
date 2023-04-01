@@ -13,12 +13,16 @@ function Finalizar(){
     useEffect(()=>{
 
         if(localStorage.getItem('Pedido') === null){
+            // setUrl('http://192.168.3.52:8080/inserir')
+
             setUrl('http://192.168.31.3:8080/inserir')
             // setUrl('http://192.168.2.9:8080/inserir')
             setMetodo('POST')
         }else{
             var s = localStorage.getItem('Pedido')
             if(s.length > 2){
+                // setUrl('http://192.168.3.52:8080/input/addnew')
+
                 setUrl('http://192.168.31.3:8080/input/addnew')
                 // setUrl('http://192.168.2.9:8080/input/addnew')
                 setMetodo('PUT')

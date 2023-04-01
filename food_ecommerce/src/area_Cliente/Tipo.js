@@ -56,6 +56,8 @@ async function AddTipo(arg){
         }else{
 
             const pedidoId = localStorage.getItem('Pedido');
+            // await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`)
+
             await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`)
             // await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`)
             .then((res) =>{
@@ -87,6 +89,7 @@ function Tipo(){
 
     
             try {
+                // const RespostaKEY = await fetch(`http://192.168.3.52:8080/${Mesa}/${iD}`)
 
                 const RespostaKEY = await fetch(`http://192.168.31.3:8080/${Mesa}/${iD}`)
                 const ResultKey = await RespostaKEY.json()
@@ -98,6 +101,7 @@ function Tipo(){
                     //
                 }else{
                     localStorage.setItem('Key', JSON.stringify(keyConst))
+                    sessionStorage.setItem('N_MESA', Mesa)
                     setvalor(true)
                 }
 
@@ -164,7 +168,9 @@ function Tipo(){
             const GetItems = ["menu_bebidas","menu_frances", "menu_pasteis", "menu_suicos"]
 
             async function carregaDados (x) {
-            const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
+                // const resposta = await fetch(`http://192.168.3.52:8080/${x}`);
+
+                const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
             //   const resposta = await fetch(`http://192.168.2.9:8080/${x}`);
 
             const RESULT = await resposta.json();
@@ -193,7 +199,7 @@ function Tipo(){
       } catch (error) {
         
       }
-
+    const numeroMesa = sessionStorage.getItem('N_MESA')
     return (
         <>{valor && valor !== 3?
                 <section className={style.conteiner}>
@@ -231,12 +237,12 @@ function Tipo(){
         :valor === false && Mesa === undefined && iD === null?
          <div className={style.Npedido}>
             Faca um novo pedido!
-            <Link to='/tipo/Mesa1'><div className={style.Div}>CLICK AQUI</div></Link>
+            <Link to={`/tipo/${numeroMesa}`}><div className={style.Div}>CLICK AQUI</div></Link>
             <Logo/>
          </div>
          :<section className={style.busy}>
             <div>{Mesa} - OCUPADA</div>
-            <div>Escanei outro QRCode ou solicite a quem fez o primeiro escaneamento a adicionar o seu item ao pedido que esta aberto!</div>
+            <div>Escanei outro QRCode ou solicite a quem fez o primeiro escaneamento para adicionar o seu item ao pedido que ja esta em aberto!</div>
             <div><Logo/></div>
         </section>
     }

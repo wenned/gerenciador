@@ -12,6 +12,8 @@ function Sabores(){
     useEffect(() => { 
         
         async function carregaDados () {
+          // const resposta = await fetch(`http://192.168.3.52:8080/${id}`);
+
           const resposta = await fetch(`http://192.168.31.3:8080/${id}`);
           // const resposta = await fetch(`http://192.168.2.9:8080/${id}`);
 

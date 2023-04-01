@@ -7,7 +7,9 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
 
 async function fetchPedido(pedidoId) {
-    const resposta = await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`);
+    // const resposta = await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`);
+
+   const resposta = await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`);
     // const resposta = await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`);
 
     return resposta.json();
@@ -15,6 +17,7 @@ async function fetchPedido(pedidoId) {
 
 async function apagar(){
     const APAGARKEY = await fetch(`http://192.168.31.3:8080/${MESAKEY[1]['Mesa']}/apagar`);
+    // const APAGARKEY = await fetch(`http://192.168.3.52:8080/${MESAKEY[1]['Mesa']}/apagar`);
 
     return APAGARKEY.json();
 };
@@ -26,7 +29,6 @@ function apagarLocal(){
     for(var REMOVKEY=0; REMOVKEY < REMOVE.length; REMOVKEY++){
         localStorage.removeItem(REMOVE[REMOVKEY])
     }
-    // localStorage.clear()
 }
 function Pedido(){
 
