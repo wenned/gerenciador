@@ -7,22 +7,22 @@ function Producao(){
         <>
         <section className={style.conteiner}>
             <Link to='/pasteis'>
-                <div className={style.bnt}><div className={style.vl}>VISAO GERAL</div></div>
+                <div className={style.bnt}><div className={style.vl}>PEDIDOS</div></div>
             </Link>
             <Link to='/pasteis'>
-                <div className={style.bnt}><div className={style.vl}>PASTEIS</div></div>
+                <div className={style.bnt}><div className={style.vl}>?</div></div>
             </Link>
             <Link to='/pasteis'>
-                <div className={style.bnt}><div className={style.vl}>CREPRE FRANCES</div></div>
+                <div className={style.bnt}><div className={style.vl}>?</div></div>
             </Link>
             <Link to='/pasteis'>
-                <div className={style.bnt}><div className={style.vl}>CREPRE SUICO</div></div>
+                <div className={style.bnt}><div className={style.vl}>?</div></div>
             </Link>
             <Link to='/pasteis'>
-                <div className={style.bnt}><div className={style.vl}>HAMBURGES</div></div>
+                <div className={style.bnt}><div className={style.vl}>?</div></div>
             </Link>
             <Link to='/pasteis'>
-                <div className={style.bnt}><div className={style.vl}>BEBIDAS</div></div>
+                <div className={style.bnt}><div className={style.vl}>?</div></div>
             </Link>
         </section>
         </>

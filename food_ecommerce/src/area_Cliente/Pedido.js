@@ -16,7 +16,7 @@ async function fetchPedido(pedidoId) {
   }
 
 async function apagar(){
-    const APAGARKEY = await fetch(`http://192.168.31.3:8080/${MESAKEY[1]['Mesa']}/apagar`);
+    const APAGARKEY = await fetch(`http://192.168.31.3:8080/mesa/${MESAKEY[1]['Mesa']}/apagar`);
     // const APAGARKEY = await fetch(`http://192.168.3.52:8080/${MESAKEY[1]['Mesa']}/apagar`);
 
     return APAGARKEY.json();
@@ -35,7 +35,7 @@ function Pedido(){
     const [pedido, setPedido] = useState(<Logo/>);
     const [preco, setpreco] = useState ('xx.xx')
     
-     var pro = preco.split('.')
+    var pro = preco.split('.')
 
     var p = localStorage.getItem('Pedido');
 
@@ -45,6 +45,7 @@ function Pedido(){
       const pedidoId = localStorage.getItem('Pedido');
       fetchPedido(pedidoId)
         .then(data => {
+            console.log(data)
             setPedido(data)
             setpreco(data.valor_total)
         })

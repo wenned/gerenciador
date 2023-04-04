@@ -91,7 +91,7 @@ function Tipo(){
             try {
                 // const RespostaKEY = await fetch(`http://192.168.3.52:8080/${Mesa}/${iD}`)
 
-                const RespostaKEY = await fetch(`http://192.168.31.3:8080/${Mesa}/${iD}`)
+                const RespostaKEY = await fetch(`http://192.168.31.3:8080/mesa/${Mesa}/${iD}`)
                 const ResultKey = await RespostaKEY.json()
             
                 keyConst.push(ResultKey)

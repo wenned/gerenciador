@@ -10,6 +10,8 @@ function Pasteis(){
 
     const date = new Date()
     const actual = new Intl.DateTimeFormat("pt-br", {timeStyle:'medium'}).format(date)
+    // const actual = new Intl.DateTimeFormat("pt-br", {dateStyle:'short'}).format(date)
+
 
     const [hora, sethora] = useState('')
     const [valor, setValor] = useState([]);
