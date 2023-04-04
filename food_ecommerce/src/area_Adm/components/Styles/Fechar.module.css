@@ -42,6 +42,8 @@
 
 .butt{
     position: relative;
+    justify-content: center;
+    align-items: center;
     display: flex;
     height: 2.5rem;
     width: 20rem;
@@ -54,7 +56,7 @@
 }
 
 button{
-    color: #cccccc;
+    color: #fff6f6;
     background-color: #292828;}
 
 .cabecario{
@@ -67,8 +69,15 @@ button{
 .saldo{
     position: relative;
     height: 2.5rem;
-    top: 27%;
-    left: 10%;
-    font-size: 1.3rem;
+    top: 30%;
+    right: 20%;
+    font-size: 1.1rem;
 }
 
+.saldoTotal{
+    position: relative;
+    height: 2.5rem;
+    top: 40%;
+    right: 20%;
+    font-size: 1.1rem;
+}

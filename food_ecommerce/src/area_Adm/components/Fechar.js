@@ -1,7 +1,7 @@
-import { set } from 'lodash';
 import {useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Styles/Fechar.module.css'
+import Logo from '../../componentes/Logo'
 
 function Fechar(){
     
@@ -58,11 +58,10 @@ function Fechar(){
 
     var SALDO_TOTAL_DIA = 0
 
-
-
     if(valores.length !== 0){
         Object.values(valores).map((valor)=>{
             SALDO_TOTAL_DIA = parseFloat(valor.valor_total) + SALDO_TOTAL_DIA
+            return null
         })       
     }
 
@@ -71,12 +70,12 @@ function Fechar(){
         <section className={style.conteiner} >
             <div className={style.pedidos}>
 
-            {Object.values(DADOS_RETORNO).map((ValorElemento, i) => (
+            {DADOS_RETORNO.length > 0? Object.values(DADOS_RETORNO).map((ValorElemento, i)=> (
             <Link  key={i}>
               <div className={style.PedidosFechamento}>{ValorElemento.Nu_Pedido}</div>
             </Link>
             
-            ))}
+            )): <Logo/> }
                 
             </div>
 
@@ -93,12 +92,13 @@ function Fechar(){
                     <input id='pix' onChange={handleChanger} ref={pixInputRef} className={style.butt} placeholder='Pix'></input>
                     <button type='submit' className={style.butt} >Fechar Caixa</button>
 
-                    <div className={style.saldo}>Saldo Total: {SALDO_TOTAL_DIA.toFixed(2)}</div>
-                    <div className={style.saldo}>Total Lancamento: {Valor}</div>
+                    <div className={style.saldoTotal}>Saldo Total: R$ {SALDO_TOTAL_DIA.toFixed(2)}</div>
+                    <div className={style.saldo}>Total Lancamento: R$ {Valor}</div>
+                    
+                    <input placeholder='Digite seu nome' className={style.butt}></input>
 
 
                 </form>
-
             
             </div>
         

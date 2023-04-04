@@ -45,7 +45,6 @@ function Pedido(){
       const pedidoId = localStorage.getItem('Pedido');
       fetchPedido(pedidoId)
         .then(data => {
-            console.log(data)
             setPedido(data)
             setpreco(data.valor_total)
         })

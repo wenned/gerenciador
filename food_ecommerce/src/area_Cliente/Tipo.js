@@ -199,7 +199,9 @@ function Tipo(){
       } catch (error) {
         
       }
+      
     const numeroMesa = sessionStorage.getItem('N_MESA')
+
     return (
         <>{valor && valor !== 3?
                 <section className={style.conteiner}>

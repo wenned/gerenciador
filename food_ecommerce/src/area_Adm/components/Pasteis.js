@@ -17,26 +17,37 @@ function Pasteis(){
     const [valor, setValor] = useState([]);
     const [element, setelement] = useState(null)
     const [close, setclose] = useState(null)
+    const [valida, setvalida] = useState(false)
 
     useEffect(() => { 
-        
-        async function carregaDados () {
-          // const resposta = await fetch(`http://192.168.3.52:8080/pedidos`);
+
+      
+      async function carregaDados () {
+
+        try {
 
           const resposta = await fetch(`http://192.168.31.3:8080/pedidos`);
-          // const resposta = await fetch(`http://192.168.2.9:8080/pedidos`);
+        // const resposta = await fetch(`http://192.168.3.52:8080/pedidos`);
+        // const resposta = await fetch(`http://192.168.2.9:8080/pedidos`);
           const repositorios = await resposta.json();
-            setValor(repositorios);
-            sethora(actual)
+          setValor(repositorios);
+          sethora(actual)
+          setvalida(false)
+
+      }catch (error) {
+          if(String(error) === 'TypeError: Failed to fetch'){
+            setvalida(true)
+          }
         }
+      }
 
-        carregaDados();
+      carregaDados();
+      
+      const intervalId = setInterval(carregaDados, 1000);
 
-        const intervalId = setInterval(carregaDados, 1000);
+      return () => clearInterval(intervalId);
 
-        return () => clearInterval(intervalId);
-
-      }, [actual]);
+    }, [actual]);
 
       function Elemente (nu){
 
@@ -49,25 +60,37 @@ function Pasteis(){
         setelement(null)
         setclose(null)
       }
-      
+
     return (
-      <section  className={style.conteiner}>
-        {/* {hora[3]}{hora[4]}{hora[5]}{hora[6]}{hora[7]} */}
 
-        <div onClick={fechar} className={style.close}>{close}</div>
+      <>{valor.length > 0 && valor !== false?
+        <section  className={style.conteiner}>
 
-        <div className={style.element}>{element}</div>
+          <div onClick={fechar} className={style.close}>{close}</div>
 
-        {valor?(
-          Object.values(valor).map((pastel) => (
-            <Link  key={pastel['_id']} onClick={()=>Elemente(pastel.Nu_Pedido)}>
-              <div className={style.btn} ><span >{pastel.Nu_Pedido} / {hora}</span></div>
-            </Link>
-          ))
-        ):(
-          <div className={style.lg}><Logo/></div>
-        )}
-      </section>
+          <div className={style.element}>{element}</div>
+
+            {Object.values(valor).map((pastel) => (
+              <Link  key={pastel['_id']} onClick={()=>Elemente(pastel.Nu_Pedido)}>
+                <div className={style.btn} ><span >{pastel.Nu_Pedido} / {hora}</span></div>
+              </Link>
+            ))}
+        </section>
+        :valida === true && valor === false?
+          <div className={style.Err}>
+          Erro ao conectar ao servidor!
+          <Logo/>
+        </div>:<div className={style.lg}><Logo/></div>
+        }
+      </>
+
+
+
+
+
+
+
+
     );
 
 };

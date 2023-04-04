@@ -11,10 +11,14 @@
 
 .lg{
     position: relative;
-    left: 11%;
-    bottom: 60%;
-    height: 11rem;
-    width: 17rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: #c2c1c1;
+    top: 5%;
+    border-radius: 7px;
+    height: 70vh;
+    width: 300px;
 }
 
 .btn{
@@ -40,4 +44,20 @@
     left: 18rem;
     font-size: 2rem;
     color: red;
+}
+
+
+.Err{
+    position: relative;
+    background-color: #c2c1c1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 5%;
+    border-radius: 7px;
+    height: 80vh;
+    width: 300px;
+    font-size: 1.7rem;
+
 }
