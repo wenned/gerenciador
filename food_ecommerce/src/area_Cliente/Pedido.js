@@ -24,12 +24,30 @@ async function apagar(){
 
 function apagarLocal(){
     
-    var REMOVE = ['Key', 'Pedido']
+    const REMOVE = ['Key', 'Pedido']
 
     for(var REMOVKEY=0; REMOVKEY < REMOVE.length; REMOVKEY++){
         localStorage.removeItem(REMOVE[REMOVKEY])
     }
 }
+
+async function removeElemnto(...args){
+
+    try {
+        const RETORNO_DADOS = await fetch(`http://192.168.31.3:8080/input/remover`, {
+            method: `PUT`,
+            body: JSON.stringify(args),
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        });
+        
+        const DATA = await RETORNO_DADOS.json();
+        return DATA
+
+    } catch (error) {
+        console.log('Deu erro aqui ',error)
+    }
+}
+
 function Pedido(){
 
     const [pedido, setPedido] = useState(<Logo/>);
@@ -37,7 +55,7 @@ function Pedido(){
     
     var pro = preco.split('.')
 
-    var p = localStorage.getItem('Pedido');
+    var PEDIDO = localStorage.getItem('Pedido');
 
 
 
@@ -67,8 +85,8 @@ function Pedido(){
             <div className={style.c} >
                 {
                         pedido && pedido.Itens &&
-                        Object.keys(pedido.Itens).map((p) => {
-                            return <div key={p} className={style.cab}><span className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</span>  <span className={style.tmn}>{pedido['Itens'][p]['Item']['Sabor']} - {pedido['Itens'][p]['Item']['Tipo']}</span>  <span className={style.vlu}>{pedido['Itens'][p]['Item']['Valor']}</span></div>;
+                        Object.keys(pedido.Itens).map((indeX) => {
+                            return <div key={indeX} className={style.cab} onClick={()=>removeElemnto(indeX, PEDIDO)}><span className={style.Qnt}>{pedido['Itens'][indeX]['Item']['Quantidade']}</span>  <span className={style.tmn}>{pedido['Itens'][indeX]['Item']['Sabor']} - {pedido['Itens'][indeX]['Item']['Tipo']}</span>  <span className={style.vlu}>{pedido['Itens'][indeX]['Item']['Valor']}</span></div>;
                         })
                     }
             </div>
@@ -85,7 +103,7 @@ function Pedido(){
                     <div id='pastel'  onClick={()=>{apagarLocal(); apagar()}}><span className={style.texto}>Pagar</span></div>
                 </Link>
             </div>
-            <span className={style.ped}>Pedido : {p}</span>
+            <span className={style.ped}>Pedido : {PEDIDO}</span>
             <div className={style.cn}><strong>CNPJ :</strong> 19.375.999/0001-81</div>
             <div className={style.cnn}><Logo/></div>
 
