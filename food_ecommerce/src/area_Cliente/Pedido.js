@@ -52,12 +52,17 @@ function Pedido(){
 
     const [pedido, setPedido] = useState(<Logo/>);
     const [preco, setpreco] = useState ('xx.xx')
-    
+    const [contador, setContador] = useState(0);
+
     var pro = preco.split('.')
 
     var PEDIDO = localStorage.getItem('Pedido');
 
 
+    const handleClick = () => {
+        setContador(contador + 1);
+    };
+  
 
     useEffect(() => {
       const pedidoId = localStorage.getItem('Pedido');
@@ -67,11 +72,23 @@ function Pedido(){
             setpreco(data.valor_total)
         })
         .catch(error => console.error(error));
-    }, []);
+    }, [contador]);
+
+    try {
+            
+        if(pedido.Itens.length === 0){
+            setPedido(false)
+        }
+
+    } catch (Er) {
+        console.log(String(Er) === `TypeError: Cannot read properties of undefined (reading 'length')`)
+    }
 
     return(
         <>
-        <section className={style.conteiner}>
+        {pedido === false? <Logo/>:
+        
+                <section className={style.conteiner}>
 
             <div className={style.pro}>
                 <div className={style.valO}>
@@ -86,7 +103,7 @@ function Pedido(){
                 {
                         pedido && pedido.Itens &&
                         Object.keys(pedido.Itens).map((indeX) => {
-                            return <div key={indeX} className={style.cab} onClick={()=>removeElemnto(indeX, PEDIDO)}><span className={style.Qnt}>{pedido['Itens'][indeX]['Item']['Quantidade']}</span>  <span className={style.tmn}>{pedido['Itens'][indeX]['Item']['Sabor']} - {pedido['Itens'][indeX]['Item']['Tipo']}</span>  <span className={style.vlu}>{pedido['Itens'][indeX]['Item']['Valor']}</span></div>;
+                            return <div key={indeX} className={style.cab} onClick={()=>{removeElemnto(indeX, PEDIDO); handleClick()}}><span className={style.Qnt}>{pedido['Itens'][indeX]['Item']['Quantidade']}</span>  <span className={style.tmn}>{pedido['Itens'][indeX]['Item']['Sabor']} - {pedido['Itens'][indeX]['Item']['Tipo']}</span>  <span className={style.vlu}>{pedido['Itens'][indeX]['Item']['Valor']}</span></div>;
                         })
                     }
             </div>
@@ -108,6 +125,9 @@ function Pedido(){
             <div className={style.cnn}><Logo/></div>
 
         </section> 
+        }
+
+
         </>
     )
 
