@@ -10,7 +10,9 @@ async function fecharCaixa(...args){
         "Data":"",
         "Itens":"",
         "Valor_Lancamento":"",
-        "Valor_Total":""
+        "Valor_Total":"",
+        "Verificador":"",
+        "Verificado":false
     }]
 
     const [itens, data, ValorTotal, nome, saldodia] = args
@@ -130,7 +132,7 @@ function Fechar(){
                     <input id='cache' onChange={handleChanger} ref={cacheInputRef} className={style.butt} placeholder='Dinheiro'></input>
                     <input id='card' onChange={handleChanger} ref={cardInputRef} className={style.butt} placeholder='Cartao'></input>
                     <input id='pix' onChange={handleChanger} ref={pixInputRef} className={style.butt} placeholder='Pix'></input>
-                    <button type='submit' className={style.butt} onClick={()=>fecharCaixa(DADOS_RETORNO, date, Valor, nome, SALDO_TOTAL_DIA)}>Fechar Caixa</button>
+                    <button type='button' className={style.butt} onClick={()=>fecharCaixa(DADOS_RETORNO, date, Valor, nome, SALDO_TOTAL_DIA)}>Fechar Caixa</button>
 
                     <div className={style.saldoTotal}>Saldo Total: R$ {SALDO_TOTAL_DIA.toFixed(2)}</div>
                     <div className={style.saldo}>Total Lancamento: R$ {Valor}</div>

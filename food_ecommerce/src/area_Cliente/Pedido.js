@@ -7,8 +7,8 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
 
 async function fetchPedido(pedidoId) {
-    // const resposta = await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`);
 
+    // const resposta = await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`);
    const resposta = await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`);
     // const resposta = await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`);
 
@@ -62,7 +62,7 @@ function Pedido(){
     const handleClick = () => {
         setContador(contador + 1);
     };
-  
+    
 
     useEffect(() => {
       const pedidoId = localStorage.getItem('Pedido');
@@ -81,12 +81,25 @@ function Pedido(){
         }
 
     } catch (Er) {
-        console.log(String(Er) === `TypeError: Cannot read properties of undefined (reading 'length')`)
+
+        if(String(Er) === `TypeError: Cannot read properties of undefined (reading 'length')`){
+            //
+        }
+
+
     }
+    const LocalStor = JSON.parse(localStorage.getItem('Key'))
 
     return(
         <>
-        {pedido === false? <Logo/>:
+        {}
+        {pedido === false?
+            <div className={style.Npedido}>
+                 Faca um pedido!
+                 <Link to={`/tipo/${LocalStor[1]['Mesa']}`}><div className={style.Div}>CLICK AQUI</div></Link>
+                 <Logo/>
+            </div>
+        :
         
                 <section className={style.conteiner}>
 
@@ -103,7 +116,7 @@ function Pedido(){
                 {
                         pedido && pedido.Itens &&
                         Object.keys(pedido.Itens).map((indeX) => {
-                            return <div key={indeX} className={style.cab} onClick={()=>{removeElemnto(indeX, PEDIDO); handleClick()}}><span className={style.Qnt}>{pedido['Itens'][indeX]['Item']['Quantidade']}</span>  <span className={style.tmn}>{pedido['Itens'][indeX]['Item']['Sabor']} - {pedido['Itens'][indeX]['Item']['Tipo']}</span>  <span className={style.vlu}>{pedido['Itens'][indeX]['Item']['Valor']}</span></div>;
+                            return <div key={indeX} className={style.cab} onClick={()=>{if(window.confirm(`VOCE ESTA REMOVENDO O ITEM :  ${pedido['Itens'][indeX]['Item']['Sabor']}`)){removeElemnto(indeX, PEDIDO); handleClick()}}}><span className={style.Qnt}>{pedido['Itens'][indeX]['Item']['Quantidade']}</span>  <span className={style.tmn}>{pedido['Itens'][indeX]['Item']['Sabor']} - {pedido['Itens'][indeX]['Item']['Tipo']}</span>  <span className={style.vlu}>{pedido['Itens'][indeX]['Item']['Valor']}</span></div>;
                         })
                     }
             </div>
@@ -120,7 +133,9 @@ function Pedido(){
                     <div id='pastel'  onClick={()=>{apagarLocal(); apagar()}}><span className={style.texto}>Pagar</span></div>
                 </Link>
             </div>
-            <span className={style.ped}>Pedido : {PEDIDO}</span>
+
+            <span className={style.ped}>Pedido : {PEDIDO} / {LocalStor[1]['Mesa']}</span>
+
             <div className={style.cn}><strong>CNPJ :</strong> 19.375.999/0001-81</div>
             <div className={style.cnn}><Logo/></div>
 
