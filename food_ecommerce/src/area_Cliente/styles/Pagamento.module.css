@@ -1,0 +1,49 @@
+.conteiner{
+    position: fixed;
+    top: 10%;
+    background-color: #2e5e2e;
+    z-index: 1;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 100%;
+}
+
+.valOr{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    top: 30%;
+    right: 25%;
+    height: 3rem;
+    width: 250px;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+.Npedido{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c2c1c1;
+    border-radius: 7px;
+    height: 80vh;
+    width: 350px;
+    top: 5%;
+    font-size: 1.5rem;
+}
+
+.Div{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    top: 40%;
+    background-color: black;
+    height: 3rem;
+    width: 250px;
+    border-radius: 7px;
+}
+

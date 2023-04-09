@@ -129,8 +129,8 @@ function Pedido(){
             </div>
 
             <div className={style.bod}>
-                <Link to='/tipo'>
-                    <div id='pastel'  onClick={()=>{apagarLocal(); apagar()}}><span className={style.texto}>Pagar</span></div>
+                <Link to={`/pagamento/${pedido.valor_total}`}>
+                    <div id='pastel'  onClick={()=>{apagarLocal(); apagar()}}><span className={style.texto}>Efetuar Pagamento</span></div>
                 </Link>
             </div>
 
