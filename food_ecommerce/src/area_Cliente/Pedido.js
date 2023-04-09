@@ -16,7 +16,7 @@ async function fetchPedido(pedidoId) {
   }
 
 async function apagar(){
-    const APAGARKEY = await fetch(`http://192.168.31.3:8080/mesa/${MESAKEY[1]['Mesa']}/apagar`);
+    const APAGARKEY = await fetch(`http://192.168.31.3:8080/mesa/${MESAKEY[1]['Mesa']}/pagar`);
     // const APAGARKEY = await fetch(`http://192.168.3.52:8080/${MESAKEY[1]['Mesa']}/apagar`);
 
     return APAGARKEY.json();

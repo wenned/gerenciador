@@ -25,12 +25,12 @@ function Mesa(){
         const intervalId = setInterval(capture, 2000);
         return () => clearInterval(intervalId);
       }, []);
-      
+
     return (
         <>
             <section className={style.conteiner}>
 
-                <div className={ESTATO_GLOBAL === undefined? style.estilo: ESTATO_GLOBAL[0]['Mesa1'] === false? style.estilo:style.ocupada}><span><span>MESA 1</span>
+                <div className={ESTATO_GLOBAL === undefined? style.estilo:ESTATO_GLOBAL[0]['Mesa1'] === 'pagar'? style.pagamento:ESTATO_GLOBAL[0]['Mesa1'] === false?style.estilo:style.ocupada}><span><span>MESA 1</span>
                     <a href='/tipo/Mesa1' >Pedido</a>
                     <a href='/#' onClick={()=>fecharMesa('Mesa1')}>Fechar</a>
                     <a href='/#' >Emitir Cumpon</a>
