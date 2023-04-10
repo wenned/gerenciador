@@ -4,7 +4,7 @@ import Logo from '../componentes/Logo';
 import { useEffect, useState } from 'react';
 
 const MESAKEY =JSON.parse(localStorage.getItem('Key'))
-
+const umeroPedido = localStorage.getItem('Pedido')
 
 async function fetchPedido(pedidoId) {
 
@@ -15,11 +15,21 @@ async function fetchPedido(pedidoId) {
     return resposta.json();
   }
 
-async function apagar(){
-    const APAGARKEY = await fetch(`http://192.168.31.3:8080/mesa/${MESAKEY[1]['Mesa']}/pagar`);
-    // const APAGARKEY = await fetch(`http://192.168.3.52:8080/${MESAKEY[1]['Mesa']}/apagar`);
+async function apagar(...args){
 
-    return APAGARKEY.json();
+    switch(args[0]){
+
+        case 'pagar':
+            const APAGARKE = await fetch(`http://192.168.31.3:8080/mesa/${MESAKEY[1]['Mesa']}/${args[0]}`);
+            return APAGARKE.json();
+
+        case 'deletar':
+            const APAGARKEY = await fetch(`http://192.168.31.3:8080/mesa/${umeroPedido}/${args[0]}`);
+            return APAGARKEY.json();                
+            
+        default:
+            break
+    }
 };
 
 function apagarLocal(){
@@ -29,6 +39,10 @@ function apagarLocal(){
     for(var REMOVKEY=0; REMOVKEY < REMOVE.length; REMOVKEY++){
         localStorage.removeItem(REMOVE[REMOVKEY])
     }
+}
+
+function apagarPedido(){
+    localStorage.removeItem('Pedido')
 }
 
 async function removeElemnto(...args){
@@ -76,32 +90,29 @@ function Pedido(){
 
     try {
             
-        if(pedido.Itens.length === 0){
+        if(pedido.valor_total === '0.00'){
             setPedido(false)
         }
 
     } catch (Er) {
 
         if(String(Er) === `TypeError: Cannot read properties of undefined (reading 'length')`){
-            //
+            // 
         }
-
-
     }
-    const LocalStor = JSON.parse(localStorage.getItem('Key'))
+    
+    if(pedido === false){
+        apagar('deletar')
+        setTimeout(()=>apagarPedido(), 5)
+        var MESA = sessionStorage.getItem('N_MESA')
+        setTimeout(()=>{window.location.href =`/tipo/${MESA}`}) 
+    }
 
+    const LocalStor = JSON.parse(localStorage.getItem('Key'))
+    console.log()
     return(
         <>
-        {}
-        {pedido === false?
-            <div className={style.Npedido}>
-                 Faca um pedido!
-                 <Link to={`/tipo/${LocalStor[1]['Mesa']}`}><div className={style.Div}>CLICK AQUI</div></Link>
-                 <Logo/>
-            </div>
-        :
-        
-                <section className={style.conteiner}>
+        <section className={style.conteiner}>
 
             <div className={style.pro}>
                 <div className={style.valO}>
@@ -130,7 +141,7 @@ function Pedido(){
 
             <div className={style.bod}>
                 <Link to={`/pagamento/${pedido.valor_total}`}>
-                    <div id='pastel'  onClick={()=>{apagarLocal(); apagar()}}><span className={style.texto}>Efetuar Pagamento</span></div>
+                    <div id='pastel'  onClick={()=>{apagarLocal(); apagar('pagar')}}><span className={style.texto}>Efetuar Pagamento</span></div>
                 </Link>
             </div>
 
@@ -140,9 +151,6 @@ function Pedido(){
             <div className={style.cnn}><Logo/></div>
 
         </section> 
-        }
-
-
         </>
     )
 

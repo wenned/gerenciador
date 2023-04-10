@@ -142,28 +142,28 @@ function Mesa(){
                     </span>
                 </div>
                 
-                <div className={ESTATO_GLOBAL === undefined? style.estilo: ESTATO_GLOBAL[16]['Mesa17'] === false? style.estilo:style.ocupada}><span><span>MESA 17</span>
+                <div className={ESTATO_GLOBAL === undefined? style.estilo:ESTATO_GLOBAL[16]['Mesa17'] === 'pagar'? style.pagamento:ESTATO_GLOBAL[16]['Mesa17'] === false?style.estilo:style.ocupada}><span><span>MESA 17</span>
                     <a href='/tipo/Mesa17' >Pedido</a>
                     <a href='/#' onClick={()=>fecharMesa('Mesa17')}>Fechar</a>
                     <a href='/#' >Emitir Cumpon</a>
                     </span>
                 </div>
                 
-                <div className={ESTATO_GLOBAL === undefined? style.estilo: ESTATO_GLOBAL[17]['Mesa18'] === false? style.estilo:style.ocupada}><span><span>MESA 18</span>
-                    <a href='/tipo/Mesa18' >Pedido</a>
+                <div className={ESTATO_GLOBAL === undefined? style.estilo:ESTATO_GLOBAL[17]['Mesa18'] === 'pagar'? style.pagamento:ESTATO_GLOBAL[17]['Mesa18'] === false?style.estilo:style.ocupada}><span><span>MESA 18</span>
+                    <a href='/tipo/Mesa17' >Pedido</a>
                     <a href='/#' onClick={()=>fecharMesa('Mesa18')}>Fechar</a>
                     <a href='/#' >Emitir Cumpon</a>
                     </span>
                 </div>
                 
-                <div className={ESTATO_GLOBAL === undefined? style.estilo: ESTATO_GLOBAL[18]['Mesa19'] === false? style.estilo:style.ocupada}><span><span>MESA 19</span>
+                <div className={ESTATO_GLOBAL === undefined? style.estilo:ESTATO_GLOBAL[18]['Mesa19'] === 'pagar'? style.pagamento:ESTATO_GLOBAL[18]['Mesa19'] === false?style.estilo:style.ocupada}><span><span>MESA 19</span>
                     <a href='/tipo/Mesa19' >Pedido</a>
                     <a href='/#' onClick={()=>fecharMesa('Mesa19')}>Fechar</a>
                     <a href='/#' >Emitir Cumpon</a>
                     </span>
                 </div>
                 
-                <div className={ESTATO_GLOBAL === undefined? style.estilo: ESTATO_GLOBAL[19]['Mesa20'] === false? style.estilo:style.ocupada}><span><span>MESA 20</span>
+                <div className={ESTATO_GLOBAL === undefined? style.estilo:ESTATO_GLOBAL[19]['Mesa20'] === 'pagar'? style.pagamento:ESTATO_GLOBAL[19]['Mesa20'] === false?style.estilo:style.ocupada}><span><span>MESA 20</span>
                     <a href='/tipo/Mesa20' >Pedido</a>
                     <a href='/#' onClick={()=>fecharMesa('Mesa20')}>Fechar</a>
                     <a href='/#' >Emitir Cumpon</a>
@@ -172,7 +172,6 @@ function Mesa(){
 
                     
             </section>
-            {/* <section className={style.at}><LogoLarge/></section> */}
         </>
     )
 };

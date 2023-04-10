@@ -80,7 +80,7 @@ function Tipo(){
 
     const {keyS, Mesa} = useParams();
     const [valor, setvalor] = useState(false)
-    const [iD, setiD] = useState(null)
+    const [iD, setiD] = useState('abrir')
 
     useEffect(() => {
         var keyConst = []
@@ -91,8 +91,7 @@ function Tipo(){
             try {
                 // const RespostaKEY = await fetch(`http://192.168.3.52:8080/${Mesa}/${iD}`)
 
-                // const RespostaKEY = await fetch(`http://192.168.31.3:8080/mesa/${Mesa}/${iD}`)
-                const RespostaKEY = await fetch(`http://192.168.31.3:8080/mesa/${Mesa}/abrir`)
+                const RespostaKEY = await fetch(`http://192.168.31.3:8080/mesa/${Mesa}/${iD}`)
 
                 const ResultKey = await RespostaKEY.json()
             
@@ -112,8 +111,6 @@ function Tipo(){
                     setvalor(3)
                 }
             }
-
-            
         }    
 
         var items = ['temp', 'Modelo']
@@ -125,7 +122,9 @@ function Tipo(){
             setvalor(true)
             var KeyLIBERA = JSON.parse(localStorage.getItem('Key'))
             setiD(KeyLIBERA.accessKey)
+
         }else{
+            
             if(Mesa === undefined){
                 setvalor(false)
                 localStorage.clear()

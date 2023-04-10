@@ -13,17 +13,12 @@
 
 }
 
-.at{
-    position: relative;
-    bottom: 20%;
-    height: 7rem;
-}
-
 .estilo{
     position: relative;
     width: 10rem;
     height: 9rem;
     background-color: #3f3e3e;
+    background: linear-gradient(45deg, #3f3e3e, #6c6b6b);
     border-radius: 5px;
     margin: 5px ;
 }
@@ -43,7 +38,7 @@
 }
     
 .estilo span a{
-    background-color: #2e5e2e;
+    background: linear-gradient(45deg, #2e5e2e, #668666);
     height: 1.5rem;
     margin: 5px;
     padding: 3px;
@@ -55,7 +50,7 @@
     position: relative;
     width: 10rem;
     height: 9rem;
-    background-color: #f7ff17;
+    background: linear-gradient(45deg, #e4e956, #ebe4a6);
     border-radius: 5px;
     margin: 5px ;
 }
@@ -75,7 +70,7 @@
 }
     
 .ocupada span a{
-    background-color: #2e5e2e;
+    background: linear-gradient(45deg, #2e5e2e, #668666);
     height: 1.5rem;
     margin: 5px;
     padding: 3px;
@@ -87,7 +82,7 @@
     position: relative;
     width: 10rem;
     height: 9rem;
-    background-color: #ff0000;
+    background: linear-gradient(45deg, #ff0000, #ffbfbf);
     border-radius: 5px;
     margin: 5px ;
 }
@@ -107,7 +102,7 @@
 }
     
 .pagamento span a{
-    background-color: #0c0c0c;
+    background: linear-gradient(45deg, #2e5e2e, #668666);
     height: 1.5rem;
     margin: 5px;
     padding: 3px;
