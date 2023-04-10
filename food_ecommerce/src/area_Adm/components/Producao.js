@@ -9,8 +9,8 @@ function Producao(){
             <Link to='/pasteis'>
                 <div className={style.bnt}><div className={style.vl}>PEDIDOS</div></div>
             </Link>
-            <Link to='/pasteis'>
-                <div className={style.bnt}><div className={style.vl}>?</div></div>
+            <Link to='/conferencia'>
+                <div className={style.bnt}><div className={style.vl}>CONFERENCIA</div></div>
             </Link>
             <Link to='/pasteis'>
                 <div className={style.bnt}><div className={style.vl}>?</div></div>

@@ -8,6 +8,7 @@ import Finalizar from './area_Cliente/Finalizar';
 import Pedido from './area_Cliente/Pedido';
 import Pasteis from './area_Adm/components/Pasteis';
 import Pagamento from './area_Cliente/Pagamento';
+import Conferencia from './area_Adm/components/Conferencia';
 
 function App() {
 
@@ -23,8 +24,7 @@ function App() {
           <Route path='/finalizar' element={<Finalizar/>}/>
           <Route path='/pedido' element={<Pedido/>}/>
           <Route path='/pagamento/:valor?' element={<Pagamento/>}/>
-
-
+          <Route path='/conferencia' element={<Conferencia/>}/>
 
           {/* AREA PRODUCAO */}
           <Route path='/pasteis' element={<Pasteis/>}/>
