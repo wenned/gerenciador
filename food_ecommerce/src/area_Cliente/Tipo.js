@@ -3,84 +3,32 @@ import style from './styles/Tipo.module.css'
 import { Link, useParams} from 'react-router-dom';
 import { useEffect, useState} from 'react';
 
-var Model = {
-    "Data":"",
-    "Itens":"",
-    "valor_total": "",
-    "Status":"Pendente",
-    "Id":"",
-    "Nu_Pedido":""
-}
-
-var acss = false
-var dd;
-
-async function AddTipo(arg){
-
-    if(localStorage.getItem('Pedido') === null){
-
-        if(localStorage.getItem('Modelo')){
-            
-            if(acss === true){
-
-                dd = JSON.parse(localStorage.getItem('Modelo'))
-
-                var PED = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
-                PED['Item']['Tipo'] = arg
-                dd['Itens'].push(PED)
-                localStorage.setItem('Modelo', JSON.stringify(dd))
-                acss = false
-            }else{
-                // localStorage.clear('Modelo')
-            }
-
-
-        }else{
-
-            var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}]
-            PEDIDO[0]['Item']['Tipo'] = arg
-            Model['Itens']= PEDIDO
-            localStorage.setItem('Modelo', JSON.stringify(Model))
-        }
-    }else{
-        
-        if(localStorage.getItem('Modelo')){
-
-            dd = JSON.parse(localStorage.getItem('Modelo'))
-
-            var PEds = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
-            PEds['Item']['Tipo'] = arg
-            dd['Itens'].push(PEds)
-            localStorage.setItem('Modelo', JSON.stringify(dd))
-
-        }else{
-
-            const pedidoId = localStorage.getItem('Pedido');
-            // await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`)
-
-            await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`)
-            // await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`)
-            .then((res) =>{
-                return res.json()
-            }).then(doc =>{
-                localStorage.setItem('temp', JSON.stringify(doc))
-            });
-
-            dd = JSON.parse(localStorage.getItem('temp'))
-
-            var PEd = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
-            PEd['Item']['Tipo'] = arg
-            dd['Itens'].push(PEd)
-            localStorage.setItem('Modelo', JSON.stringify(dd))
-        }
-    }
-}
+// Funcionalidades
+import {adicionarTipo} from './Funcionalidades/adicionarQuantidade.js';
 
 function Tipo(){
 
     const {keyS, Mesa} = useParams();
     const [valor, setvalor] = useState(false)
     const [iD, setiD] = useState('abrir')
+
+    try {
+        if(keyS === undefined){
+            //
+        }else{
+            if(keyS === 'newitem'){
+                var KeItem = JSON.parse(localStorage.getItem('Modelo'))
+                for(var i=0; i< KeItem['Itens'].length; i++){
+                    if(KeItem['Itens'][i]['Item']['Quantidade'] >= 1){
+                        sessionStorage.setItem('acss', true)}
+                }
+            }
+        }
+      } catch (error) {
+        if(String(error) === `TypeError: Cannot read properties of null (reading 'Itens')`){
+            //
+        }
+      }
 
     useEffect(() => {
         var keyConst = []
@@ -159,8 +107,13 @@ function Tipo(){
                             IsertDAdo.push(CONFI_MODELO.Itens[JItens])
                         }
                     }
-                    CONFI_MODELO.Itens = IsertDAdo
-                    localStorage.setItem('Modelo', JSON.stringify(CONFI_MODELO))
+
+                    if(IsertDAdo.length !== 0){
+                        CONFI_MODELO.Itens = IsertDAdo
+                        localStorage.setItem('Modelo', JSON.stringify(CONFI_MODELO))
+                    }
+
+                    
 
                 }
             }
@@ -174,7 +127,8 @@ function Tipo(){
                 const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
             //   const resposta = await fetch(`http://192.168.2.9:8080/${x}`);
 
-            const RESULT = await resposta.json();
+                const RESULT = await resposta.json();
+                // console.log('terceiro')
                 localStorage.setItem(`${x}`, JSON.stringify(RESULT));
             }
 
@@ -185,45 +139,30 @@ function Tipo(){
         
       }, [keyS, Mesa, iD, valor]);
 
-      try {
-        if(keyS === undefined){
-            //
-        }else{
-            if(keyS === 'newitem'){
-                var KeItem = JSON.parse(localStorage.getItem('Modelo'))
-                for(var i=0; i< KeItem['Itens'].length; i++){
-                    if(KeItem['Itens'][i]['Item']['Quantidade'] >= 1){acss = true}
-                }
 
-            }
-        }
-      } catch (error) {
-        
-      }
-      
     const numeroMesa = sessionStorage.getItem('N_MESA')
 
     return (
         <>{valor && valor !== 3?
                 <section className={style.conteiner}>
             
-                <Link onClick={()=>{AddTipo('Pastel')}} to={`/pastel/menu_pasteis/`}>
+                <Link onClick={()=>{adicionarTipo('Pastel')}} to={`/pastel/menu_pasteis/`}>
                     <div id='pastel' className={style.bodY}>PASTEIS</div>
                 </Link>
                 
-                <Link onClick={()=>{AddTipo('Frances')}} to='/pastel/menu_frances'>
+                <Link onClick={()=>{adicionarTipo('Frances')}} to='/pastel/menu_frances'>
                     <div id='frances' className={style.bodY}>CREPE FRANCES</div>
                 </Link>
 
-                <Link  onClick={()=>{AddTipo('Suico')}} to='/pastel/menu_suicos'>
+                <Link  onClick={()=>{adicionarTipo('Suico')}} to='/pastel/menu_suicos'>
                     <div id='suico' className={style.bodY}>CREPE SUICO</div>
                 </Link>
 
-                {/* <Link onClick={()=>{AddTipo('Hamburguer')}} to='/pastel/menu_hamburgue'> */}
+                {/* <Link onClick={()=>{adicionarTipo('Hamburguer')}} to='/pastel/menu_hamburgue'> */}
                     <div id='hamburgue' className={style.bodY}>HAMBURGUE</div>
                 {/* </Link> */}
 
-                <Link onClick={()=>{AddTipo('Bebida')}} to='/pastel/menu_bebidas'>
+                <Link onClick={()=>{adicionarTipo('Bebida')}} to='/pastel/menu_bebidas'>
                     <div id='bebida' className={style.bodY}>BEBIDAS</div>
                 </Link>
 
