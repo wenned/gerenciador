@@ -5,6 +5,7 @@ import { useEffect, useState} from 'react';
 
 // Funcionalidades
 import {adicionarTipo} from './Funcionalidades/adicionarQuantidade.js';
+import {carga} from './Funcionalidades/verificacaoKeys'
 
 function Tipo(){
 
@@ -69,7 +70,7 @@ function Tipo(){
         if(localStorage.getItem('Key') !== null){
             setvalor(true)
             var KeyLIBERA = JSON.parse(localStorage.getItem('Key'))
-            setiD(KeyLIBERA.accessKey)
+            setiD(KeyLIBERA[0]['accessKey'])
 
         }else{
             
@@ -83,7 +84,7 @@ function Tipo(){
         }
 
         if(valor === true){
-
+            
             if(CONFI_MODELO == null){
                 //
             }else{
@@ -112,33 +113,14 @@ function Tipo(){
                         CONFI_MODELO.Itens = IsertDAdo
                         localStorage.setItem('Modelo', JSON.stringify(CONFI_MODELO))
                     }
-
-                    
-
                 }
             }
 
+            carga()
 
-            const GetItems = ["menu_bebidas","menu_frances", "menu_pasteis", "menu_suicos"]
-
-            async function carregaDados (x) {
-                // const resposta = await fetch(`http://192.168.3.52:8080/${x}`);
-
-                const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
-            //   const resposta = await fetch(`http://192.168.2.9:8080/${x}`);
-
-                const RESULT = await resposta.json();
-                // console.log('terceiro')
-                localStorage.setItem(`${x}`, JSON.stringify(RESULT));
-            }
-
-            for(var l=0; l < GetItems.length; l++){
-                carregaDados(GetItems[l]);
-            };
         }
         
       }, [keyS, Mesa, iD, valor]);
-
 
     const numeroMesa = sessionStorage.getItem('N_MESA')
 

@@ -110,6 +110,7 @@ function Pedido(){
 
     const LocalStor = JSON.parse(localStorage.getItem('Key'))
     console.log()
+    
     return(
         <>
         <section className={style.conteiner}>
