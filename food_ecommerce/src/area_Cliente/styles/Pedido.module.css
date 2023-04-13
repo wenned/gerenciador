@@ -4,14 +4,14 @@
     flex-direction: column;
     height: 83vh;
     top: 7%;
-    background-color: #c2c1c1;
     border-radius: 7px;
+    color: #171d12;
 }
 
 .bodY{
     position:relative;
     top: 20%;
-    background-color: black;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     width: 350px;
     height: 50px;
     margin-top: 5px;
@@ -24,7 +24,7 @@
 .bod{
     position:relative;
     top: 18%;
-    background-color: black;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     width: 350px;
     height: 50px;
     text-align: center;
@@ -63,12 +63,12 @@
     text-align: center;
     display: flex;
     justify-content: space-around;
-    background-color: #ffffff;
     border-radius: 3px;
     height: 1.3rem;
     margin: 7px;
     cursor: pointer;
 }
+
 .pro{
     position: absolute;
     flex-direction: column;

@@ -1,30 +1,36 @@
 .conteiner{
-    flex-direction: column;
     position:relative;
-    height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
     top: 3%;
-    background-color: #c2c1c1;
-    overflow: auto;
+    left: 3%;
     border-radius: 7px;
+    /* width: 40vh; */
 }
 
 .bo{
     position:relative;
-    margin: 9px;
-    background-color: black;
-    color: #ffff;
-    width: 325px;
-    height: 50px;
-    border-radius: 7px;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    width: 170px;
+    height: 90px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.atl{
+    position: relative;
+    display: flex;
+    height: 110px;
 }
 
 ::-webkit-scrollbar{
-    width: 5px;
+    width: 10px;
     background: #2e5e2e;
     border-radius: 7px;
 }

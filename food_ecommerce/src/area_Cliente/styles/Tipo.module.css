@@ -1,15 +1,12 @@
-a{
-    text-decoration: none;
-    color: white;
-    height: 20rem;
-}
 .conteiner{
-    flex-direction: column;
     position:relative;
-    height: 80vh;
-    top: 3%;
-    background-color: #c2c1c1;
-    border-radius: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 27vh;
+    /* width: 50vh; */
+    top: 5%;
+    left: 4%;
+    border-radius: 7px; 
 }
 
 .bodY{
@@ -17,25 +14,45 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: #ffff;
-    width: 325px;
-    height: 50px;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    width: 170px;
+    height: 170px;
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 30px;
-    margin-left: 7px;
-    margin-right: 7px;
+    margin-right: 10px;
     font-size: 1.5rem;
+}
+
+.atl{
+    position: relative;
+    display: flex;
+    height: 70px;
+    top: 10%;
+}
+
+.radape{
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 170px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 1rem;
+    bottom: 35%;
+    z-index: -3;
 }
 
 .busy{
     position: relative;
     height: 80vh;
-    background-color: #c2c1c1;
     top: 5%;
     border-radius: 7px;
+    color: #171d12;
 }
 
 .busy :nth-child(1){
@@ -64,7 +81,6 @@ a{
 
 .Err{
     position: relative;
-    background-color: #c2c1c1;
     display: flex;
     flex-direction: column;
     align-items: center;

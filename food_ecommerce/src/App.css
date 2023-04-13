@@ -4,10 +4,16 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+    color: #f4f3f2;
+    height: 0;
+}
+
 .App{
     position: relative;
     display: flex;
     text-align: center;
     justify-content: center;
-    background-color: #ffffff;    
+    color:#f4f3f2;
 }

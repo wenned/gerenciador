@@ -10,4 +10,5 @@ body {
   display: flex;
   text-align: center;
   justify-content: center;
+  background: linear-gradient(90deg, #b1a99b, #ede4d4);
 }

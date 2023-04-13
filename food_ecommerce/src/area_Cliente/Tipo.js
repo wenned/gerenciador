@@ -90,27 +90,37 @@ function Tipo(){
         {controle === true?
         <section className={style.conteiner}>
                 
-                <Link onClick={()=>{adicionarTipo('Pastel')}} to={`/pastel/menu_pasteis/`}>
-                    <div id='pastel' className={style.bodY}>PASTEIS</div>
-                </Link>
+                <div className={style.alt}>
+                    <Link onClick={()=>{adicionarTipo('Pastel')}} to={`/pastel/menu_pasteis/`}>
+                        <div id='pastel' className={style.bodY}>PASTEIS</div>
+                    </Link>
+                </div>
                 
-                <Link onClick={()=>{adicionarTipo('Frances')}} to='/pastel/menu_frances'>
-                    <div id='frances' className={style.bodY}>CREPE FRANCES</div>
-                </Link>
+                <div className={style.alt}>
+                    <Link onClick={()=>{adicionarTipo('Frances')}} to='/pastel/menu_frances'>
+                        <div id='frances' className={style.bodY}>CREPE FRANCES</div>
+                    </Link>
+                </div>
 
-                <Link  onClick={()=>{adicionarTipo('Suico')}} to='/pastel/menu_suicos'>
-                    <div id='suico' className={style.bodY}>CREPE SUICO</div>
-                </Link>
+                <div className={style.alt}>
+                    <Link  onClick={()=>{adicionarTipo('Suico')}} to='/pastel/menu_suicos'>
+                        <div id='suico' className={style.bodY}>CREPE SUICO</div>
+                    </Link>
+                </div>
 
-                {/* <Link onClick={()=>{adicionarTipo('Hamburguer')}} to='/pastel/menu_hamburgue'> */}
-                    <div id='hamburgue' className={style.bodY}>HAMBURGUE</div>
-                {/* </Link> */}
+                <div className={style.alt}>
+                    <Link onClick={()=>{adicionarTipo('Hamburguer')}} to='/pastel/menu_hamburgue'>
+                        <div id='hamburgue' className={style.bodY}>HAMBURGUE</div>
+                    </Link>
+                </div>
 
-                <Link onClick={()=>{adicionarTipo('Bebida')}} to='/pastel/menu_bebidas'>
-                    <div id='bebida' className={style.bodY}>BEBIDAS</div>
-                </Link>
+                <div className={style.alt}>
+                    <Link onClick={()=>{adicionarTipo('Bebida')}} to='/pastel/menu_bebidas'>
+                        <div id='bebida' className={style.bodY}>BEBIDAS</div>
+                    </Link>
+                </div>
 
-                <Logo/>
+                <div className={style.radape}><Logo/></div>
 
         </section>:
             controle === 3?

@@ -320,16 +320,16 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
             <div className={style.IMg}><img src={IMAGEM[item]} alt='Imagem Pastel'/></div>
 
             <div className={style.conteiner_Button}>
+                
+                <div onClick={()=>setValor(Valor + 1)} className={style.But}>+</div>
+
+                <span className={style.Valor}>{Valor}</span>
 
                 <button onClick={() =>{
                     if(Valor > 0){
                         setValor(Valor - 1)
                         }
                     }} className={style.But}>-</button>
-
-                <span className={style.Valor}>{Valor}</span>
-
-                <div onClick={()=>setValor(Valor + 1)} className={style.But}>+</div>
         
             </div>
 

@@ -18,7 +18,7 @@
     height: 3rem;
     width: 250px;
     border-radius: 7px;
-    color: #ffffff;
+    color: #f4f3f2;
     font-size: 1.5rem;
 }
 .Npedido{
@@ -27,12 +27,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #c2c1c1;
     border-radius: 7px;
     height: 80vh;
     width: 350px;
-    top: 5%;
+    top: 10%;
     font-size: 1.5rem;
+    color: #171d12;
 }
 
 .Div{
@@ -41,7 +41,7 @@
     justify-content: center;
     display: flex;
     top: 40%;
-    background-color: black;
+    background-color: #171d12;
     height: 3rem;
     width: 250px;
     border-radius: 7px;

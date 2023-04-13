@@ -1,7 +1,8 @@
 .conteiner{
     position: relative;
     height: 10%;
-    top: 17%;
+    top: 20%;
+    color: #171d12;
 }
 .conteiner div {
     display: flex;
@@ -14,7 +15,7 @@
     position: absolute;
     top: -30%;
     height: 5px;
-    background-color: black;
+    background-color: #171d12;
     width: 100%;
 }
 .conteiner div h1{
