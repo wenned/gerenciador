@@ -7,7 +7,6 @@ var Model = {
     "Nu_Pedido":""
 }
 
-var acss = sessionStorage.getItem('acss')
 var dadosInsert;
 
 export async function adicionarTipo(arg){
@@ -16,21 +15,14 @@ export async function adicionarTipo(arg){
 
         if(localStorage.getItem('Modelo')){
 
-            if(acss === 'true'){
+            dadosInsert = JSON.parse(localStorage.getItem('Modelo'))
 
-                dadosInsert = JSON.parse(localStorage.getItem('Modelo'))
-
-                var NewItem = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
-                NewItem['Item']['Tipo'] = arg
-                dadosInsert['Itens'].push(NewItem)
-                localStorage.setItem('Modelo', JSON.stringify(dadosInsert))
-                sessionStorage.setItem('acss', false)
-            }else{
-                // localStorage.clear('Modelo')
-            }
+            var NewItem = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
+            NewItem['Item']['Tipo'] = arg
+            dadosInsert['Itens'].push(NewItem)
+            localStorage.setItem('Modelo', JSON.stringify(dadosInsert))
 
         }else{
-
             var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}]
             PEDIDO[0]['Item']['Tipo'] = arg
             Model['Itens']= PEDIDO
