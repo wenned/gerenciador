@@ -1,12 +1,11 @@
 .conteiner{
     position: relative;
-    top: 10%;
     display: flex;
     flex-wrap: wrap;
-    width: 120vh;
+    width: 90vh;
     height: 80vh;
     align-content: space-around;    
-    background-color: #cccccc;
+    background: #a9a69f;
     padding: 1rem;
     border-radius: 10px;
     justify-content: space-between;
@@ -16,96 +15,104 @@
 .estilo{
     position: relative;
     width: 10rem;
-    height: 9rem;
-    background-color: #3f3e3e;
-    background: linear-gradient(45deg, #3f3e3e, #6c6b6b);
-    border-radius: 5px;
-    margin: 5px ;
+    height: 7rem;
+    background: linear-gradient(45deg, #171d12, #8f846b,#232220);
+    border-radius: 7px;
+    opacity: 0.9;
 }
 
 .estilo span{
     position: relative;
     display: flex;
-    flex-direction: column;
-    color: white;
-    top: -3%;
+    justify-content: center;
+    align-items: center;
 }
 
-.estilo span span{
+.numero{
     position: relative;
-    font-size: 1.5rem;
-    top: 5%;
+    display: flex;
+    justify-content: center;
+    background-color: #a9a69f;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 7px;    
+    top: -1%;
+    right: 0.4%;    
+    height: 25%;
+    width: 40%;
+    font-size: 11px;
+    color: #171d12;
 }
     
 .estilo span a{
-    background: linear-gradient(45deg, #2e5e2e, #668666);
-    height: 1.5rem;
-    margin: 5px;
-    padding: 3px;
-    border-radius: 3px;
-    font-size: 1.1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #171d12;
+    height: 40%;
+    width: 50%;
+    border-radius: 7px;
+    font-size: 10px;
+    margin: 2%;
+    bottom: 10%;
 }
 
 .ocupada{
     position: relative;
     width: 10rem;
-    height: 9rem;
-    background: linear-gradient(45deg, #e4e956, #ebe4a6);
-    border-radius: 5px;
-    margin: 5px ;
+    height: 7rem;
+    background: linear-gradient(45deg, #bad234, #a9b759,#bad234);
+    border-radius: 7px;
+    opacity: 0.9;
 }
 
 .ocupada span{
     position: relative;
     display: flex;
-    flex-direction: column;
-    color: #000000;
-    top: -3%;
-}
-
-.ocupada span span{
-    position: relative;
-    font-size: 1.5rem;
-    top: 5%;
+    justify-content: center;
+    align-items: center;
 }
     
 .ocupada span a{
-    background: linear-gradient(45deg, #2e5e2e, #668666);
-    height: 1.5rem;
-    margin: 5px;
-    padding: 3px;
-    border-radius: 3px;
-    font-size: 1.1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #171d12;
+    height: 40%;
+    width: 50%;
+    border-radius: 7px;
+    font-size: 10px;
+    margin: 2%;
+    bottom: 10%;
 }
 
 .pagamento{
     position: relative;
     width: 10rem;
-    height: 9rem;
-    background: linear-gradient(45deg, #ff0000, #ffbfbf);
-    border-radius: 5px;
-    margin: 5px ;
+    height: 7rem;
+    background: linear-gradient(45deg, #b13a3a, #9b6f6f,#b13a3a);
+    border-radius: 7px;
+    opacity: 0.9;
 }
 
 .pagamento span{
     position: relative;
     display: flex;
-    flex-direction: column;
-    color: #000000;
-    top: -3%;
-}
-
-.pagamento span span{
-    position: relative;
-    font-size: 1.5rem;
-    top: 5%;
+    justify-content: center;
+    align-items: center;
 }
     
 .pagamento span a{
-    background: linear-gradient(45deg, #2e5e2e, #668666);
-    height: 1.5rem;
-    margin: 5px;
-    padding: 3px;
-    border-radius: 3px;
-    font-size: 1.1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #171d12;
+    height: 40%;
+    width: 50%;
+    border-radius: 7px;
+    font-size: 10px;
+    margin: 2%;
+    bottom: 10%;
 }

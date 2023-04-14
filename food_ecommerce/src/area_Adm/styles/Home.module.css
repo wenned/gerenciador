@@ -5,9 +5,15 @@
     flex-direction: row;
     display: flex;
     justify-content: space-around;
+    width: 130vh;
 }
 
 .cont{
     position: relative;
-    right: 5%;
+    right: 1.7%;
+}
+
+.conter{
+    position: relative;
+    height: 80%;
 }

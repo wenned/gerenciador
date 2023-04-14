@@ -4,15 +4,16 @@
     flex-wrap: wrap;
     width: 90vh;
     align-content: space-between;
-    height: 70vh;
+    height: 30vh;
     top: 10%;
+    left: 8%;
 }
 
 .bnt{
     position: relative;
-    background-color: #2e5e2e;
-    height: 13rem;
-    width: 13rem;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    height: 12rem;
+    width: 12rem;
     margin: 10px;
     border-radius: 10%;
     cursor: pointer;

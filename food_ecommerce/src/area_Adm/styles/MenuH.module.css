@@ -5,13 +5,14 @@
     top: 35%;
     left: 5%;
     height: 14rem;
+    margin: 2%;
 }
 
 .bodY{
     position:relative;
     background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     color: #f4f3f2;
-    width: 325px;
+    width: 300px;
     height: 50px;
     margin-top: 15px;
     text-align: center;

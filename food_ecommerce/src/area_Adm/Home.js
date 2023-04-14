@@ -38,7 +38,7 @@ function Home(){
     return (
         <section className={style.conteiner}>
             <div className={style.cont}><MenuH/></div>
-            <div>{valor}</div>
+            <div className={style.conter}>{valor}</div>
         </section>
     )
 };
