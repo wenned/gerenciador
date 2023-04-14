@@ -1,22 +1,21 @@
 .conteiner{
-    position:absolute;
-    bottom: -2.3%;
-    left: -4.4%;
+    position:fixed;
     flex-wrap: wrap;
     display: flex;
-    background-color: #cccccc;
+    background: linear-gradient(45deg, #726f69, #a9a69f,#726f69);
     height: 80vh;
     width: 22.5rem;
-    margin: 1rem;
     z-index: 1;
     border-radius: 7px;
     align-items: center;
     overflow: hidden;
+    left: 38.9%;
+    color: #171d12;
 }
 
 ::-webkit-scrollbar{
     width: 5px;
-    background: #2e5e2e;
+    background: linear-gradient(45deg, #60db60, #89b789,#60db60);
     border-radius: 7px;
 }
 
@@ -81,7 +80,7 @@
 .bnt{
     position: absolute;
     color: #ffffff;
-    background-color: #ff0000;
+    background: linear-gradient(45deg, #b13a3a, #9b6f6f,#b13a3a);
     right: -4.3rem;
     height: 1.6rem;
     width: 3.5rem;
@@ -93,7 +92,7 @@
     cursor: pointer;
 }
 
-.despache{
+/* .despache{
     position: relative;
     left: 5%;
     top: 4%;
@@ -103,15 +102,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     cursor: pointer;
     color: #ffffff;
     font-size: 1.5rem;
+} */
+
+
+
+.feito{
+    position: absolute;
+    color: #ffffff;
+    background: linear-gradient(45deg, #4aca4a, #89b789,#4aca4a);
+    right: -4.3rem;
+    height: 1.6rem;
+    width: 3.5rem;
+    margin: 5px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .cn{
     position: relative;
-    top: 4%;
+    top: 8%;
     left: 25%;
     height: 0;
 }
@@ -125,18 +141,14 @@
     left: 15%;
 }
 
+@media (max-width: 414px) {
 
-.feito{
-    position: absolute;
-    color: #ffffff;
-    background-color: #2e5e2e;
-    right: -4.3rem;
-    height: 1.6rem;
-    width: 3.5rem;
-    margin: 5px;
-    border-radius: 7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    .conteiner{
+        left: 7%;
+    }
+
+    .cn{
+        top: 6%;
+    }
+    
 }

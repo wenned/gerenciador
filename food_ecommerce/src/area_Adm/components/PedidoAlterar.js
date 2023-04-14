@@ -60,9 +60,9 @@ function PedidoAlterar(props){
                     }
             </div>
 
-            <div className={style.despache}>
+            {/* <div className={style.despache}>
                     <div>Despachar</div>
-            </div>
+            </div> */}
 
             <div className={style.ped}>Pedido : {props.pedido}</div>
 

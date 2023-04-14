@@ -1,55 +1,51 @@
 .conteiner{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     top: 5%;
     height: 80vh;
     width: 45vh;
-    background-color: #c2c1c1;
+    background: linear-gradient(45deg, #726f69, #a9a69f,#726f69);
     border-radius: 7px;
     overflow: auto;
 }
 
-.lg{
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    background-color: #c2c1c1;
-    top: 5%;
-    border-radius: 7px;
-    height: 70vh;
-    width: 300px;
-}
+
 
 .btn{
     position: relative;
-    bottom: 100%;
-    background-color: #2e5e2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     height: 2.5rem;
     margin: 1rem;
     width: 21rem;
     border-radius: 7px;
 }
 
-.btn span{
-    position: relative;
-    top: 20%;
-}
-
 .close{
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 2;
     height: 2rem;
-    top: 5%;
-    left: 18rem;
-    font-size: 2rem;
-    color: red;
+    top: 2%;
+    left: 70%;
+    font-size: 1.5rem;
+    color: #b13a3a;
+    border: 2px solid #b13a3a;
+    border-radius: 7px;
+    cursor: pointer;
 }
 
 
 .Err{
     position: relative;
-    background-color: #c2c1c1;
+    background: linear-gradient(45deg, #726f69, #a9a69f,#726f69);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,4 +56,16 @@
     width: 300px;
     font-size: 1.7rem;
 
+}
+
+.lg{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: linear-gradient(45deg, #726f69, #a9a69f,#726f69);
+    top: 5%;
+    border-radius: 7px;
+    height: 70vh;
+    width: 300px;
 }

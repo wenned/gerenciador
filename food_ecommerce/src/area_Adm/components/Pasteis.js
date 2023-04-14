@@ -1,5 +1,4 @@
 import { useState, useEffect} from 'react';
-import { VscChromeClose } from "react-icons/vsc";
 
 import { Link } from "react-router-dom";
 import Logo from '../../componentes/Logo';
@@ -52,7 +51,7 @@ function Pasteis(){
       function Elemente (nu){
 
         setelement(<PedidoAlterar pedido={nu}/>)
-        setclose(<VscChromeClose/>)
+        setclose('FECHAR')
 
       }
 
@@ -66,16 +65,19 @@ function Pasteis(){
       <>{valor.length > 0 && valor !== false?
         <section  className={style.conteiner}>
 
-          <div onClick={fechar} className={style.close}>{close}</div>
+          <div onClick={fechar} className={close === null?style.none: style.close}>{close}</div>
 
           <div className={style.element}>{element}</div>
 
-            {Object.values(valor).map((pastel) => (
-              <Link  key={pastel['_id']} onClick={()=>Elemente(pastel.Nu_Pedido)}>
-                <div className={style.btn} ><span >{pastel.Nu_Pedido} / {hora}</span></div>
-              </Link>
-            ))}
+            <div>
+              {Object.values(valor).map((pastel) => (
+                <Link  key={pastel['_id']} onClick={()=>Elemente(pastel.Nu_Pedido)}>
+                  <div className={style.btn} >{pastel.Nu_Pedido} / {hora}</div>
+                </Link>
+              ))}
+            </div>
         </section>
+
         :valida === true && valor === false?
           <div className={style.Err}>
           Erro ao conectar ao servidor!
