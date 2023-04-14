@@ -113,9 +113,11 @@ function Fechar(){
             <div className={style.pedidos}>
 
             {DADOS_RETORNO.length > 0? Object.values(DADOS_RETORNO).map((ValorElemento, i)=> (
-            <Link  key={i}>
-              <div className={style.PedidosFechamento}>{ValorElemento.Nu_Pedido}</div>
-            </Link>
+            <div key={i}>
+                <Link  >
+                  <div className={style.PedidosFechamento}>{ValorElemento.Nu_Pedido}</div>
+                </Link>
+            </div>
             
             )): <Logo/> }
                 

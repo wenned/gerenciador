@@ -9,8 +9,8 @@
 
 .bodY{
     position:relative;
-    background-color: #2e5e2e;
-    color: #ffff;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    color: #f4f3f2;
     width: 325px;
     height: 50px;
     margin-top: 15px;

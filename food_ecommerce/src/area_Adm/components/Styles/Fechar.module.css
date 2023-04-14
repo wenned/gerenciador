@@ -7,6 +7,7 @@
     padding: 1rem;
     border-radius: 10px;
     top: 10%;
+    color: #171d12;
 }
 
 .line{
@@ -26,7 +27,7 @@
 
 .PedidosFechamento{
     position: relative;
-    background-color: #292828;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     margin-top: 5px;
     border-radius: 7px;
     height: 2rem;
@@ -49,15 +50,16 @@
     width: 70%;
     padding: 3px;
     margin-top: 7%;
-    top: 10%;
+    top: 5%;
     left: 20%;
     border-radius: 7px;
 
 }
 
 button{
-    color: #fff6f6;
-    background-color: #292828;}
+    color: #f4f3f2;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+}
 
 .cabecario{
     position: relative;
@@ -69,15 +71,15 @@ button{
 .saldo{
     position: relative;
     height: 2.5rem;
-    top: 30%;
-    right: 20%;
+    top: 27%;
+    right: 15%;
     font-size: 1.1rem;
 }
 
 .saldoTotal{
     position: relative;
     height: 2.5rem;
-    top: 40%;
-    right: 20%;
+    top: 37%;
+    right: 19%;
     font-size: 1.1rem;
 }
