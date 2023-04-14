@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #a9a69f;
+    background: linear-gradient(45deg, #726f69, #a9a69f,#726f69);
     font-size: 1.1rem;
     height: 90%;
     margin: 5%;
@@ -21,11 +21,11 @@
 }
 
 .cf{
-    position: relative;
+    position: fixed;
     font-size: 1.5rem;
     width: 80%;
     height: 2rem;
-    top: 5%;
+    bottom: 80%;
 }
 
 .caixasAb{
@@ -36,11 +36,11 @@
     align-items: center;
     overflow: auto;
     height: 60%;
-    bottom: 10%;
-    padding-top: 7px;
+    width: 80%;
     margin: 15px;
     border: 2px solid #171d12;
     border-radius: 7px;
+    /* bottom: 10%; */
 }
 
 .bott{
@@ -134,4 +134,18 @@
     border-radius: 7px;
     background-color: #171d12;
     left: 5%;
+}
+
+.bTnLabel{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    width: 70%;
+    height: 2.3rem;
+    background:  #726f69;
+    margin-top: 5%;
+    font-size: 1.1rem;
+    color: #f0f8ff;
 }

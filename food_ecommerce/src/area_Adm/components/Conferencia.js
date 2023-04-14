@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import style from './Styles/Conferencia.module.css'
 
-async function verificarCaixa(...args){
-    console.log(args)
-}
+import { verificarCaixa } from '../Funcionalidades_adm/fecharCaixa';
 
 function Conferencia(){
 
@@ -45,10 +43,11 @@ function Conferencia(){
         
         setTimeout(()=>{setResult('')}, 15)
     }
-    
+
     return (
         <>
         <section className={style.conteiner}>
+
             <div className={style.conte}>
                 <div className={style.cf}>Caixas Fechado</div>
                 <div className={style.caixasAb}>
@@ -71,8 +70,8 @@ function Conferencia(){
                 </div>
                 <div className={style.Conf}>
                     <label className={style.nome}>Nome:</label>
-                    <input onChange={handleChanger} ref={nomeRef} type='text'className={style.bTn}></input>
-                    <button onClick={()=>{verificarCaixa(nome, result['_id']);redefinir()}} className={style.bTn}>Finalizar</button>
+                    <input onChange={handleChanger} ref={nomeRef} type='text'className={style.bTnLabel}></input>
+                    <button onClick={()=>{verificarCaixa(nome.toLocaleUpperCase(), result['Id']);redefinir()}} className={style.bTn}>Finalizar</button>
                 </div>
             </div>
         </section>

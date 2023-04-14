@@ -3,42 +3,7 @@ import { Link } from 'react-router-dom';
 import style from './Styles/Fechar.module.css'
 import Logo from '../../componentes/Logo'
 
-async function fecharCaixa(...args){
-    
-    var DADOS_FECHAMENTO =[{
-        "Nome":"",
-        "Data":"",
-        "Itens":"",
-        "Valor_Lancamento":"",
-        "Valor_Total":"",
-        "Verificador":"",
-        "Verificado":false
-    }]
-
-    const [itens, data, ValorTotal, nome, saldodia] = args
-
-    DADOS_FECHAMENTO[0]['Nome'] = nome
-    DADOS_FECHAMENTO[0]['Data'] = data
-    DADOS_FECHAMENTO[0]['Itens'] = itens
-    DADOS_FECHAMENTO[0]['Valor_Lancamento'] = ValorTotal
-    DADOS_FECHAMENTO[0]['Valor_Total'] = saldodia
-
-    try {
-        const RETORNO_DADOS = await fetch(`http://192.168.31.3:8080/fechamento_caixa/`, {
-            method: `POST`,
-            body: JSON.stringify(DADOS_FECHAMENTO[0]),
-            headers: {"Content-type": "application/json; charset=UTF-8"}
-        });
-        
-        const DATA = await RETORNO_DADOS.json();
-        return DATA
-
-    } catch (error) {
-        console.log('Deu erro aqui ',error)
-    }
-
-}
-
+import { fecharCaixa } from '../Funcionalidades_adm/fecharCaixa';
 
 function Fechar(){
     
