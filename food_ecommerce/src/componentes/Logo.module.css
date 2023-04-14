@@ -21,3 +21,17 @@
 .conteiner div h1{
     font-size: 2.5rem;
 }
+
+@media (max-width: 320px) {
+
+    .conteiner div h1{
+        font-size: 20px;
+        position: relative;
+        top: 1rem;
+    }
+    .conteiner div h4{
+        position: relative;
+        top: 1rem;
+        font-size: 10px;
+    }
+}

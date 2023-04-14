@@ -1,10 +1,10 @@
 .conteiner{
     position: fixed;
     top: 10%;
-    background-color: #2e5e2e;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     z-index: 1;
-    height: 10rem;
-    width: 10rem;
+    height: 13rem;
+    width: 13rem;
     border-radius: 100%;
 }
 
@@ -14,13 +14,14 @@
     justify-content: center;
     display: flex;
     top: 30%;
-    right: 25%;
+    right: 11%;
     height: 3rem;
     width: 250px;
     border-radius: 7px;
     color: #f4f3f2;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
+
 .Npedido{
     position: relative;
     display: flex;
@@ -47,3 +48,9 @@
     border-radius: 7px;
 }
 
+
+@media (max-width: 414px){
+    .conteiner{
+        top: 5%;
+    }
+}

@@ -10,52 +10,46 @@
 
 .bodY{
     position:relative;
-    top: 20%;
+    top: 13%;
     background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     width: 350px;
     height: 50px;
-    margin-top: 5px;
-    text-align: center;
-    border-radius: 10px;
+    border-radius: 7px;
     cursor: pointer;
     margin: 9px;
 }
 
 .bod{
     position:relative;
-    top: 18%;
+    top: 12%;
     background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     width: 350px;
     height: 50px;
-    text-align: center;
-    border-radius: 10px;
+    border-radius: 7px;
     cursor: pointer;
     margin: 9px;
 }
 
-.texto{
+.cabeca{
     position: relative;
+    display: flex;
     top: 13%;
-    font-size: 1.5rem;
+    height: 1.3rem;
+    width: 90%;
+    justify-content: space-between;
+    margin: 10px;
 }
 
 .c{
     position:relative ;
     display: flex;
     flex-direction: column;
-    top: 20%;
+    top: 12%;
     height: 300px;
     overflow: auto;
-}
-
-.cabeca{
-    position: fixed;
-    display: flex;
-    top: 18%;
-    height: 1.3rem;
-    width: 21.5rem;
-    justify-content: space-between;
-    margin: 10px;
+    border: 2px solid #171d12;
+    border-radius: 7px;
+    margin: 2%;
 }
 
 .cab{
@@ -69,50 +63,8 @@
     cursor: pointer;
 }
 
-.pro{
-    position: absolute;
-    flex-direction: column;
-    top: -1%;
-    left: 15rem;
-    height: 6rem;
-    width: 6rem;
-    border-radius: 100%;
-    color: #ff0000;
-    justify-content: center;
-    align-items: center;
-}
-
-.valO{
-    position: relative;
-    left: 10%;
-}
-
-.vli{
-    position: relative;
-    bottom: 2%;
-    font-size: 3.5rem;
-    font-family: 'Cormorant Garamond', serif;
-
-}
-.vlf{
-    position: relative;
-    bottom: 10%;
-    font-size: 1.3rem;
-    font-family: 'Cormorant Garamond', serif;
-
-}
-
-.vlt{
-    position: absolute;
-    bottom: 33%;
-    right: 40%;
-    font-size: 0.70rem;
-    height: 0;
-}
-
 .ped{
     position: absolute;
-    top: 3%;
     left: 3%;
 }
 
@@ -148,4 +100,47 @@
 
 .tmn{
     font-size: 13px;
+}
+
+.preCo{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 5%;
+    font-size: 1.5rem;
+    height: 1.8rem;
+    width: 5rem;
+    border-radius: 7px;
+    border: 2px solid #171d12
+}
+
+.cent{
+    position: relative;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 320px) {
+    .bodY{
+        width: 300px;
+    }
+
+    .bod{
+        width: 300px;
+    }
+
+    .Qnt{
+        left: 1%;
+        bottom: 5%;
+    }
+
+    .tmn{
+        position: relative;
+        right: 5%;
+        font-size: 12px;
+    }
+
+    .vlu{
+        font-size: 12px;
+    }
 }

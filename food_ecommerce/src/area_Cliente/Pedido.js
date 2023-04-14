@@ -68,16 +68,12 @@ function Pedido(){
     const [preco, setpreco] = useState ('xx.xx')
     const [contador, setContador] = useState(0);
 
-    var pro = preco.split('.')
-
     var PEDIDO = localStorage.getItem('Pedido');
-
 
     const handleClick = () => {
         setContador(contador + 1);
     };
     
-
     useEffect(() => {
       const pedidoId = localStorage.getItem('Pedido');
       fetchPedido(pedidoId)
@@ -114,13 +110,9 @@ function Pedido(){
     return(
         <>
         <section className={style.conteiner}>
+            <span className={style.ped}>Pedido : {PEDIDO} / {LocalStor[1]['Mesa']}</span>
+            <div className={style.preCo}>{preco}</div>
 
-            <div className={style.pro}>
-                <div className={style.valO}>
-                    <span className={style.vli}>{pro[0]}</span>
-                    <span className={style.vlf}>.{pro[1]}</span>
-                    <span className={style.vlt}>TOTAL</span></div>
-                </div>
 
             <div className={style.cabeca}><span>Quantidade</span><span>Itens</span><span>Valor Unit</span></div>
 
@@ -136,17 +128,16 @@ function Pedido(){
             <div  className={style.bodY} >
 
                 <Link to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
-                    <div id='pastel'><span className={style.texto}>Adicionar Novo Item</span></div>
+                    <div id='pastel' className={style.cn}>Adicionar Novo Item</div>
                 </Link>
             </div>
 
             <div className={style.bod}>
                 <Link to={`/pagamento/${pedido.valor_total}`}>
-                    <div id='pastel'  onClick={()=>{apagarLocal(); apagar('pagar')}}><span className={style.texto}>Efetuar Pagamento</span></div>
+                    <div id='pastel'  onClick={()=>{apagarLocal(); apagar('pagar')}} className={style.cn}>Efetuar Pagamento</div>
                 </Link>
             </div>
 
-            <span className={style.ped}>Pedido : {PEDIDO} / {LocalStor[1]['Mesa']}</span>
 
             <div className={style.cn}><strong>CNPJ :</strong> 19.375.999/0001-81</div>
             <div className={style.cnn}><Logo/></div>

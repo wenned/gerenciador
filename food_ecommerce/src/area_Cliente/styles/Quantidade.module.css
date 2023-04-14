@@ -103,3 +103,21 @@
     height: 6rem;
     bottom: 1%;
 }
+
+@media (max-width: 320px) {
+
+    .conteiner_Button{
+        bottom: 35%;
+    }
+
+    .Novo{
+        width: 300px;
+        top: -80%;
+    }
+
+    .New{
+        width: 300px;
+        top: -70%;}
+
+    .Log{bottom: -10%;}
+}

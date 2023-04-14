@@ -3,7 +3,6 @@
     display: flex;
     flex-wrap: wrap;
     height: 27vh;
-    /* width: 50vh; */
     top: 5%;
     left: 4%;
     border-radius: 7px; 
@@ -91,4 +90,25 @@
     width: 300px;
     font-size: 1.7rem;
 
+}
+
+@media (max-width: 414px){
+    .conteiner{left: 8%;}
+}
+
+
+@media (max-width: 320px) {
+
+    .conteiner{height: 32vh;}
+
+    .bodY{
+        width: 9rem;
+        height: 8rem;
+        font-size: 1.3rem;
+    }
+    
+    .radape{
+        width: 9rem;
+        height: 8rem;
+    }
 }

@@ -5,7 +5,6 @@
     top: 3%;
     left: 3%;
     border-radius: 7px;
-    /* width: 40vh; */
 }
 
 .bo{
@@ -33,4 +32,21 @@
     width: 10px;
     background: #2e5e2e;
     border-radius: 7px;
+}
+
+@media (max-width: 414px){
+    .atl{
+        left: 5.5%;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .bo{
+        width: 145px;
+        height: 80px;
+        left: 2%;
+    }
+
+    .atl{height: 100px;}
 }
