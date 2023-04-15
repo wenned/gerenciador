@@ -4,6 +4,11 @@ import Logo from '../componentes/Logo'
 import { useState } from 'react';
 
 
+// import Slider from 'react-slick';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
+
+
 // IMAGENS PASTEIS
 import carne from './imagens/carne.png'
 import queijo from './imagens/Queijo.png'
@@ -162,6 +167,39 @@ import salsichaqueijos from './imagens/salsichaqueijos.png'
       "GuaranaLitro": guaranalitro
     }
 
+// const settings = {
+//   dots: true,
+//   infinite: true,
+//   speed: 500,
+//   slidesToShow: 3,
+//   slidesToScroll: 1,
+//   responsive: [
+//     {
+//       breakpoint: 1024,
+//       settings: {
+//         slidesToShow: 2,
+//         slidesToScroll: 1,
+//         infinite: true,
+//         dots: true
+//       }
+//     },
+//     {
+//       breakpoint: 600,
+//       settings: {
+//         slidesToShow: 1,
+//         slidesToScroll: 1,
+//         initialSlide: 1
+//       }
+//     },
+//     {
+//       breakpoint: 480,
+//       settings: {
+//         slidesToShow: 1,
+//         slidesToScroll: 1
+//       }
+//     }
+//   ]
+// };
 
 function Quantidade(){
 
@@ -332,7 +370,28 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
                     }} className={style.But}>-</button>
         
             </div>
-
+{/* 
+            <Slider {...settings}>
+              <div>
+                <h3>Slide 1</h3>
+              </div>
+              <div>
+                <h3>Slide 2</h3>
+              </div>
+              <div>
+                <h3>Slide 3</h3>
+              </div>
+              <div>
+                <h3>Slide 4</h3>
+              </div>
+              <div>
+                <h3>Slide 5</h3>
+              </div>
+              <div>
+                <h3>Slide 6</h3>
+              </div>
+            </Slider>
+             */}
             <div>
                 <Link onClick={addValores} to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
                     <div className={style.Novo}>Adicionar Novo Item</div>

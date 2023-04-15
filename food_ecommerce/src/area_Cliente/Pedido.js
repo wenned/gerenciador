@@ -3,34 +3,9 @@ import { Link} from 'react-router-dom';
 import Logo from '../componentes/Logo';
 import { useEffect, useState } from 'react';
 
+import {fetchPedido, apagar, removeElemnto} from './Funcionalidades/buscarPedido'
+
 const MESAKEY =JSON.parse(localStorage.getItem('Key'))
-const umeroPedido = localStorage.getItem('Pedido')
-
-async function fetchPedido(pedidoId) {
-
-    // const resposta = await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`);
-   const resposta = await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`);
-    // const resposta = await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`);
-
-    return resposta.json();
-  }
-
-async function apagar(...args){
-
-    switch(args[0]){
-
-        case 'pagar':
-            const APAGARKE = await fetch(`http://192.168.31.3:8080/mesa/${MESAKEY[1]['Mesa']}/${args[0]}`);
-            return APAGARKE.json();
-
-        case 'deletar':
-            const APAGARKEY = await fetch(`http://192.168.31.3:8080/mesa/${umeroPedido}/${args[0]}`);
-            return APAGARKEY.json();                
-            
-        default:
-            break
-    }
-};
 
 function apagarLocal(){
     
@@ -43,23 +18,6 @@ function apagarLocal(){
 
 function apagarPedido(){
     localStorage.removeItem('Pedido')
-}
-
-async function removeElemnto(...args){
-
-    try {
-        const RETORNO_DADOS = await fetch(`http://192.168.31.3:8080/input/remover`, {
-            method: `PUT`,
-            body: JSON.stringify(args),
-            headers: {"Content-type": "application/json; charset=UTF-8"}
-        });
-        
-        const DATA = await RETORNO_DADOS.json();
-        return DATA
-
-    } catch (error) {
-        console.log('Deu erro aqui ',error)
-    }
 }
 
 function Pedido(){
@@ -106,7 +64,7 @@ function Pedido(){
 
     const LocalStor = JSON.parse(localStorage.getItem('Key'))
     console.log()
-    
+
     return(
         <>
         <section className={style.conteiner}>
@@ -133,7 +91,7 @@ function Pedido(){
             </div>
 
             <div className={style.bod}>
-                <Link to={`/pagamento/${pedido.valor_total}`}>
+                <Link to={`/pagamento/${pedido.Nu_Pedido}`}>
                     <div id='pastel'  onClick={()=>{apagarLocal(); apagar('pagar')}} className={style.cn}>Efetuar Pagamento</div>
                 </Link>
             </div>

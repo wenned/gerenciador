@@ -34,6 +34,16 @@
     border-radius: 7px;
 }
 
+.boo{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 25%;
+    left: 2%;
+    z-index: 1;
+    height: 1rem;    
+}
+
 @media (max-width: 414px){
     .atl{
         left: 5.5%;

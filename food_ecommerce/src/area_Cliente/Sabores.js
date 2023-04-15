@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import Logo from '../componentes/Logo';
 import style from './styles/Sabores.module.css'
 
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 function Sabores(){
 
     const {id} = useParams();
@@ -42,16 +45,19 @@ function Sabores(){
       verif = 0
     }else{
       verif = JSON.parse(localStorage.getItem(`${id}`))
-    } 
-    
+    }
 
     return (
       <section className={style.conteiner}>
         {verif.length > 0 ? (
           Object.values(valor).map((pastel, ind) => (
             <div key={ind} className={style.atl}>
+              <div className={style.boo}>
+                R${pastel[`${Object.keys(pastel)[1]}`].$numberDecimal}
+                </div>
               <Link onClick={ ()=> AddValor(Object.keys(pastel)[1])} key={pastel['_id']} to='/quantidade'>
                 <div className={style.bo}>{Object.keys(pastel)[1]}</div>
+
               </Link>
             </div>
           ))
