@@ -4,7 +4,7 @@ var Model = {
     "valor_total": "",
     "Status":"Pendente",
     "Id":"",
-    "Nu_Pedido":""
+    "Nu_Pedido":"",
 }
 
 var dadosInsert;
@@ -17,13 +17,13 @@ export async function adicionarTipo(arg){
 
             dadosInsert = JSON.parse(localStorage.getItem('Modelo'))
 
-            var NewItem = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
+            var NewItem = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"", "Status":["Pendente","false"],"Adicional":""}}
             NewItem['Item']['Tipo'] = arg
             dadosInsert['Itens'].push(NewItem)
             localStorage.setItem('Modelo', JSON.stringify(dadosInsert))
 
         }else{
-            var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}]
+            var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"], "Adicional":""}}]
             PEDIDO[0]['Item']['Tipo'] = arg
             Model['Itens']= PEDIDO
             localStorage.setItem('Modelo', JSON.stringify(Model))
@@ -34,7 +34,7 @@ export async function adicionarTipo(arg){
 
             dadosInsert = JSON.parse(localStorage.getItem('Modelo'))
 
-            var PEds = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
+            var PEds = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}, "Adicional":""}
             PEds['Item']['Tipo'] = arg
             dadosInsert['Itens'].push(PEds)
             localStorage.setItem('Modelo', JSON.stringify(dadosInsert))
@@ -54,7 +54,7 @@ export async function adicionarTipo(arg){
 
             dadosInsert = JSON.parse(localStorage.getItem('temp'))
 
-            var itemPedido = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}}
+            var itemPedido = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"], "Adicional":""}}
             itemPedido['Item']['Tipo'] = arg
             dadosInsert['Itens'].push(itemPedido)
             localStorage.setItem('Modelo', JSON.stringify(dadosInsert))

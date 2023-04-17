@@ -3,9 +3,10 @@
     display: flex;
     flex-wrap: wrap;
     height: 27vh;
+    width: 40%;
     top: 5%;
     left: 4%;
-    border-radius: 7px; 
+    border-radius: 7px;
 }
 
 .bodY{

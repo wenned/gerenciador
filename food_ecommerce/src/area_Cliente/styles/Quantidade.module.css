@@ -1,30 +1,39 @@
 .conteiner{
-    display: flex;
     position: relative;
+    display: flex;
     flex-direction: column;
-    height: 80vh;
-    top: 3%;
-    border-radius: 7px;
+    align-items: center;
+    width: 23rem;
 }
 
-.conteiner h1 {
-    position: absolute;
-    left:3%;
-    top: 3%;
-    font-size: 1.3rem;
-    color: #171d12;
-}
-
-.IMg{
+.conteiner img {
     position: relative;
     top: 10%;
-    right: 8%;
-}
-
-.IMg img {
     border-radius: 10px;
     width: 250px;
     height: 200px;
+}
+
+.conteiner_Button{
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 2rem;
+    width: 6em;
+    top: 12%;
+}
+
+.But{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    background: none;
+    border: none;
 }
 
 .Valor{
@@ -37,88 +46,131 @@
     border-radius: 10px;
     margin: 2px;
     font-size: 1rem;
+}
+
+.conteiner h1 {
+    position: relative;
+    display: flex;
+    text-align: justify;
+    top: 15%;
+    right: 14%;
+    width: 70%;
+    font-size: 1.3rem;
     color: #171d12;
 }
 
-.conteiner_Button{
+.preco {
     position: relative;
-    display: grid;
-    align-items: center;
-    left: 80%;
-    justify-content: space-around;
-    height: 17rem;
-    width: 5em;
-    bottom: 23%;
+    bottom: 46.5%;
+    left: 29%;
+    width: 5%;
+    height: 0%;
+    font-size: 1.5rem;
+    color: #171d12;
 }
 
-.But{
+.add{
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2.3em;
-    height: 2.3em;
-    border-radius: 10px;
-    margin: 2px;
-    font-size: 1rem;
-    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
-    color: #ffff;
-}
-
-.Novo{
-    position:relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
-    color: #f4f3f2;
-    width: 330px;
-    height: 50px;
-    margin-top: 5px;
-    border-radius: 10px;
-    top: 65%;
+    border-radius: 20px;
+    height: 7%;
+    width: 30%;
+    bottom: 41%;
+    left: 34%;
+    font-size: 13px;
     cursor: pointer;
-    font-size: 1.5rem;
-
 }
 
-.New{
-    position:relative;
+.off{
+    display: none;
+}
+
+.on{
+    background:  #726f69;
+    position: absolute;
+    border-radius: 7px;
+    top: 51%;
+    right: 25%;
+    height: 10%;
+}
+
+.Butao{
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
-    color: #f4f3f2;
+    border-radius: 7px;
+    height: 40px;
     width: 330px;
-    height: 50px;
-    margin-top: 5px;
-    border-radius: 10px;
-    top: 25%;
-    cursor: pointer;
-    font-size: 1.5rem;
 }
 
-.Log{
-    position: fixed;
-    height: 6rem;
-    bottom: 1%;
+.adicionarNovo{
+    position: relative;
+    bottom: 27%;
+    height: 0;
 }
 
-@media (max-width: 320px) {
+.final{
+    position: relative;
+    bottom: 20%;
+    height: 0;
+}
 
-    .conteiner_Button{
-        bottom: 35%;
+.itemAdicional{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    top: 33.5%;
+    right: 20%;
+}
+
+.log{
+    position: relative;
+    width: 330px;
+    height: 10%;
+    color: #171d12;
+    bottom: 10%;
+}
+
+.log h4{
+    position: relative;
+    top: 0%;
+}
+
+.log h2{
+    font-size: 2.5rem;
+}
+
+@media (max-width: 414px) {
+
+    .preco{bottom: 41.7%;}
+
+    .add{bottom: 35%;}
+
+    .itemAdicional{top: 34.3%;}
+
+    .on{top: 52%;}
+
+    .log h4{
+        position: relative;
+        top: 60%;
     }
+    
+    .log h2{font-size: 2.5rem;}
 
-    .Novo{
-        width: 300px;
-        top: -80%;
-    }
-
-    .New{
-        width: 300px;
-        top: -70%;}
-
-    .Log{bottom: -10%;}
+    .adicionarNovo{bottom: 26%;}
+    
+    .final{bottom: 18%;}
+    
 }
 

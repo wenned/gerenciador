@@ -10,5 +10,8 @@ body {
   display: flex;
   text-align: center;
   justify-content: center;
-  background: linear-gradient(90deg, #b1a99b, #ede4d4);
+  background-image: url('./pexels-rachel-claire-4993256.jpg') ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

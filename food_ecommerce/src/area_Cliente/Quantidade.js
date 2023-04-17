@@ -1,12 +1,8 @@
 import style from './styles/Quantidade.module.css'
 import { Link } from 'react-router-dom';
-import Logo from '../componentes/Logo'
 import { useState } from 'react';
 
-
-// import Slider from 'react-slick';
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
+import Adicionais from './Adicionais';
 
 
 // IMAGENS PASTEIS
@@ -167,45 +163,17 @@ import salsichaqueijos from './imagens/salsichaqueijos.png'
       "GuaranaLitro": guaranalitro
     }
 
-// const settings = {
-//   dots: true,
-//   infinite: true,
-//   speed: 500,
-//   slidesToShow: 3,
-//   slidesToScroll: 1,
-//   responsive: [
-//     {
-//       breakpoint: 1024,
-//       settings: {
-//         slidesToShow: 2,
-//         slidesToScroll: 1,
-//         infinite: true,
-//         dots: true
-//       }
-//     },
-//     {
-//       breakpoint: 600,
-//       settings: {
-//         slidesToShow: 1,
-//         slidesToScroll: 1,
-//         initialSlide: 1
-//       }
-//     },
-//     {
-//       breakpoint: 480,
-//       settings: {
-//         slidesToShow: 1,
-//         slidesToScroll: 1
-//       }
-//     }
-//   ]
-// };
-
 function Quantidade(){
 
+  const [on, setOn] = useState('off')
+  const [adicional, setadicional] = useState('')
+
+  function adicionalItem(mensagem){
+    setadicional(mensagem)
+    setOn('off')
+  }
+
 const MESAKEY =JSON.parse(localStorage.getItem('Key'))
-
-
 
     const [Valor, setValor] = useState(0)
          
@@ -216,14 +184,12 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
     if(dado === null){
       //
     }else{
-      dado['Itens'].forEach((element, index)=> {
+      dado['Itens'].forEach((element)=> {
           if(element['Item']['Valor'].length === 0 ){
             item = element['Item']['Sabor']
             tip = element['Item']['Tipo']
-
           }
         });
-
     }
 
     function addValores(){
@@ -236,6 +202,7 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
         reload['Itens'].forEach((element, index)=> {
           if(element['Item']['Valor'].length === 0){
             reload['Itens'][index]['Item']['Quantidade'] = Valor
+            reload['Itens'][index]['Item']['Adicional'] = adicional
   
             var h;
   
@@ -269,9 +236,9 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
               var verf = element['Item']['Sabor'] in h[item]
               
               if(verf === true){
-              var o = Object.values(h[item][element['Item']['Sabor']])
+              var valorItem = Object.values(h[item][element['Item']['Sabor']])
   
-                reload['Itens'][index]['Item']['Valor'] = o[0]
+                reload['Itens'][index]['Item']['Valor'] = valorItem[0]
                 reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split("-")
                 localStorage.setItem('Modelo', JSON.stringify(reload))
   
@@ -285,6 +252,7 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
         reload['Itens'].forEach((element, index)=> {
           if(element['Item']['Valor'].length === 0){
             reload['Itens'][index]['Item']['Quantidade'] = Valor
+            reload['Itens'][index]['Item']['Adicional'] = adicional
   
             var h;
   
@@ -350,63 +318,48 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
               default:
                 break
     }
-    
+
     return (
-      <>
         <section className={style.conteiner}>
-            <h1>{item}</h1>
-            <div className={style.IMg}><img src={IMAGEM[item]} alt='Imagem Pastel'/></div>
-
-            <div className={style.conteiner_Button}>
-                
-                <div onClick={()=>setValor(Valor + 1)} className={style.But}>+</div>
-
-                <span className={style.Valor}>{Valor}</span>
-
-                <button onClick={() =>{
-                    if(Valor > 0){
-                        setValor(Valor - 1)
-                        }
-                    }} className={style.But}>-</button>
         
-            </div>
-{/* 
-            <Slider {...settings}>
-              <div>
-                <h3>Slide 1</h3>
-              </div>
-              <div>
-                <h3>Slide 2</h3>
-              </div>
-              <div>
-                <h3>Slide 3</h3>
-              </div>
-              <div>
-                <h3>Slide 4</h3>
-              </div>
-              <div>
-                <h3>Slide 5</h3>
-              </div>
-              <div>
-                <h3>Slide 6</h3>
-              </div>
-            </Slider>
-             */}
-            <div>
-                <Link onClick={addValores} to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
-                    <div className={style.Novo}>Adicionar Novo Item</div>
-                </Link>
-            </div>
+           
+          <img src={IMAGEM[item]} alt='Imagem Pastel'/>
 
-            <div>
-                <Link to='/finalizar'>
-                    <div onClick={()=>{ addValores()}} className={style.New}>Finalizar</div>
-                </Link>
-            </div>
-        </section>
-        <div className={style.Log}><Logo/></div>
+          <div className={style.conteiner_Button}>
+              <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}}} className={style.But}>-</button>
 
-    </>
+              <span className={style.Valor}>{Valor}</span>
+
+              <button onClick={()=>setValor(Valor + 1)} className={style.But}>+</button>
+          </div>
+          <div className={style.itemAdicional}>{adicional}</div>
+          <h1>{item}</h1>
+          
+
+          <div className={style.preco}>$6.99</div>
+
+          <div className={style.add} onClick={()=>{setOn('on')}}>Adicional</div>
+
+          <div className={style[`${on}`]}><Adicionais itemadicionAl={adicionalItem}/></div>
+
+          <div className={style.adicionarNovo}>
+              <Link onClick={addValores} to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
+                  <div className={style.Butao}>Adicionar Novo Item</div>
+              </Link>
+          </div>
+
+          <div className={style.final}>
+              <Link to='/finalizar'>
+                  <div onClick={()=>{ addValores()}} className={style.Butao}>Finalizar</div>
+              </Link>
+          </div>
+
+          <div className={style.log}>
+            <h4>Pastelaria e Creperia</h4>
+            <h2>Sabor Mineiro</h2>
+          </div>
+
+      </section>
     )
 };
 
