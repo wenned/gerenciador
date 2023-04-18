@@ -97,7 +97,7 @@ function Pedido(){
             </div>
 
 
-            <div className={style.cn}><strong>CNPJ :</strong> 19.375.999/0001-81</div>
+            <div className={style.cnpj}><strong>CNPJ :</strong> 19.375.999/0001-81</div>
             <div className={style.cnn}><Logo/></div>
 
         </section> 

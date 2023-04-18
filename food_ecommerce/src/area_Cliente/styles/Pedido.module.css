@@ -88,6 +88,15 @@
 
 .cn{
     position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 3.3%;
+    height: 1rem;
+    bottom: -17.5%;
+}
+
+.cnpj{
+    position: relative;
     height: 1rem;
     bottom: -17.5%;
 }
@@ -120,13 +129,24 @@
     font-size: 1.3rem;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .bodY{
         width: 300px;
+        top: 10%;
     }
 
     .bod{
+        top: 10%;
         width: 300px;
+    }
+
+    .cabeca{top: 9%;}
+
+    .c{
+        height: 250px;
+        top: 7.5%;}
+    .cn{
+        bottom: -10%;
     }
 
     .Qnt{
@@ -143,4 +163,15 @@
     .vlu{
         font-size: 12px;
     }
+
+    .cnn{
+        display: none;
+    }
+
+    .cnpj{
+        position: relative;
+        height: 1rem;
+        bottom: -10%;
+    }
+    
 }

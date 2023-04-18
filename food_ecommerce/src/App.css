@@ -18,4 +18,5 @@ a{
     color:#f4f3f2;
     background-color: #8b8077;
     opacity: 0.9;
+    overflow-y: auto;
 }

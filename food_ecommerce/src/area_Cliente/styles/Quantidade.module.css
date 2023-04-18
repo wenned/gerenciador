@@ -139,13 +139,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 7px;
+    font-size: 10px;
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
-    height: 35px;
-    width: 35px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
-    top: 33.5%;
-    right: 20%;
+    top: 27%;
+    right: 14%;
 }
 
 .log{
@@ -188,3 +188,12 @@
     
 }
 
+
+@media (max-width: 375px) {
+
+    .adicionarNovo{bottom: 23%;    }
+    
+    .final{
+        bottom: 13%;
+    }
+}

@@ -55,12 +55,13 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
 
     .bo{
         width: 145px;
         height: 80px;
         left: 2%;
+        font-size: 15px;
     }
 
     .atl{height: 100px;}

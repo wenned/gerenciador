@@ -100,6 +100,24 @@
     }
 }
 
+@media (max-width: 375px) {
+
+    .conteiner{height: 29vh;}
+
+    .bodY{
+        width: 9rem;
+        height: 8rem;
+        font-size: 1.3rem;
+    }
+    
+    .radape{
+        width: 9rem;
+        height: 8rem;
+        font-size: 12px;
+    }
+}
+
+
 
 @media (max-width: 320px) {
 

@@ -6,7 +6,12 @@ const Item = ['Queijo','Cheddar','Catupiry','Chocolate','Carne','Carne sol','Bac
 function Adicionais(props){
 
     function handleClick(mensagem){
-        props.itemadicionAl(mensagem)
+        
+        if(props.adicionar.length === 0){
+            props.itemadicionAl(mensagem)
+        }else{
+            props.itemadicionAl(props.adicionar, mensagem)
+        }
     }
 
     return (

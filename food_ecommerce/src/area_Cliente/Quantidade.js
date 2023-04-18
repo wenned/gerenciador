@@ -166,14 +166,31 @@ import salsichaqueijos from './imagens/salsichaqueijos.png'
 function Quantidade(){
 
   const [on, setOn] = useState('off')
-  const [adicional, setadicional] = useState('')
+  const [adicional1, setadicional1] = useState('')
+  const [adicional2, setadicional2] = useState('')
 
-  function adicionalItem(mensagem){
-    setadicional(mensagem)
-    setOn('off')
+  var adicionais = []
+  function adicionalItem(...args){
+
+    console.log()
+    if(args.length === 2){
+      adicionais.pop()
+      setadicional1(args[0])
+      setadicional2(args[1])
+      adicionais.push(args[0])
+      adicionais.push(args[1])
+      setOn('off')
+
+
+    }else{
+      adicionais.push(args[0])
+      setadicional1(args)
+      setOn('off')
+    }
+
   }
 
-const MESAKEY =JSON.parse(localStorage.getItem('Key'))
+    const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
     const [Valor, setValor] = useState(0)
          
@@ -202,7 +219,7 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
         reload['Itens'].forEach((element, index)=> {
           if(element['Item']['Valor'].length === 0){
             reload['Itens'][index]['Item']['Quantidade'] = Valor
-            reload['Itens'][index]['Item']['Adicional'] = adicional
+            reload['Itens'][index]['Item']['Adicional'] = adicionais
   
             var h;
   
@@ -252,7 +269,7 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
         reload['Itens'].forEach((element, index)=> {
           if(element['Item']['Valor'].length === 0){
             reload['Itens'][index]['Item']['Quantidade'] = Valor
-            reload['Itens'][index]['Item']['Adicional'] = adicional
+            reload['Itens'][index]['Item']['Adicional'] = adicionais
   
             var h;
   
@@ -332,7 +349,7 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
               <button onClick={()=>setValor(Valor + 1)} className={style.But}>+</button>
           </div>
-          <div className={style.itemAdicional}>{adicional}</div>
+          <div className={style.itemAdicional}>{adicional1} {adicional2}</div>
           <h1>{item}</h1>
           
 
@@ -340,7 +357,7 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
           <div className={style.add} onClick={()=>{setOn('on')}}>Adicional</div>
 
-          <div className={style[`${on}`]}><Adicionais itemadicionAl={adicionalItem}/></div>
+          <div className={style[`${on}`]}><Adicionais adicionar={adicional1} itemadicionAl={adicionalItem}/></div>
 
           <div className={style.adicionarNovo}>
               <Link onClick={addValores} to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
