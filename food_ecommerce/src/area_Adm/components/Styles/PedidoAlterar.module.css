@@ -2,7 +2,7 @@
     position:fixed;
     flex-wrap: wrap;
     display: flex;
-    background: linear-gradient(45deg, #726f69, #a9a69f,#726f69);
+    background: linear-gradient(45deg, rgb(114, 111, 105), rgb(169, 166, 159),rgb(114, 111, 105));
     height: 80vh;
     width: 22.5rem;
     z-index: 1;
@@ -10,12 +10,12 @@
     align-items: center;
     overflow: hidden;
     left: 38.9%;
-    color: #171d12;
+    color: rgb(0, 0, 0);
 }
 
 ::-webkit-scrollbar{
     width: 5px;
-    background: linear-gradient(45deg, #60db60, #89b789,#60db60);
+    background: linear-gradient(45deg, rgb(96, 219, 96), rgb(137, 183, 137),rgb(96, 219, 96));
     border-radius: 7px;
 }
 
@@ -79,8 +79,8 @@
 
 .bnt{
     position: absolute;
-    color: #ffffff;
-    background: linear-gradient(45deg, #b13a3a, #9b6f6f,#b13a3a);
+    color: rgb(255, 255, 255);
+    background: linear-gradient(45deg, rgb(177, 58, 58), rgb(155, 111, 111),rgb(177, 58, 58));
     right: -4.3rem;
     height: 1.6rem;
     width: 3.5rem;
@@ -92,28 +92,10 @@
     cursor: pointer;
 }
 
-/* .despache{
-    position: relative;
-    left: 5%;
-    top: 4%;
-    width: 20rem;
-    height: 3rem;
-    border-radius: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 1.5rem;
-} */
-
-
-
 .feito{
     position: absolute;
-    color: #ffffff;
-    background: linear-gradient(45deg, #4aca4a, #89b789,#4aca4a);
+    color: rgb(255, 255, 255);
+    background: linear-gradient(45deg, rgb(74, 202, 74), rgb(137, 183, 137),rgb(74, 202, 74));
     right: -4.3rem;
     height: 1.6rem;
     width: 3.5rem;

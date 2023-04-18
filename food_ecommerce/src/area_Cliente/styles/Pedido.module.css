@@ -5,13 +5,13 @@
     height: 83vh;
     top: 7%;
     border-radius: 7px;
-    color: #171d12;
+    color: rgb(23, 29, 18);
 }
 
 .bodY{
     position:relative;
     top: 13%;
-    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
     width: 350px;
     height: 50px;
     border-radius: 7px;
@@ -22,7 +22,7 @@
 .bod{
     position:relative;
     top: 12%;
-    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
     width: 350px;
     height: 50px;
     border-radius: 7px;
@@ -47,7 +47,7 @@
     top: 12%;
     height: 300px;
     overflow: auto;
-    border: 2px solid #171d12;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 7px;
     margin: 2%;
 }
@@ -112,7 +112,7 @@
     height: 1.8rem;
     width: 5rem;
     border-radius: 7px;
-    border: 2px solid #171d12
+    border: 2px solid rgb(0, 0, 0)
 }
 
 .cent{

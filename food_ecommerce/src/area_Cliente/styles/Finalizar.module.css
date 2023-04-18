@@ -1,6 +1,6 @@
 .container{
     position: relative;
-    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(114, 111, 105),rgb(0, 0, 0));
     height: 330px;
     width: 330px;
     border-radius: 100%;
@@ -9,7 +9,7 @@
 
 .texto{
     position: relative;
-    color: #f4f3f2;
+    color: rgb(244, 243, 242);
     font-size: 1.5rem;
     top: 45%;
 }

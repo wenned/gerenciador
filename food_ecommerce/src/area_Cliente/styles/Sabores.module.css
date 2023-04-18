@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
     width: 170px;
     height: 90px;
     text-align: center;
@@ -48,6 +48,10 @@
 @media (max-width: 414px){
     .atl{
         left: 5.5%;
+    }
+
+    .conteiner{
+        width: 100%;
     }
 }
 

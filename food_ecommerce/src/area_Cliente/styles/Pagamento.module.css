@@ -1,7 +1,7 @@
 .conteiner{
     position: fixed;
     top: 10%;
-    background: linear-gradient(45deg, #171d12, #726f69,#171d12);
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
     z-index: 1;
     height: 13rem;
     width: 13rem;
@@ -33,7 +33,7 @@
     width: 350px;
     top: 10%;
     font-size: 1.5rem;
-    color: #171d12;
+    color: rgb(23, 29, 18);
 }
 
 .Div{
@@ -42,7 +42,7 @@
     justify-content: center;
     display: flex;
     top: 40%;
-    background-color: #171d12;
+    background-color: rgb(23, 29, 18);
     height: 3rem;
     width: 250px;
     border-radius: 7px;
