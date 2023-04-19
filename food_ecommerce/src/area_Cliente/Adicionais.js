@@ -1,7 +1,7 @@
 import style from './styles/Adicionais.module.css'
 
 
-const Item = ['Queijo','Cheddar','Catupiry','Chocolate','Carne','Carne sol','Bacon','Frango','Azeitona','Goiabada','Palmito','Calabresa','Presunto','Canela',]
+const Item = ['Queijo','Cheddar','Catupiry','Chocolate','Carne','Carnesol','Bacon','Frango','Azeitona','Goiabada','Palmito','Calabresa','Presunto','Canela',]
 
 function Adicionais(props){
 

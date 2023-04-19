@@ -127,7 +127,6 @@ import salsichaqueijos from './imagens/salsichaqueijos.png'
       "Goiabada-Queijo": goiabadaqueijof
     }
 
-
     const Suico = {
 
       "Frango-Catupiry": frangocatupiry,
@@ -162,6 +161,7 @@ import salsichaqueijos from './imagens/salsichaqueijos.png'
       "FantaLitro": fantalitro,
       "GuaranaLitro": guaranalitro
     }
+var adicionais = []
 
 function Quantidade(){
 
@@ -169,12 +169,12 @@ function Quantidade(){
   const [adicional1, setadicional1] = useState('')
   const [adicional2, setadicional2] = useState('')
 
-  var adicionais = []
   function adicionalItem(...args){
 
-    console.log()
     if(args.length === 2){
-      adicionais.pop()
+      while(adicionais.length){
+        adicionais.pop()
+      }
       setadicional1(args[0])
       setadicional2(args[1])
       adicionais.push(args[0])
@@ -183,13 +183,14 @@ function Quantidade(){
 
 
     }else{
-      adicionais.push(args[0])
-      setadicional1(args)
-      setOn('off')
+      if(adicional1.length === 0){
+        adicionais.push(args[0])
+        setadicional1(args[0])
+        setOn('off')        
+      }
     }
 
   }
-
     const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
     const [Valor, setValor] = useState(0)
@@ -220,7 +221,7 @@ function Quantidade(){
           if(element['Item']['Valor'].length === 0){
             reload['Itens'][index]['Item']['Quantidade'] = Valor
             reload['Itens'][index]['Item']['Adicional'] = adicionais
-  
+
             var h;
   
             switch(element['Item']['Tipo']){
@@ -269,8 +270,8 @@ function Quantidade(){
         reload['Itens'].forEach((element, index)=> {
           if(element['Item']['Valor'].length === 0){
             reload['Itens'][index]['Item']['Quantidade'] = Valor
-            reload['Itens'][index]['Item']['Adicional'] = adicionais
-  
+            reload['Itens'][index]['Item']['Adicional'].push(adicionais)
+            
             var h;
   
             switch(element['Item']['Tipo']){

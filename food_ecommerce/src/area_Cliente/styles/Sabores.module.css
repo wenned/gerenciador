@@ -29,11 +29,7 @@
     height: 110px;
 }
 
-::-webkit-scrollbar{
-    width: 10px;
-    background: #2e5e2e;
-    border-radius: 7px;
-}
+::-webkit-scrollbar {display: none;}
 
 .boo{
     position: absolute;
