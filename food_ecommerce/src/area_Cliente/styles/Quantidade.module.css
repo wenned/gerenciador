@@ -15,7 +15,7 @@
 }
 
 .conteiner_Button{
-    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
+    background: linear-gradient(45deg, #000000, #221701,#000000);
     border-radius: 20px;
     position: relative;
     display: flex;
@@ -52,8 +52,8 @@
     position: relative;
     display: flex;
     text-align: justify;
-    top: 15%;
-    right: 14%;
+    bottom: 16%;
+    right: 10%;
     width: 70%;
     font-size: 1.3rem;
     color: #000000;
