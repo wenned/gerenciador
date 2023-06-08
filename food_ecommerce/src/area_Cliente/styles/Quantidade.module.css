@@ -6,24 +6,122 @@
     width: 23rem;
 }
 
-.conteiner img {
+.imgoff{
     position: relative;
-    top: 10%;
+    top: 2%;
     border-radius: 10px;
-    width: 250px;
-    height: 200px;
+    right: 3%;
+    width: 75%;
+    height: 20%;
+}
+
+.imgon{
+    position: relative;
+    top: 3%;
+    border-radius: 50%;
+    right: 25%;
+    width: 20%;
+    height: 10%;
+
+    animation-name: imagemon;
+    animation-duration: 1s;
+    z-index: 2;
+}
+
+@keyframes imagemon{
+
+from{
+    width: 60%;
+}
+
+to{
+    width: 20%;
+}
+
+}
+
+
+.nomes {
+    position: relative;
+    display: flex;
+    text-align: justify;
+    top: 3%;
+    right: 10%;
+    height: 5%;
+    font-size: 1.3rem;
+    color: #000000;
 }
 
 .conteiner_Button{
     background: linear-gradient(45deg, #000000, #221701,#000000);
-    border-radius: 20px;
+    border-radius: 7px;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    height: 2rem;
-    width: 6em;
-    top: 12%;
+    flex-direction: column;
+    height: 6rem;
+    width: 2em;
+    left: 41%;
+    bottom: 15.5%;
+}
+
+.nome_act{
+    display: none;
+}
+
+.nome_off{ 
+    display: block;
+}
+
+.displayoff{
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    height: 3.5%;
+    width: 40%;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.displayon{
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    height: 30%;
+    width: 90%;
+    font-size: 13px;
+    z-index: 1;
+
+    animation-name: aparecer;
+    animation-duration: 1s;
+}
+
+@keyframes aparecer{
+    from{
+        width: 40%;
+        height: 3.5%;
+    }
+
+    to{
+        width: 90%;
+        height: 30%;
+    }
+}
+
+.preco {
+    position: relative;
+    bottom: 6.5%;
+    left: 23%;
+    width: 5%;
+    height: 0%;
+    font-size: 2rem;
+    color: #000000;
 }
 
 .But{
@@ -45,70 +143,7 @@
     height: 2.3em;
     border-radius: 10px;
     margin: 2px;
-    font-size: 1rem;
-}
-
-.conteiner h1 {
-    position: relative;
-    display: flex;
-    text-align: justify;
-    bottom: 16%;
-    right: 10%;
-    width: 70%;
-    font-size: 1.3rem;
-    color: #000000;
-}
-
-.preco {
-    position: relative;
-    bottom: 46.5%;
-    left: 29%;
-    width: 5%;
-    height: 0%;
     font-size: 1.5rem;
-    color: #000000;
-}
-
-.add{
-    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    height: 7%;
-    width: 30%;
-    bottom: 41%;
-    left: 34%;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.off{
-    display: none;
-}
-
-.on{
-    position: absolute;
-    border-radius: 7px;
-    top: 51%;
-    right: 25%;
-    height: 10%;
-
-    animation-name: aparecer;
-    animation-duration: 2s;
-}
-
-@keyframes aparecer{
-    from{
-        right: 200%;
-        opacity: 0;
-    }
-
-    to{
-        right: 25%;
-        opacity: 1;
-    }
 }
 
 .Butao{
@@ -124,76 +159,38 @@
 
 .adicionarNovo{
     position: relative;
-    bottom: 27%;
     height: 0;
+    top: 7%;
 }
 
 .final{
     position: relative;
-    bottom: 20%;
     height: 0;
+    top: 15%;
 }
 
-.itemAdicional{
-    position: absolute;
+.ativado{
+   display: none;
+}
+
+.adicioactive_on{
+    position: relative;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.bntadicional{
+    position: relative;
+    display: flex;
     justify-content: center;
-    font-size: 10px;
-    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    top: 27%;
-    right: 14%;
-}
-
-.log{
-    position: relative;
-    width: 330px;
+    align-items: center;
+    background-color: #000000;
     height: 10%;
-    color: rgb(0, 0, 0);
-    bottom: 10%;
-}
-
-.log h4{
-    position: relative;
-    top: 0%;
-}
-
-.log h2{
-    font-size: 2.5rem;
-}
-
-@media (max-width: 414px) {
-
-    .preco{bottom: 41.7%;}
-
-    .add{bottom: 35%;}
-
-    .itemAdicional{top: 34.3%;}
-
-    .on{top: 52%;}
-
-    .log h4{
-        position: relative;
-        top: 60%;
-    }
-    
-    .log h2{font-size: 2.5rem;}
-
-    .adicionarNovo{bottom: 26%;}
-    
-    .final{bottom: 18%;}
-    
-}
-
-
-@media (max-width: 375px) {
-
-    .adicionarNovo{bottom: 23%;    }
-    
-    .final{
-        bottom: 13%;
-    }
+    width: 30%;
+    margin: 1%;
+    top: 6%;
+    border-radius: 7px;
+    cursor: pointer;
 }

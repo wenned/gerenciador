@@ -2,9 +2,6 @@ import style from './styles/Quantidade.module.css'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-import Adicionais from './Adicionais';
-
-
 // IMAGENS PASTEIS
 import carne from './imagens/carne.png'
 import queijo from './imagens/Queijo.png'
@@ -161,36 +158,39 @@ import salsichaqueijos from './imagens/salsichaqueijos.png'
       "FantaLitro": fantalitro,
       "GuaranaLitro": guaranalitro
     }
+
 var adicionais = []
+
+const Item = ['Queijo','Cheddar','Catupiry','Chocolate','Carne','Carnesol','Bacon','Frango','Azeitona','Goiabada','Palmito','Calabresa','Presunto','Canela',]
 
 function Quantidade(){
 
-  const [on, setOn] = useState('off')
-  const [adicional1, setadicional1] = useState('')
-  const [adicional2, setadicional2] = useState('')
+  const [displayoff, setdisplayoff] = useState('displayoff')
+  const [imgoff, setimgoff] = useState('imgoff')
+  const [ativado, setativado] = useState('ativado')
+  const [nome, setnome] = useState('nome_off')
+  // function adicionalItem(...args){
 
-  function adicionalItem(...args){
-
-    if(args.length === 2){
-      while(adicionais.length){
-        adicionais.pop()
-      }
-      setadicional1(args[0])
-      setadicional2(args[1])
-      adicionais.push(args[0])
-      adicionais.push(args[1])
-      setOn('off')
+  //   if(args.length === 2){
+  //     while(adicionais.length){
+  //       adicionais.pop()
+  //     }
+  //     setadicional1(args[0])
+  //     setadicional2(args[1])
+  //     adicionais.push(args[0])
+  //     adicionais.push(args[1])
+  //     setOn('off')
 
 
-    }else{
-      if(adicional1.length === 0){
-        adicionais.push(args[0])
-        setadicional1(args[0])
-        setOn('off')        
-      }
-    }
+  //   }else{
+  //     if(adicional1.length === 0){
+  //       adicionais.push(args[0])
+  //       setadicional1(args[0])
+  //       setOn('off')        
+  //     }
+  //   }
 
-  }
+  // }
     const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
     const [Valor, setValor] = useState(0)
@@ -340,25 +340,33 @@ function Quantidade(){
     return (
         <section className={style.conteiner}>
         
-           
-          <img src={IMAGEM[item]} alt='Imagem Pastel'/>
+          <h1 className={style.nomes}>{item}</h1>
+
+          <img className={style[`${imgoff}`]} src={IMAGEM[item]} alt='Imagem Pastel'/>
+
+          <div className={style[`${displayoff}`]} onClick={()=>{setdisplayoff('displayon'); setimgoff('imgon'); setativado('adicioactive_on'); setnome('nome_act')}}>
+            <div className={style[`${nome}`]}>Adicional</div>
+            <div className={style[`${ativado}`]}>
+              {
+                Object.values(Item).map((mesa, index)=>(
+                  <span key={index} className={style.bntadicional}>
+                    {mesa}
+                    <input type='checkbox' onChange={()=>{setdisplayoff('displayoff'); setimgoff('imgoff'); setativado('ativado'); setnome('nome_off')}}/>
+                    </span>
+                ))
+              }
+            </div>
+          </div>
 
           <div className={style.conteiner_Button}>
-              <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}}} className={style.But}>-</button>
 
-              <span className={style.Valor}>{Valor}</span>
+            <button onClick={()=>setValor(Valor + 1)} className={style.But}>+</button>
+            <span className={style.Valor}>{Valor}</span>
+            <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}}} className={style.But}>-</button>
 
-              <button onClick={()=>setValor(Valor + 1)} className={style.But}>+</button>
           </div>
-          <div className={style.itemAdicional}>{adicional1} {adicional2}</div>
-          <h1>{item}</h1>
-          
 
           <div className={style.preco}>$6.99</div>
-
-          <div className={style.add} onClick={()=>{setOn('on')}}>Adicional</div>
-
-          <div className={style[`${on}`]}><Adicionais adicionar={adicional1} itemadicionAl={adicionalItem}/></div>
 
           <div className={style.adicionarNovo}>
               <Link onClick={addValores} to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
@@ -370,11 +378,6 @@ function Quantidade(){
               <Link to='/finalizar'>
                   <div onClick={()=>{ addValores()}} className={style.Butao}>Finalizar</div>
               </Link>
-          </div>
-
-          <div className={style.log}>
-            <h4>Pastelaria e Creperia</h4>
-            <h2>Sabor Mineiro</h2>
           </div>
 
       </section>
