@@ -1,4 +1,4 @@
-import style from './styles/MenuH.module.css'
+import style from '../components/Styles/MenuH.module.css'
 
 function Tipo(){
     

@@ -1,10 +1,10 @@
-import style from './styles/Home.module.css'
+import style from '../components/Styles/Home.module.css'
 import MenuH from './MenuH'
 
 import { useState } from 'react';
-import Mesa from './components/Mesa';
-import Producao from './components/Producao';
-import Fechar from './components/Fechar';
+import Mesa from './Mesa';
+import Producao from './Producao';
+import Fechar from './Fechar';
 
 
 function Home(){
