@@ -2,10 +2,11 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 90vh;
-    height: 80vh;
+    width: 85%;
+    height: 100%;
+    left: 10%;
     align-content: space-around;    
-    background: rgb(169, 166, 159);
+    background: #a9a69f;
     padding: 1rem;
     border-radius: 10px;
     justify-content: space-between;
@@ -14,9 +15,9 @@
 
 .estilo{
     position: relative;
-    width: 10rem;
-    height: 7rem;
-    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(143, 132, 107),rgb(0, 0, 0));
+    width: 24%;
+    height: 19%;
+    background: linear-gradient(45deg, #000000, #8f846b,#000000);
     border-radius: 7px;
     opacity: 0.9;
 }
@@ -32,36 +33,37 @@
     position: relative;
     display: flex;
     justify-content: center;
-    background-color: rgb(169, 166, 159);
+    background-color: #a9a69f;
     border-top-left-radius: 7px;
     border-bottom-right-radius: 7px;    
     top: -1%;
     right: 0.4%;    
     height: 25%;
     width: 40%;
-    font-size: 11px;
-    color: rgb(23, 29, 18);
+    font-size: 70%;
+    color: #171d12;
 }
     
 .estilo span a{
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    background-color: #000000;
     height: 40%;
     width: 50%;
     border-radius: 7px;
-    font-size: 10px;
+    font-size: 50%;
     margin: 2%;
     bottom: 10%;
 }
 
 .ocupada{
     position: relative;
-    width: 10rem;
-    height: 7rem;
-    background: linear-gradient(45deg, rgb(186, 210, 52), rgb(169, 183, 89),rgb(186, 210, 52));
+    width: 24%;
+    height: 19%;
+    background: linear-gradient(45deg, #bad234, #a9b759,#bad234);
     border-radius: 7px;
     opacity: 0.9;
 }
@@ -78,7 +80,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    background-color: #000000;
     height: 40%;
     width: 50%;
     border-radius: 7px;
@@ -91,7 +93,7 @@
     position: relative;
     width: 10rem;
     height: 7rem;
-    background: linear-gradient(45deg, rgb(177, 58, 58), rgb(155, 111, 111),rgb(177, 58, 58));
+    background: linear-gradient(45deg, #b13a3a, #9b6f6f,#b13a3a);
     border-radius: 7px;
     opacity: 0.9;
 }
