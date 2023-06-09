@@ -2,6 +2,8 @@ import style from './styles/Quantidade.module.css'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
+// im/port Adicionais from '../area_Cliente/Adicionais'
+
 // IMAGENS PASTEIS
 import carne from './imagens/carne.png'
 import queijo from './imagens/Queijo.png'
@@ -169,6 +171,15 @@ function Quantidade(){
   const [imgoff, setimgoff] = useState('imgoff')
   const [ativado, setativado] = useState('ativado')
   const [nome, setnome] = useState('nome_off')
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (e) => {
+    console.log(e.target)
+    setIsChecked(e.target.checked);
+  };
+
+
   // function adicionalItem(...args){
 
   //   if(args.length === 2){
@@ -194,6 +205,7 @@ function Quantidade(){
     const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
     const [Valor, setValor] = useState(0)
+    // const [valor_item, setvalor_ite/m] = useState(0)
          
     var item;
     var tip;
@@ -349,10 +361,13 @@ function Quantidade(){
             <div className={style[`${ativado}`]}>
               {
                 Object.values(Item).map((mesa, index)=>(
-                  <span key={index} className={style.bntadicional}>
+                  <label key={index} className={style.bntadicional}>
                     {mesa}
-                    <input type='checkbox' onChange={()=>{setdisplayoff('displayoff'); setimgoff('imgoff'); setativado('ativado'); setnome('nome_off')}}/>
-                    </span>
+                    <input id={index} className={isChecked? style.Input_check: style.Input} 
+                      type='checkbox'
+                      checked={isChecked}
+                      onChange={(e)=>{setdisplayoff('displayoff'); setimgoff('imgoff'); setativado('ativado'); setnome('nome_off'); handleCheckboxChange(e)}}/>
+                    </label>
                 ))
               }
             </div>

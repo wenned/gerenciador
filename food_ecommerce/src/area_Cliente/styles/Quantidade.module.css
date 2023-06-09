@@ -61,7 +61,7 @@ to{
     flex-direction: column;
     height: 6rem;
     width: 2em;
-    left: 41%;
+    left: 40.5%;
     bottom: 15.5%;
 }
 
@@ -193,4 +193,15 @@ to{
     top: 6%;
     border-radius: 7px;
     cursor: pointer;
+}
+
+.Input{
+    position: absolute;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.Input_check{
+    position: relative;
+    opacity: 1;
 }

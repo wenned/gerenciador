@@ -1,28 +1,26 @@
-import style from './styles/Adicionais.module.css'
+import React, { useState } from 'react';
 
+function CheckboxExample() {
+  const [isChecked, setIsChecked] = useState(false);
 
-const Item = ['Queijo','Cheddar','Catupiry','Chocolate','Carne','Carnesol','Bacon','Frango','Azeitona','Goiabada','Palmito','Calabresa','Presunto','Canela',]
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
 
-function Adicionais(props){
+  return (
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+        />
+        Checkbox
+      </label>
 
-    function handleClick(mensagem){
-        
-        if(props.adicionar.length === 0){
-            props.itemadicionAl(mensagem)
-        }else{
-            props.itemadicionAl(props.adicionar, mensagem)
-        }
-    }
-
-    return (
-        <section className={style.conteinerScroll}>
-                {                    
-                    Object.values(Item).map((mesa, index)=>(
-                        <span key={index} onClick={()=>{handleClick(`${mesa}`)}} className={style.itensCarrosel}>{mesa}</span>
-                    ))
-                }
-      </section>
-    )
+      {isChecked ? <div>O checkbox está marcado!</div> : <div>O checkbox não está marcado.</div>}
+    </div>
+  );
 }
 
-export default Adicionais;
+export default CheckboxExample;
