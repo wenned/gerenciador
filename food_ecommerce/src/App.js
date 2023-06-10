@@ -20,7 +20,7 @@ function App() {
           <Route exact path='/' element={<Home/>}/>
           <Route path='/tipo/:Mesa?/:keyS?' element={<Tipo/>}/>
           <Route path='/pastel/:id?' element={<Sabores/>}/>
-          <Route path='/quantidade' element={<Quantidade/>}/>
+          <Route path='/quantidade/:valores?' element={<Quantidade/>}/>
           <Route path='/finalizar' element={<Finalizar/>}/>
           <Route path='/pedido' element={<Pedido/>}/>
           <Route path='/pagamento/:valor?' element={<Pagamento/>}/>

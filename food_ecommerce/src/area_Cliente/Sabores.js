@@ -56,7 +56,7 @@ function Sabores(){
               
               <div className={style.boo}>  R${pastel[`${Object.keys(pastel)[1]}`].$numberDecimal}  </div>
               
-              <Link onClick={ ()=> AddValor(Object.keys(pastel)[1])} key={pastel['_id']} to='/quantidade'>
+              <Link onClick={ ()=> AddValor(Object.keys(pastel)[1])} key={pastel['_id']} to={`/quantidade/${pastel[`${Object.keys(pastel)[1]}`].$numberDecimal}`}>
                 
                 <div className={style.bo}>{Object.keys(pastel)[1]}</div>
 

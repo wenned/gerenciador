@@ -1,5 +1,5 @@
 import style from './styles/Quantidade.module.css'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 
 // im/port Adicionais from '../area_Cliente/Adicionais'
@@ -167,46 +167,30 @@ const Item = ['Queijo','Cheddar','Catupiry','Chocolate','Carne','Carnesol','Baco
 
 function Quantidade(){
 
+  const {valores} = useParams()
+  var g =  Number(valores)
+
   const [displayoff, setdisplayoff] = useState('displayoff')
   const [imgoff, setimgoff] = useState('imgoff')
   const [ativado, setativado] = useState('ativado')
   const [nome, setnome] = useState('nome_off')
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(Array(Object.values(Item).length).fill(false));
 
-  const handleCheckboxChange = (e) => {
-    console.log(e.target)
-    setIsChecked(e.target.checked);
+  const handleCheckboxChange = (index) => {
+    setIsChecked((prevState) => {
+      const newState = [...prevState];
+      newState[index] = !newState[index];
+      return newState;
+    });
   };
 
-
-  // function adicionalItem(...args){
-
-  //   if(args.length === 2){
-  //     while(adicionais.length){
-  //       adicionais.pop()
-  //     }
-  //     setadicional1(args[0])
-  //     setadicional2(args[1])
-  //     adicionais.push(args[0])
-  //     adicionais.push(args[1])
-  //     setOn('off')
-
-
-  //   }else{
-  //     if(adicional1.length === 0){
-  //       adicionais.push(args[0])
-  //       setadicional1(args[0])
-  //       setOn('off')        
-  //     }
-  //   }
-
-  // }
     const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
     const [Valor, setValor] = useState(0)
-    // const [valor_item, setvalor_ite/m] = useState(0)
-         
+    const [valor_item, setvalor_item] = useState(0)
+    
+
     var item;
     var tip;
     var dado = JSON.parse(localStorage.getItem('Modelo'))
@@ -214,11 +198,13 @@ function Quantidade(){
     if(dado === null){
       //
     }else{
+      
       dado['Itens'].forEach((element)=> {
           if(element['Item']['Valor'].length === 0 ){
             item = element['Item']['Sabor']
             tip = element['Item']['Tipo']
           }
+        
         });
     }
 
@@ -361,12 +347,18 @@ function Quantidade(){
             <div className={style[`${ativado}`]}>
               {
                 Object.values(Item).map((mesa, index)=>(
-                  <label key={index} className={style.bntadicional}>
+                  <label key={index} className={isChecked[index] ? style.Input_check : style.bntadicional}>
                     {mesa}
-                    <input id={index} className={isChecked? style.Input_check: style.Input} 
+                    <input id={index} className={style.Input} 
                       type='checkbox'
-                      checked={isChecked}
-                      onChange={(e)=>{setdisplayoff('displayoff'); setimgoff('imgoff'); setativado('ativado'); setnome('nome_off'); handleCheckboxChange(e)}}/>
+                      checked={isChecked[index]}
+                      onChange={() => {
+                        setdisplayoff('displayoff');
+                        setimgoff('imgoff');
+                        setativado('ativado');
+                        setnome('nome_off');
+                        handleCheckboxChange(index);
+                      }}/>
                     </label>
                 ))
               }
@@ -375,13 +367,13 @@ function Quantidade(){
 
           <div className={style.conteiner_Button}>
 
-            <button onClick={()=>setValor(Valor + 1)} className={style.But}>+</button>
+            <button onClick={()=>{setValor(Valor + 1); setvalor_item(g + valor_item)}} className={style.But}>+</button>
             <span className={style.Valor}>{Valor}</span>
-            <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}}} className={style.But}>-</button>
+            <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}; setvalor_item(valor_item - g)}} className={style.But}>-</button>
 
           </div>
 
-          <div className={style.preco}>$6.99</div>
+          <div className={style.preco}>${valor_item.toFixed(2)}</div>
 
           <div className={style.adicionarNovo}>
               <Link onClick={addValores} to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>

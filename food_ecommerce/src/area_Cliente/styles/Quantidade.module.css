@@ -117,7 +117,7 @@ to{
 .preco {
     position: relative;
     bottom: 6.5%;
-    left: 23%;
+    left: 17%;
     width: 5%;
     height: 0%;
     font-size: 2rem;
@@ -197,11 +197,21 @@ to{
 
 .Input{
     position: absolute;
-    opacity: 0.5;
+    opacity: 0;
     cursor: pointer;
 }
 
 .Input_check{
     position: relative;
-    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a9a7a7;
+    color: #000000;
+    height: 10%;
+    width: 30%;
+    margin: 1%;
+    top: 6%;
+    border-radius: 7px;
+    cursor: pointer;
 }
