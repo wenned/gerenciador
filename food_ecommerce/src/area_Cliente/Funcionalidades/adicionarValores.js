@@ -57,7 +57,7 @@ export function addValores(){
       });
       
     }else{
-      console.log('awer')
+
       reload['Itens'].forEach((element, index)=> {
         if(element['Item']['Valor'].length === 0){
           reload['Itens'][index]['Item']['Quantidade'] = Valor

@@ -67,7 +67,6 @@ function Finalizar(){
                             setTimeout(()=>{window.location.href ='/pedido'}, 5)
                             
                         }else{
-                            // console.log(JSON.parse(data))
                             var It = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'temp', 'Modelo']
 
                             for(var Y=0; Y < It.length; Y++){

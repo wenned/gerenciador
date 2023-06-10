@@ -2,7 +2,9 @@ import style from './styles/Quantidade.module.css'
 import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 
-// im/port Adicionais from '../area_Cliente/Adicionais'
+// FUNCIONALIDADES
+
+import {adicionar_adicional} from './Funcionalidades/adicional'
 
 // IMAGENS PASTEIS
 import carne from './imagens/carne.png'
@@ -358,6 +360,7 @@ function Quantidade(){
                         setativado('ativado');
                         setnome('nome_off');
                         handleCheckboxChange(index);
+                        adicionar_adicional(`${mesa}`)
                       }}/>
                     </label>
                 ))
