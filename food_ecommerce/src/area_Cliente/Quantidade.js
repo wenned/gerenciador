@@ -178,21 +178,29 @@ function Quantidade(){
   const [nome, setnome] = useState('nome_off')
 
   const [isChecked, setIsChecked] = useState(Array(Object.values(Item).length).fill(false));
-
+  
   const handleCheckboxChange = (index) => {
+    
+
+
     setIsChecked((prevState) => {
       const newState = [...prevState];
       newState[index] = !newState[index];
+
+      const checkedCount = newState.filter((isChecked) => isChecked).length;
+      if (checkedCount > 2) {
+        newState[index] = false; // Desmarcar o checkbox atual se exceder o limite
+      }
       return newState;
-    });
-  };
+    })
+
+    }
 
     const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
     const [Valor, setValor] = useState(0)
     const [valor_item, setvalor_item] = useState(0)
     
-
     var item;
     var tip;
     var dado = JSON.parse(localStorage.getItem('Modelo'))
@@ -349,7 +357,7 @@ function Quantidade(){
             <div className={style[`${ativado}`]}>
               {
                 Object.values(Item).map((mesa, index)=>(
-                  <label key={index} className={isChecked[index] ? style.Input_check : style.bntadicional}>
+                  <label key={index} className={isChecked[index]? style.Input_check : style.bntadicional}>
                     {mesa}
                     <input id={index} className={style.Input} 
                       type='checkbox'
