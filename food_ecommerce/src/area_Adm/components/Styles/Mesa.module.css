@@ -29,21 +29,7 @@
     align-items: center;
 }
 
-.numero{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    background-color: #a9a69f;
-    border-top-left-radius: 7px;
-    border-bottom-right-radius: 7px;    
-    top: -1%;
-    right: 0.4%;    
-    height: 25%;
-    width: 40%;
-    font-size: 70%;
-    color: #171d12;
-}
-    
+ 
 .estilo span a{
     position: relative;
     display: flex;
@@ -59,6 +45,21 @@
     bottom: 10%;
 }
 
+.numero{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #a9a69f;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 7px;    
+    top: -1%;
+    right: 0.4%;    
+    height: 25%;
+    width: 40%;
+    font-size: 70%;
+    color: #171d12;
+}
+   
 .ocupada{
     position: relative;
     width: 24%;
@@ -91,8 +92,8 @@
 
 .pagamento{
     position: relative;
-    width: 10rem;
-    height: 7rem;
+    width: 24%;
+    height: 19%;
     background: linear-gradient(45deg, #b13a3a, #9b6f6f,#b13a3a);
     border-radius: 7px;
     opacity: 0.9;
@@ -114,7 +115,7 @@
     height: 40%;
     width: 50%;
     border-radius: 7px;
-    font-size: 10px;
+    font-size: 50%;
     margin: 2%;
     bottom: 10%;
 }

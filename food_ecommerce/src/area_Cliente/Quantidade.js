@@ -163,14 +163,12 @@ import salsichaqueijos from './imagens/salsichaqueijos.png'
       "GuaranaLitro": guaranalitro
     }
 
-var adicionais = []
-
 const Item = ['Queijo','Cheddar','Catupiry','Chocolate','Carne','Carnesol','Bacon','Frango','Azeitona','Goiabada','Palmito','Calabresa','Presunto','Canela',]
 
 function Quantidade(){
 
   const {valores} = useParams()
-  var g =  Number(valores)
+  var Valor_Atual =  Number(valores)
 
   const [displayoff, setdisplayoff] = useState('displayoff')
   const [imgoff, setimgoff] = useState('imgoff')
@@ -181,8 +179,6 @@ function Quantidade(){
   
   const handleCheckboxChange = (index) => {
     
-
-
     setIsChecked((prevState) => {
       const newState = [...prevState];
       newState[index] = !newState[index];
@@ -192,9 +188,9 @@ function Quantidade(){
         newState[index] = false; // Desmarcar o checkbox atual se exceder o limite
       }
       return newState;
-    })
 
-    }
+    });
+  };
 
     const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
@@ -214,7 +210,6 @@ function Quantidade(){
             item = element['Item']['Sabor']
             tip = element['Item']['Tipo']
           }
-        
         });
     }
 
@@ -228,49 +223,48 @@ function Quantidade(){
         reload['Itens'].forEach((element, index)=> {
           if(element['Item']['Valor'].length === 0){
             reload['Itens'][index]['Item']['Quantidade'] = Valor
-            reload['Itens'][index]['Item']['Adicional'] = adicionais
 
-            var h;
+            var menu_valores;
   
             switch(element['Item']['Tipo']){
   
               case 'Pastel':
-                h = JSON.parse(localStorage.getItem('menu_pasteis'))
+                menu_valores = JSON.parse(localStorage.getItem('menu_pasteis'))
                 break
   
                 case 'Frances':
-                  h = JSON.parse(localStorage.getItem('menu_frances'))
+                  menu_valores = JSON.parse(localStorage.getItem('menu_frances'))
                   break
   
                   case 'Suico':
-                    h = JSON.parse(localStorage.getItem('menu_suicos'))
+                    menu_valores = JSON.parse(localStorage.getItem('menu_suicos'))
                     break
   
                     case 'Bebida':
-                      h = JSON.parse(localStorage.getItem('menu_bebidas'))
+                      menu_valores = JSON.parse(localStorage.getItem('menu_bebidas'))
                       break
   
                       case 'Hamburguer':
-                        h = JSON.parse(localStorage.getItem('menu_hamburgues'))
+                        menu_valores = JSON.parse(localStorage.getItem('menu_hamburgues'))
                         break
   
                         default:
                           break
             };
   
-            for (item in h){
-              var verf = element['Item']['Sabor'] in h[item]
+            for (item in menu_valores){
+              var verf = element['Item']['Sabor'] in menu_valores[item]
               
               if(verf === true){
-              var valorItem = Object.values(h[item][element['Item']['Sabor']])
+              var valorItem = Object.values(menu_valores[item][element['Item']['Sabor']])
   
                 reload['Itens'][index]['Item']['Valor'] = valorItem[0]
                 reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split("-")
                 localStorage.setItem('Modelo', JSON.stringify(reload))
   
-              }
-            }
-          }
+              };
+            };
+          };
         });
         
       }else{
@@ -278,53 +272,51 @@ function Quantidade(){
         reload['Itens'].forEach((element, index)=> {
           if(element['Item']['Valor'].length === 0){
             reload['Itens'][index]['Item']['Quantidade'] = Valor
-            reload['Itens'][index]['Item']['Adicional'].push(adicionais)
             
-            var h;
+            var menu_valores;
   
             switch(element['Item']['Tipo']){
   
               case 'Pastel':
-                h = JSON.parse(localStorage.getItem('menu_pasteis'))
+                menu_valores = JSON.parse(localStorage.getItem('menu_pasteis'))
                 break
   
                 case 'Frances':
-                  h = JSON.parse(localStorage.getItem('menu_frances'))
+                  menu_valores = JSON.parse(localStorage.getItem('menu_frances'))
                   break
   
                   case 'Suico':
-                    h = JSON.parse(localStorage.getItem('menu_suicos'))
+                    menu_valores = JSON.parse(localStorage.getItem('menu_suicos'))
                     break
   
                     case 'Bebida':
-                      h = JSON.parse(localStorage.getItem('menu_bebidas'))
+                      menu_valores = JSON.parse(localStorage.getItem('menu_bebidas'))
                       break
   
                       case 'Hamburguer':
-                        h = JSON.parse(localStorage.getItem('menu_hamburgues'))
+                        menu_valores = JSON.parse(localStorage.getItem('menu_hamburgues'))
                         break
   
                         default:
                           break
             };
   
-            for (item in h){
-              var verf = element['Item']['Sabor'] in h[item]
+            for (item in menu_valores){
+              var verf = element['Item']['Sabor'] in menu_valores[item]
               
               if(verf === true){
-              var o = Object.values(h[item][element['Item']['Sabor']])
+              var o = Object.values(menu_valores[item][element['Item']['Sabor']])
   
                 reload['Itens'][index]['Item']['Valor'] = o[0]
                 reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split("-")
                 localStorage.setItem('Modelo', JSON.stringify(reload))
   
-              }
-            }
-          }
+              };
+            };
+          };
         });
-
-      }
-    }
+      };
+    };
 
     var IMAGEM = Pastel
 
@@ -343,7 +335,7 @@ function Quantidade(){
               break
               default:
                 break
-    }
+    };
 
     return (
         <section className={style.conteiner}>
@@ -353,12 +345,18 @@ function Quantidade(){
           <img className={style[`${imgoff}`]} src={IMAGEM[item]} alt='Imagem Pastel'/>
 
           <div className={style[`${displayoff}`]} onClick={()=>{setdisplayoff('displayon'); setimgoff('imgon'); setativado('adicioactive_on'); setnome('nome_act')}}>
+            
             <div className={style[`${nome}`]}>Adicional</div>
+            
             <div className={style[`${ativado}`]}>
+
               {
                 Object.values(Item).map((mesa, index)=>(
+
                   <label key={index} className={isChecked[index]? style.Input_check : style.bntadicional}>
+                    
                     {mesa}
+
                     <input id={index} className={style.Input} 
                       type='checkbox'
                       checked={isChecked[index]}
@@ -373,29 +371,36 @@ function Quantidade(){
                     </label>
                 ))
               }
+
             </div>
           </div>
 
           <div className={style.conteiner_Button}>
 
-            <button onClick={()=>{setValor(Valor + 1); setvalor_item(g + valor_item)}} className={style.But}>+</button>
+            <button onClick={()=>{setValor(Valor + 1); setvalor_item(Valor_Atual + valor_item)}} className={style.But}>+</button>
+
             <span className={style.Valor}>{Valor}</span>
-            <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}; setvalor_item(valor_item - g)}} className={style.But}>-</button>
+
+            <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}; setvalor_item(valor_item - Valor_Atual)}} className={style.But}>-</button>
 
           </div>
 
           <div className={style.preco}>${valor_item.toFixed(2)}</div>
 
           <div className={style.adicionarNovo}>
+
               <Link onClick={addValores} to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
                   <div className={style.Butao}>Adicionar Novo Item</div>
               </Link>
+
           </div>
 
           <div className={style.final}>
+
               <Link to='/finalizar'>
                   <div onClick={()=>{ addValores()}} className={style.Butao}>Finalizar</div>
               </Link>
+              
           </div>
 
       </section>
