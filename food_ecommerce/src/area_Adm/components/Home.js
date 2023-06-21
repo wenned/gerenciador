@@ -6,11 +6,9 @@ import Mesa from './Mesa';
 import Producao from './Producao';
 import Fechar from './Fechar';
 
-
 function Home(){
 
     const [valor, setvalor] = useState(<Mesa/>)
-
 
     document.addEventListener('click', (e)=>{
 
@@ -31,9 +29,7 @@ function Home(){
             default:
                 break
             };
-
-    })
-
+    });
 
     return (
         <section className={style.conteiner}>
