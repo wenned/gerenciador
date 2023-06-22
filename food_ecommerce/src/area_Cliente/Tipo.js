@@ -5,89 +5,54 @@ import { Link, useParams} from 'react-router-dom';
 // Funcionalidades
 import {adicionarTipo} from './Funcionalidades/adicionarQuantidade.js';
 import {carga, libera, validar} from './Funcionalidades/verificacaoKeys'
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { removerItensArmazenado } from './Funcionalidades/remocaoItensLocal';
 
 function Tipo(){
+    
+    const {Mesa} = useParams();
+    const [controle, setControle] = useState(false);
 
-    const {keyS, Mesa} = useParams();
-    const [controle, setControle] = useState(true)
-
-    var items = ['temp', 'Modelo']
-    var CONFI_MODELO = JSON.parse(localStorage.getItem('Modelo'))
-    var cont=0
-    var IsertDAdo = []
-
-    let leT = localStorage.getItem('Key') !== null && localStorage.getItem('Key') !== undefined
+    const key = JSON.parse(localStorage.getItem('Key'))
 
     try {
 
-        if(localStorage.getItem('Key') !== null && localStorage.getItem('Key') !== undefined){
-            validar(localStorage.getItem('Key'),'abrir')
-            .then((resposta)=>{ 
-                if(resposta === false){
-                    localStorage.clear()
-                    libera(Mesa)
-                    carga()
-                }else{
-                    setControle(true)
-                    carga()
-                }
-                
-            })
-        }else{
-            if(leT === false){
-                libera(Mesa)
-                .then((re)=>{
-                    if(re === 3){
-                        setControle(re)
+        const handValidar = useCallback( ()=>{
+            //eslint-disable-next-line react-hooks/exhaustive-deps
+            validar(Mesa, key)
+                .then((resp)=>{
+
+                    if(resp === false && localStorage.getItem('Key') === null){
+                        libera(Mesa)
+                            .then((retor)=>{
+                                if(retor === true){
+                                    carga()
+                                }
+                            })
                     }
-                    if(re === false){
-                        setControle(false)
+
+                    if(resp === true){
+                        carga()
                     }
+                    
+                    if(resp === false && localStorage.getItem('Key') !== null && localStorage.getItem('Key') !== undefined){
+                        setControle(true)
+                        removerItensArmazenado()
+
+                    }
+
                 })
-            }
-        }
 
-        if(CONFI_MODELO == null){
-            //
-        }else{
-            for(var JIten=0; JIten < CONFI_MODELO.Itens.length; JIten++){
-                if(CONFI_MODELO.Itens[JIten]['Item']['Valor'] > 0){
-                    cont++
-                }
-            }
+        },[Mesa])
+        handValidar()
 
-            if(keyS === undefined){
-                for(var y=0; y < items.length; y++){
-                    localStorage.removeItem(items[y])
-                }
-            }
-            var letv = cont === CONFI_MODELO.Itens.length
-
-            if(letv === false){
-                for(var JItens=0; JItens < CONFI_MODELO.Itens.length; JItens++){
-                    if(CONFI_MODELO.Itens[JItens]['Item']['Valor'] > 0){
-                        IsertDAdo.push(CONFI_MODELO.Itens[JItens])
-                    }
-                }
-
-                if(IsertDAdo.length !== 0){
-                    CONFI_MODELO.Itens = IsertDAdo
-                    localStorage.setItem('Modelo', JSON.stringify(CONFI_MODELO))
-                }
-            }
-        }
-
-      } catch (error) {
-
-        if(String(error) === `TypeError: Cannot read properties of null (reading 'Itens')`){
-            //
-        }
-      }
+    } catch (error) {
+        console.log(error)
+    }
 
     return (
         <>
-        {controle === true?
+        {controle === false?
         <section className={style.conteiner}>
                 
                 <div className={style.alt}>
@@ -123,16 +88,20 @@ function Tipo(){
                 <div className={style.radape}><Logo/></div>
 
         </section>:
-            controle === 3?
+            controle === 1?
+
             <div className={style.Err}>
                 Erro ao conectar ao servidor!
                 <Logo/>
+
             </div>:
+
                 <section className={style.busy}>
                     <div>{Mesa} - OCUPADA</div>
                     <div>Escanei outro QRCode ou solicite a quem fez o primeiro escaneamento para adicionar o seu item ao pedido que ja esta em aberto!</div>
                     <div><Logo/></div>
                 </section>
+
         }
         </>
     )

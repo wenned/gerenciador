@@ -3,31 +3,48 @@ let keyConst = []
 
 export async function validar(...args){
     
-    const [Mesa, Id] = args
-    const RespostaKEY = await fetch(`http://192.168.31.3:8080/mesa/${Mesa}/${Id}`)
+    const [Mesa , key] = args
+    
+    const RespostaKEY = await fetch(`http://192.168.31.3:8080/Mesa/${Mesa}`)
     const ResultKey = await RespostaKEY.json()
-    return ResultKey
+    
+    if(key === null){
+        return false
+    }else{
+        if(ResultKey === key[0]){
+            return true
+        }else{
+            return false
+        }
+    }
+
 };
 
 export async function libera(...args){
 
     const [Mesa] = args
+    const Body = [{'Id':Mesa, 'Operacao':1}]
 
     try {
-        // const RespostaKEY = await fetch(`http://192.168.3.52:8080/${Mesa}/abrir`)
-        const RespostaKEY = await fetch(`http://192.168.31.3:8080/mesa/${Mesa}/abrir`)
+        const RespostaKEY = await fetch(`http://192.168.31.3:8080/entrada/alterarStatusMesa`, 
+                                    {
+                                        method: 'PUT',
+                                        body:JSON.stringify(Body),
+                                        headers: {"Content-type": "application/json; charset=UTF-8"}
+                                    });
         const ResultKey = await RespostaKEY.json()
-    
+        console.log(ResultKey)
         keyConst.push(ResultKey)
         keyConst.push({"Mesa":`${Mesa}`})
-        
-        if(ResultKey === false){
-            return false
-        }else{
-            localStorage.setItem('Key', JSON.stringify(keyConst))
-            sessionStorage.setItem('N_MESA', Mesa)
-            return true
+
+
+        localStorage.setItem('Key', JSON.stringify(keyConst))
+        sessionStorage.setItem('N_MESA', Mesa)
+
+        while(keyConst.length){
+            keyConst.pop()
         }
+        return true
 
     } catch (error) {
         if(String(error) === 'TypeError: Failed to fetch'){
@@ -36,20 +53,18 @@ export async function libera(...args){
     }
 }   
 
-
-async function carregaDados (x) {
-
-    // const resposta = await fetch(`http://192.168.3.52:8080/${x}`);
-    const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
-    //const resposta = await fetch(`http://192.168.2.9:8080/${x}`);
-
-    const RESULT = await resposta.json();
-    localStorage.setItem(`${x}`, JSON.stringify(RESULT));
-}
-
 export function carga(){
 
     for(var l=0; l < GetItems.length; l++){
         carregaDados(GetItems[l]);
     };
 }
+
+async function carregaDados (x) {
+
+    const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
+
+    const RESULT = await resposta.json();
+    localStorage.setItem(`${x}`, JSON.stringify(RESULT));
+}
+

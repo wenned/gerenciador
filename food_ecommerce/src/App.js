@@ -16,7 +16,8 @@ function App() {
     <div className="App">
       <>
         <Routes>
-
+          {/*AREA CAXAI E PRODUCAO*/}
+          
           <Route exact path='/' element={<Home/>}/>
           <Route path='/tipo/:Mesa?/:keyS?' element={<Tipo/>}/>
           <Route path='/pastel/:id?' element={<Sabores/>}/>
