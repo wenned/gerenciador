@@ -7,8 +7,8 @@ function Logo(){
             
             <div>
                 <span></span>
-                <h4>Pastelaria e Creperia</h4>
-                <h1>Sabor Mineiro</h1>
+                <h4>Self Service</h4>
+                <h1>GEP</h1>
             </div>
 
         </section>

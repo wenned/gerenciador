@@ -21,11 +21,11 @@ function Sabores(){
           // const resposta = await fetch(`http://192.168.2.9:8080/${id}`);
 
           const repositorios = await resposta.json();
-            setValor(repositorios);
+          setValor(repositorios);
         }
         carregaDados();
       }, [id]);
-
+    
     function AddValor(arg){
       var dado;      
       var reload = JSON.parse(localStorage.getItem('Modelo'))
@@ -54,11 +54,11 @@ function Sabores(){
             
             <div key={ind} className={style.atl}>
               
-              <div className={style.boo}>  R${pastel[`${Object.keys(pastel)[1]}`].$numberDecimal}  </div>
+              <div className={style.boo}>  R$ {pastel.Valor}  </div>
               
-              <Link onClick={ ()=> AddValor(Object.keys(pastel)[1])} key={pastel['_id']} to={`/quantidade/${pastel[`${Object.keys(pastel)[1]}`].$numberDecimal}`}>
+              <Link onClick={ ()=> AddValor(pastel.Tipo)} key={pastel._id} to={`/quantidade/${pastel.Valor}`}>
                 
-                <div className={style.bo}>{Object.keys(pastel)[1]}</div>
+                <div className={style.bo}>{pastel.Tipo}</div>
 
               </Link>
             </div>
