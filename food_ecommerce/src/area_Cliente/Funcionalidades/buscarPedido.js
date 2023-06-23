@@ -3,9 +3,9 @@ const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
 export async function fetchPedido(pedidoId) {
 
-    // const resposta = await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`);
-   const resposta = await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`);
-    // const resposta = await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`);
+    // const resposta = await fetch(`http://192.168.3.52:8080/pedidoUnico/${pedidoId}`);
+   const resposta = await fetch(`http://192.168.31.3:8080/pedidoUnico/${pedidoId}`);
+    // const resposta = await fetch(`http://192.168.2.9:8080/pedidoUnico/${pedidoId}`);
 
     return resposta.json();
 }

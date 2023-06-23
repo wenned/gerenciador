@@ -76,7 +76,7 @@ function Quantidade(){
               default:
                 break
     };
-console.log(typeof(Valor_Atual))
+    
     return (
         <section className={style.conteiner}>
         
@@ -129,7 +129,7 @@ console.log(typeof(Valor_Atual))
 
           <div className={style.adicionarNovo}>
 
-              <Link onClick={()=>{addValores(valor_item, Valor)}} to={`/tipo/${MESAKEY[1]['Mesa']}/novoItem`}>
+              <Link onClick={()=>{addValores(Number(valores), Valor)}} to={`/tipo/${MESAKEY[1]['Mesa']}/novoItem`}>
                   <div className={style.Butao}>Adicionar Novo Item</div>
               </Link>
 
@@ -138,7 +138,7 @@ console.log(typeof(Valor_Atual))
           <div className={style.final}>
 
               <Link to='/finalizar'>
-                  <div onClick={()=>{ addValores(Valor_Atual, Valor)}} className={style.Butao}>Finalizar</div>
+                  <div onClick={()=>{ addValores( Number(valores), Valor)}} className={style.Butao}>Finalizar</div>
               </Link>
               
           </div>

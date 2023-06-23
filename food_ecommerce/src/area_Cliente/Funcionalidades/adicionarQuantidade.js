@@ -1,9 +1,7 @@
 var Model = {
-    "Data":"",
     "Itens":"",
     "valor_total": "",
     "Status":"Pendente",
-    "Id":"",
     "Nu_Pedido":"",
 }
 
@@ -40,24 +38,24 @@ export async function adicionarTipo(arg){
             localStorage.setItem('Modelo', JSON.stringify(dadosInsert))
 
         }else{
+/*
+            // const pedidoId = localStorage.getItem('Pedido');
+            // // await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`)
 
-            const pedidoId = localStorage.getItem('Pedido');
-            // await fetch(`http://192.168.3.52:8080/pedido/${pedidoId}`)
+            // await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`)
+            // // await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`)
+            // .then((res) =>{
+            //     return res.json()
+            // }).then(doc =>{
+            //     localStorage.setItem('temp', JSON.stringify(doc))
+            // });
 
-            await fetch(`http://192.168.31.3:8080/pedido/${pedidoId}`)
-            // await fetch(`http://192.168.2.9:8080/pedido/${pedidoId}`)
-            .then((res) =>{
-                return res.json()
-            }).then(doc =>{
-                localStorage.setItem('temp', JSON.stringify(doc))
-            });
+            // dadosInsert = JSON.parse(localStorage.getItem('temp'))
 
-            dadosInsert = JSON.parse(localStorage.getItem('temp'))
-
-            var itemPedido = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"], "Adicional":""}}
-            itemPedido['Item']['Tipo'] = arg
-            dadosInsert['Itens'].push(itemPedido)
-            localStorage.setItem('Modelo', JSON.stringify(dadosInsert))
+            // var itemPedido = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"], "Adicional":""}}
+            // itemPedido['Item']['Tipo'] = arg
+            // dadosInsert['Itens'].push(itemPedido)
+            // localStorage.setItem('Modelo', JSON.stringify(dadosInsert))*/
         }
     }
 }

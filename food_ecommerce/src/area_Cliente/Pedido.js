@@ -63,7 +63,7 @@ function Pedido(){
     }
 
     const LocalStor = JSON.parse(localStorage.getItem('Key'))
-    console.log()
+    console.log(pedido)
 
     return(
         <>

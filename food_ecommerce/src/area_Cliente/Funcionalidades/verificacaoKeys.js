@@ -33,7 +33,7 @@ export async function libera(...args){
                                         headers: {"Content-type": "application/json; charset=UTF-8"}
                                     });
         const ResultKey = await RespostaKEY.json()
-        console.log(ResultKey)
+
         keyConst.push(ResultKey)
         keyConst.push({"Mesa":`${Mesa}`})
 

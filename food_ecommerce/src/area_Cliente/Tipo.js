@@ -5,46 +5,47 @@ import { Link, useParams} from 'react-router-dom';
 // Funcionalidades
 import {adicionarTipo} from './Funcionalidades/adicionarQuantidade.js';
 import {carga, libera, validar} from './Funcionalidades/verificacaoKeys'
-import { useCallback, useState } from 'react';
+import { /*useCallback*/ useState } from 'react';
 import { removerItensArmazenado } from './Funcionalidades/remocaoItensLocal';
 
 function Tipo(){
     
-    const {Mesa} = useParams();
+    const {Operacao ,Mesa} = useParams();
     const [controle, setControle] = useState(false);
 
     const key = JSON.parse(localStorage.getItem('Key'))
 
     try {
 
-        const handValidar = useCallback( ()=>{
-            //eslint-disable-next-line react-hooks/exhaustive-deps
+        if(Operacao === 'novoItem'){
+
+            // console.log('novo item')
+
+        }else{
             validar(Mesa, key)
-                .then((resp)=>{
+            .then((resp)=>{
 
-                    if(resp === false && localStorage.getItem('Key') === null){
-                        libera(Mesa)
-                            .then((retor)=>{
-                                if(retor === true){
-                                    carga()
-                                }
-                            })
-                    }
+                if(resp === false && localStorage.getItem('Key') === null){
+                    libera(Mesa)
+                        .then((retor)=>{
+                            if(retor === true){
+                                carga()
+                            }
+                        })
+                }
 
-                    if(resp === true){
-                        carga()
-                    }
-                    
-                    if(resp === false && localStorage.getItem('Key') !== null && localStorage.getItem('Key') !== undefined){
-                        setControle(true)
-                        removerItensArmazenado()
+                if(resp === true){
+                    carga()
+                }
+                
+                if(resp === false && localStorage.getItem('Key') !== null && localStorage.getItem('Key') !== undefined){
+                    setControle(true)
+                    removerItensArmazenado()
 
-                    }
+                }
 
-                })
-
-        },[Mesa])
-        handValidar()
+            })
+        }
 
     } catch (error) {
         console.log(error)

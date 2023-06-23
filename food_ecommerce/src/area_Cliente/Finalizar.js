@@ -30,6 +30,7 @@ function Finalizar(){
         }
     
         async function sendDados(){
+
             try {
                 const response = await fetch(Url, {
                     method: `${Metodo}`,
@@ -39,10 +40,9 @@ function Finalizar(){
                 
                 const data = await response.json();
 
+                if(response.status === 201){
 
-                if(response.status === 200){
-
-                    if(data['Status'] === true && localStorage.getItem('Pedido') === null){
+                    if(localStorage.getItem('Pedido') === null){
 
                         var REMOVE = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'Modelo']
 
@@ -50,23 +50,11 @@ function Finalizar(){
                             localStorage.removeItem(REMOVE[REMOV])
                         }
                         setTimeout(setvalor('PEDIDO ENVIADO'), 5);
-                        localStorage.setItem('Pedido', data['Pedido'])
+                        localStorage.setItem('Pedido', data.Nu_Pedido)
                         setTimeout(()=>{window.location.href ='/pedido'}, 5)
 
                     }else{
 
-                        if(data === true){
-
-                            var items = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'temp', 'Modelo']
-
-                            for(var y=0; y < items.length; y++){
-                                localStorage.removeItem(items[y])
-                            }
-
-                            setTimeout(setvalor('PEDIDO ENVIADO'), 5);
-                            setTimeout(()=>{window.location.href ='/pedido'}, 5)
-                            
-                        }else{
                             var It = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'temp', 'Modelo']
 
                             for(var Y=0; Y < It.length; Y++){
@@ -74,9 +62,7 @@ function Finalizar(){
                             }
                             setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 20);
 
-                            setTimeout(()=>{window.location.href ='/pedido'}, 30)
-
-                        }
+                            // setTimeout(()=>{window.location.href ='/pedido'}, 30)
                         
                     }
                     

@@ -19,17 +19,22 @@ function App() {
           {/*AREA CAXAI E PRODUCAO*/}
           
           <Route exact path='/' element={<Home/>}/>
-          <Route path='/tipo/:Mesa?/:keyS?' element={<Tipo/>}/>
+
+          <Route path='/tipo/:Mesa?/:Operacao?' element={<Tipo/>}/>
+
           <Route path='/pastel/:id?' element={<Sabores/>}/>
           <Route path='/quantidade/:valores?' element={<Quantidade/>}/>
-          <Route path='/finalizar' element={<Finalizar/>}/>
+          
           <Route path='/pedido' element={<Pedido/>}/>
           <Route path='/pagamento/:valor?' element={<Pagamento/>}/>
-          <Route path='/conferencia' element={<Conferencia/>}/>
 
+
+          <Route path='/finalizar' element={<Finalizar/>}/>
+          
           {/* AREA PRODUCAO */}
           <Route path='/pasteis' element={<Pasteis/>}/>
-
+          <Route path='/conferencia' element={<Conferencia/>}/>
+          
         </Routes>
       </>
 
