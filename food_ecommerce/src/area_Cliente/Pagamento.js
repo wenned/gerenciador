@@ -3,18 +3,21 @@ import Logo from '../componentes/Logo';
 import { useParams } from 'react-router-dom';
 
 import {fetchPedido} from './Funcionalidades/buscarPedido'
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 
 function Pagamento(){
 
     const {valor} = useParams();
     const [Valor, setValor] = useState('')
-
-    fetchPedido(valor)
-    .then((doc)=>{
-        setValor(doc.valor_total)
-    })
+    
+    const fn = useCallback(()=>{
+        fetchPedido(valor)
+            .then((doc)=>{
+                setValor(doc.valor_total)
+        })
+        },[valor])
+    fn()
 
     return(
         <>

@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from '../componentes/Logo';
 import style from './styles/Sabores.module.css'
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { adicionarTipo } from './Funcionalidades/adicionarValores';
 
 function Sabores(){
 
@@ -15,29 +14,14 @@ function Sabores(){
     useEffect(() => { 
         
         async function carregaDados () {
-          // const resposta = await fetch(`http://192.168.3.52:8080/${id}`);
 
           const resposta = await fetch(`http://192.168.31.3:8080/${id}`);
-          // const resposta = await fetch(`http://192.168.2.9:8080/${id}`);
 
           const repositorios = await resposta.json();
           setValor(repositorios);
         }
         carregaDados();
       }, [id]);
-    
-    function AddValor(arg){
-      var dado;      
-      var reload = JSON.parse(localStorage.getItem('Modelo'))
-      dado = reload
-
-      dado['Itens'].forEach((element, index)=> {
-        if(element['Item']['Valor'].length === 0){
-          dado['Itens'][index]['Item']['Sabor'] = arg
-          localStorage.setItem('Modelo', JSON.stringify(dado))
-        }
-      });
-    }
 
     var verif;
 
@@ -56,7 +40,7 @@ function Sabores(){
               
               <div className={style.boo}>  R$ {pastel.Valor}  </div>
               
-              <Link onClick={ ()=> AddValor(pastel.Tipo)} key={pastel._id} to={`/quantidade/${pastel.Valor}`}>
+              <Link onClick={ ()=> adicionarTipo(pastel.Tipo)} key={pastel._id} to={`/quantidade/${pastel.Valor}`}>
                 
                 <div className={style.bo}>{pastel.Tipo}</div>
 

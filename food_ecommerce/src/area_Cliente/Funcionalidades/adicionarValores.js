@@ -1,37 +1,38 @@
-var dado = JSON.parse(localStorage.getItem('Modelo'))
 
 export function addValores(...args){
 
   const [valores, Valor] = args
 
-  var reload;      
-  reload = dado
+  var novoPedido;      
+  novoPedido = JSON.parse(localStorage.getItem('Modelo'))
 
   if(localStorage.getItem('Pedido') === null){
-    console.log('')
-    reload['Itens'].forEach((element, index)=> {
+    novoPedido['Itens'].forEach((element, index)=> {
  
       if(element['Item']['Valor'].length === 0){
-        console.log('')
-        reload['Itens'][index]['Item']['Valor'] = valores
-        reload['Itens'][index]['Item']['Quantidade'] = Valor
-        reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split(" ")
+        novoPedido['Itens'][index]['Item']['Valor'] = valores
+        novoPedido['Itens'][index]['Item']['Quantidade'] = Valor
+        novoPedido['Itens'][index]['Item']['Sabor'] = novoPedido['Itens'][index]['Item']['Sabor'].split(" ")
       };
 
     });
 
-    localStorage.setItem('Modelo', JSON.stringify(reload))
+    localStorage.setItem('Modelo', JSON.stringify(novoPedido))
 
-  }else{
-
-      // reload['Itens'].forEach((element, index)=> {
-
-      // if(element['Item']['Valor'].length === 0){
-      //     reload['Itens'][index]['Item']['Sabor'] = reload['Itens'][index]['Item']['Sabor'].split("-")
-      // };
-
-      // localStorage.setItem('Modelo', JSON.stringify(reload))
-
-      // });
-    };
   };
+};
+
+export function adicionarTipo(tipo){
+
+  var pedidoAtualizado;      
+  pedidoAtualizado = JSON.parse(localStorage.getItem('Modelo'))
+
+  pedidoAtualizado['Itens'].forEach((element, index)=> {
+    
+    if(element['Item']['Valor'].length === 0){
+      pedidoAtualizado['Itens'][index]['Item']['Sabor'] = tipo
+      localStorage.setItem('Modelo', JSON.stringify(pedidoAtualizado))
+    };
+
+  });
+};

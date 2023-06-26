@@ -37,10 +37,10 @@ function Quantidade(){
     });
   };
 
-    const MESAKEY =JSON.parse(localStorage.getItem('Key'))
+  const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
-    const [Valor, setValor] = useState(0)
-    const [valor_item, setvalor_item] = useState(0)
+  const [Valor, setValor] = useState(0)
+  const [valor_item, setvalor_item] = useState(0)
     
     var item;
     var tip;

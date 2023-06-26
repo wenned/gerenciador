@@ -5,7 +5,7 @@ import { Link, useParams} from 'react-router-dom';
 // Funcionalidades
 import {adicionarTipo} from './Funcionalidades/adicionarQuantidade.js';
 import {carga, libera, validar} from './Funcionalidades/verificacaoKeys'
-import { /*useCallback*/ useState } from 'react';
+import { useState } from 'react';
 import { removerItensArmazenado } from './Funcionalidades/remocaoItensLocal';
 
 function Tipo(){
@@ -43,7 +43,6 @@ function Tipo(){
                     removerItensArmazenado()
 
                 }
-
             })
         }
 

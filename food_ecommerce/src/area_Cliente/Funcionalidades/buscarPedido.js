@@ -1,13 +1,10 @@
 const umeroPedido = localStorage.getItem('Pedido')
-const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
 export async function fetchPedido(pedidoId) {
 
-    // const resposta = await fetch(`http://192.168.3.52:8080/pedidoUnico/${pedidoId}`);
-   const resposta = await fetch(`http://192.168.31.3:8080/pedidoUnico/${pedidoId}`);
-    // const resposta = await fetch(`http://192.168.2.9:8080/pedidoUnico/${pedidoId}`);
-
+    const resposta = await fetch(`http://192.168.31.3:8080/pedidoUnico/${pedidoId}`);
     return resposta.json();
+    
 }
 
 export async function apagar(...args){
@@ -15,8 +12,27 @@ export async function apagar(...args){
     switch(args[0]){
 
         case 'pagar':
-            const APAGARKE = await fetch(`http://192.168.31.3:8080/mesa/${MESAKEY[1]['Mesa']}/${args[0]}`);
-            return APAGARKE.json();
+
+            try {
+                const IdPedido = await fetch(`http://192.168.31.3:8080/Mesa/${args[1]}`);
+
+                const RespostaId = await IdPedido.json()
+                const Body = [{'Id':RespostaId[0]['_id'], 'Operacao':2}]
+
+                const Resposta =  await fetch(`http://192.168.31.3:8080/entrada/alterarStatusMesa`, 
+                                            {
+                                                method: 'PUT',
+                                                body:JSON.stringify(Body),
+                                                headers: {"Content-type": "application/json; charset=UTF-8"}
+                                            });
+                apagarLocal()
+                return Resposta
+            } catch (error) {
+                console.log('ALGO ERRADO NO FECHAMENTO MESA', error)
+            }
+            break
+        
+//ABAIXAO AINDA NAO FOI REVISADO
 
         case 'deletar':
             const APAGARKEY = await fetch(`http://192.168.31.3:8080/mesa/${umeroPedido}/${args[0]}`);
@@ -41,5 +57,14 @@ export async function removeElemnto(...args){
 
     } catch (error) {
         console.log('Deu erro aqui ',error)
+    }
+}
+
+function apagarLocal(){
+    
+    const REMOVE = ['Key', 'Pedido']
+
+    for(var REMOVKEY=0; REMOVKEY < REMOVE.length; REMOVKEY++){
+        localStorage.removeItem(REMOVE[REMOVKEY])
     }
 }

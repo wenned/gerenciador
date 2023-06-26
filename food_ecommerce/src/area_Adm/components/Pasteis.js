@@ -25,9 +25,7 @@ function Pasteis(){
 
         try {
 
-          const resposta = await fetch(`http://192.168.31.3:8080/pedidos`);
-        // const resposta = await fetch(`http://192.168.3.52:8080/pedidos`);
-        // const resposta = await fetch(`http://192.168.2.9:8080/pedidos`);
+          const resposta = await fetch(`http://192.168.31.3:8080/pedidosPendente`);
           const repositorios = await resposta.json();
           setValor(repositorios);
           sethora(actual)
@@ -60,38 +58,31 @@ function Pasteis(){
         setclose(null)
       }
 
-    return (
+  return (
 
-      <>{valor.length > 0 && valor !== false?
-        <section  className={style.conteiner}>
+    <>{valor.length > 0 && valor !== false?
+      <section  className={style.conteiner}>
 
-          <div onClick={fechar} className={close === null?style.none: style.close}>{close}</div>
+        <div onClick={fechar} className={close === null?style.none: style.close}>{close}</div>
 
-          <div className={style.element}>{element}</div>
+        <div className={style.element}>{element}</div>
 
-            <div>
-              {Object.values(valor).map((pastel) => (
-                <Link  key={pastel['_id']} onClick={()=>Elemente(pastel.Nu_Pedido)}>
-                  <div className={style.btn} >{pastel.Nu_Pedido} / {hora}</div>
-                </Link>
-              ))}
-            </div>
-        </section>
+          <div>
+            {Object.values(valor).map((pastel) => (
+              <Link  key={pastel['_id']} onClick={()=>Elemente(pastel.Nu_Pedido)}>
+                <div className={style.btn} >{pastel.Nu_Pedido} / {hora}</div>
+              </Link>
+            ))}
+          </div>
+      </section>
 
-        :valida === true && valor === false?
-          <div className={style.Err}>
-          Erro ao conectar ao servidor!
-          <Logo/>
-        </div>:<div className={style.lg}><Logo/></div>
-        }
-      </>
-
-
-
-
-
-
-
+      :valida === true && valor === false?
+        <div className={style.Err}>
+        Erro ao conectar ao servidor!
+        <Logo/>
+      </div>:<div className={style.lg}><Logo/></div>
+      }
+    </>
 
     );
 

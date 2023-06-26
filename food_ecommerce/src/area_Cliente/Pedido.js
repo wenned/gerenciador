@@ -7,15 +7,6 @@ import {fetchPedido, apagar, removeElemnto} from './Funcionalidades/buscarPedido
 
 const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
-function apagarLocal(){
-    
-    const REMOVE = ['Key', 'Pedido']
-
-    for(var REMOVKEY=0; REMOVKEY < REMOVE.length; REMOVKEY++){
-        localStorage.removeItem(REMOVE[REMOVKEY])
-    }
-}
-
 function apagarPedido(){
     localStorage.removeItem('Pedido')
 }
@@ -27,6 +18,8 @@ function Pedido(){
     const [contador, setContador] = useState(0);
 
     var PEDIDO = localStorage.getItem('Pedido');
+    const MESA = sessionStorage.getItem('N_MESA')
+
 
     const handleClick = () => {
         setContador(contador + 1);
@@ -40,7 +33,7 @@ function Pedido(){
             setpreco(data.valor_total)
         })
         .catch(error => console.error(error));
-    }, [contador]);
+    }, []);
 
     try {
             
@@ -58,12 +51,10 @@ function Pedido(){
     if(pedido === false){
         apagar('deletar')
         setTimeout(()=>apagarPedido(), 5)
-        var MESA = sessionStorage.getItem('N_MESA')
         setTimeout(()=>{window.location.href =`/tipo/${MESA}`}) 
     }
 
     const LocalStor = JSON.parse(localStorage.getItem('Key'))
-    console.log(pedido)
 
     return(
         <>
@@ -85,14 +76,14 @@ function Pedido(){
 
             <div  className={style.bodY} >
 
-                <Link to={`/tipo/${MESAKEY[1]['Mesa']}/newitem`}>
+                <Link to={`/tipo/${MESAKEY[1]['Mesa']}/novoItem`}>
                     <div id='pastel' className={style.cn}>Adicionar Novo Item</div>
                 </Link>
             </div>
 
             <div className={style.bod}>
                 <Link to={`/pagamento/${pedido.Nu_Pedido}`}>
-                    <div id='pastel'  onClick={()=>{apagarLocal(); apagar('pagar')}} className={style.cn}>Efetuar Pagamento</div>
+                    <div id='pastel'  onClick={()=>{apagar('pagar', MESA)}} className={style.cn}>Efetuar Pagamento</div>
                 </Link>
             </div>
 
