@@ -8,7 +8,7 @@ function Fechar(){
     
     const [DADOS_RETORNO, setDADOS_RETORNO] = useState(new Date().toISOString().slice(0,10))
     const [valores, setvalores] = useState(0)
-
+    
     const [date, setDate] = useState('')
     const [cache, setCache] = useState('')
     const [card, setCard] = useState('')
@@ -53,7 +53,7 @@ function Fechar(){
     useEffect(()=>{
 
         async function Pedidos(){
-            const RespostaKEY = await fetch(`http://192.168.31.3:8080/fechamento/${date}`)
+            const RespostaKEY = await fetch(`http://192.168.31.3:8080/pedidosFeito`)
             const ResultKey = await RespostaKEY.json()
             setDADOS_RETORNO(ResultKey)
             setvalores(ResultKey)

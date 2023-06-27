@@ -1,29 +1,9 @@
 import style from './Styles/PedidoAlterar.module.css'
-// import { Link} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Logo from '../../componentes/Logo'
 
-async function fetchPedido(pedidoId) {
-
-    const resposta = await fetch(`http://192.168.31.3:8080/pedidoUnico/${pedidoId}`);
-    
-    return resposta.json();
-  }
-
-  async function alterar(i,e) {
-
-    const body = JSON.stringify({ codigo: e });
-    // await fetch(`http://192.168.3.52:8080/input/feito/${i}`, {
-
-   await fetch(`http://192.168.31.3:8080/input/feito/${i}`, {
-    // await fetch(`http://192.168.2.9:8080/input/feito/${i}`, {
-
-    method: 'PUT',
-      body: body,
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    });
-    
-  }
+import { alterar } from '../Funcionalidades_adm/alteracaoItens';
+import { fetchPedido } from '../../area_Cliente/Funcionalidades/buscarPedido';
 
 function PedidoAlterar(props){
 
@@ -38,7 +18,6 @@ function PedidoAlterar(props){
     }, [props.pedido, pedido]);
 
 
-  
     return(
         <>
         <section className={style.conteiner}>
@@ -52,7 +31,7 @@ function PedidoAlterar(props){
                             return <div key={p} className={style.cab}>
                                       <div className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</div>
                                         <div className={style.itn}>{pedido['Itens'][p]['Item']['Sabor']} - {pedido['Itens'][p]['Item']['Tipo']}</div>
-                                        <div className={pedido['Itens'][p]['Item']['Status'][0] === "Feito"? `${style.feito}`: style.bnt} onClick={()=>{alterar(p, props.pedido)}}>Feito</div>
+                                        <div className={pedido['Itens'][p]['Item']['Status'][0] === "Feito"? `${style.feito}`: style.bnt} onClick={()=>{alterar(pedido.Itens[p]['_id'], pedido._id)}}>Feito</div>
                                   </div>;
                         })
                     }
