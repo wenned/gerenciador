@@ -7,6 +7,7 @@ import {adicionarTipo} from './Funcionalidades/adicionarQuantidade.js';
 import {carga, libera, validar} from './Funcionalidades/verificacaoKeys'
 import { useState } from 'react';
 import { removerItensArmazenado } from './Funcionalidades/remocaoItensLocal';
+import { pegarPedido, verificarPropriedadesPedido } from './Funcionalidades/verificacaoPedido';
 
 function Tipo(){
     
@@ -19,7 +20,12 @@ function Tipo(){
 
         if(Operacao === 'novoItem'){
 
-            // console.log('novo item')
+            verificarPropriedadesPedido()
+            
+            if(localStorage.getItem('Pedido') !== null && localStorage.getItem('Modelo') === null){
+                pegarPedido()
+                carga()
+            }
 
         }else{
             validar(Mesa, key)
@@ -45,6 +51,8 @@ function Tipo(){
                 }
             })
         }
+
+
 
     } catch (error) {
         console.log(error)

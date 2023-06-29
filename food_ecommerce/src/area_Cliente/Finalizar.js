@@ -13,60 +13,89 @@ function Finalizar(){
     useEffect(()=>{
 
         if(localStorage.getItem('Pedido') === null){
-            // setUrl('http://192.168.3.52:8080/inserir')
-
             setUrl('http://192.168.31.3:8080/inserir')
-            // setUrl('http://192.168.2.9:8080/inserir')
             setMetodo('POST')
         }else{
-            var s = localStorage.getItem('Pedido')
-            if(s.length > 2){
-                // setUrl('http://192.168.3.52:8080/input/addnew')
-
-                setUrl('http://192.168.31.3:8080/input/addnew')
-                // setUrl('http://192.168.2.9:8080/input/addnew')
-                setMetodo('PUT')
-            }
+            setUrl('http://192.168.31.3:8080/input/addnew')
+            setMetodo('PUT')
         }
     
         async function sendDados(){
 
             try {
-                const response = await fetch(Url, {
-                    method: `${Metodo}`,
-                    body: localStorage.getItem('Modelo'),
-                    headers: {"Content-type": "application/json; charset=UTF-8"}
-                });
                 
-                const data = await response.json();
+                if(localStorage.getItem('Pedido') === null){
+                    const response = await fetch(Url, {
+                        method: `${Metodo}`,
+                        body: localStorage.getItem('Modelo'),
+                        headers: {"Content-type": "application/json; charset=UTF-8"}
+                    });
+                    const data = await response.json();
 
-                if(response.status === 201){
+                    if(response.status === 201){
 
-                    if(localStorage.getItem('Pedido') === null){
-
-                        var REMOVE = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'Modelo']
-
-                        for(var REMOV=0; REMOV < REMOVE.length; REMOV++){
-                            localStorage.removeItem(REMOVE[REMOV])
-                        }
-                        setTimeout(setvalor('PEDIDO ENVIADO'), 5);
-                        localStorage.setItem('Pedido', data.Nu_Pedido)
-                        setTimeout(()=>{window.location.href ='/pedido'}, 5)
-
-                    }else{
-
-                            var It = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'temp', 'Modelo']
-
-                            for(var Y=0; Y < It.length; Y++){
-                                localStorage.removeItem(It[Y])
+                        if(localStorage.getItem('Pedido') === null){
+    
+                            var deletItem = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'Modelo']
+    
+                            for(var Index=0; Index < deletItem.length; Index++){
+                                localStorage.removeItem(deletItem[Index])
                             }
-                            setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 20);
-
-                            // setTimeout(()=>{window.location.href ='/pedido'}, 30)
-                        
+                            setTimeout(setvalor('PEDIDO ENVIADO'), 5);
+                            localStorage.setItem('Pedido', data.Nu_Pedido)
+                            setTimeout(()=>{window.location.href ='/pedido'}, 5)
+    
+                        }else{
+    
+                                var Ite = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'temp', 'Modelo']
+    
+                                for(var InDex=0; InDex < Ite.length; InDex++){
+                                    localStorage.removeItem(Ite[InDex])
+                                }
+                                setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 20);
+    
+                                // setTimeout(()=>{window.location.href ='/pedido'}, 30)   
+                        }
                     }
-                    
+
+                }else{
+
+                    const read = {'Itens':JSON.parse(localStorage.getItem('Modelo')).Itens, 'Id':JSON.parse(localStorage.getItem('Modelo'))._id }
+                    console.log(read)
+                    const result = await fetch(Url, {
+                        method: `${Metodo}`,
+                        body:read,
+                        headers: {"Content-type": "application/json; charset=UTF-8"}
+                    });
+                    const responseResult = await result.json();
+
+                    if(result.status === 201){
+
+                        if(localStorage.getItem('Pedido') === null){
+    
+                            var REMOVE = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'Modelo']
+    
+                            for(var REMOV=0; REMOV < REMOVE.length; REMOV++){
+                                localStorage.removeItem(REMOVE[REMOV])
+                            }
+                            setTimeout(setvalor('PEDIDO ENVIADO'), 5);
+                            localStorage.setItem('Pedido', responseResult.Nu_Pedido)
+                            setTimeout(()=>{window.location.href ='/pedido'}, 5)
+    
+                        }else{
+    
+                                var It = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'temp', 'Modelo']
+    
+                                for(var Y=0; Y < It.length; Y++){
+                                    localStorage.removeItem(It[Y])
+                                }
+                                setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 20);
+    
+                                // setTimeout(()=>{window.location.href ='/pedido'}, 30)   
+                        }
+                    }
                 }
+            
             } catch (error) {
                 console.log(error);
             }
