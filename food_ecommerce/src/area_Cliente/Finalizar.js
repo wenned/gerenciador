@@ -16,7 +16,7 @@ function Finalizar(){
             setUrl('http://192.168.31.3:8080/inserir')
             setMetodo('POST')
         }else{
-            setUrl('http://192.168.31.3:8080/input/addnew')
+            setUrl(`http://192.168.31.3:8080/entrada/inserirItemPedido`)
             setMetodo('PUT')
         }
     
@@ -34,7 +34,7 @@ function Finalizar(){
 
                     if(response.status === 201){
 
-                        if(localStorage.getItem('Pedido') === null){
+
     
                             var deletItem = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'Modelo']
     
@@ -45,33 +45,23 @@ function Finalizar(){
                             localStorage.setItem('Pedido', data.Nu_Pedido)
                             setTimeout(()=>{window.location.href ='/pedido'}, 5)
     
-                        }else{
-    
-                                var Ite = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'temp', 'Modelo']
-    
-                                for(var InDex=0; InDex < Ite.length; InDex++){
-                                    localStorage.removeItem(Ite[InDex])
-                                }
-                                setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 20);
-    
-                                // setTimeout(()=>{window.location.href ='/pedido'}, 30)   
-                        }
+
                     }
 
                 }else{
 
                     const read = {'Itens':JSON.parse(localStorage.getItem('Modelo')).Itens, 'Id':JSON.parse(localStorage.getItem('Modelo'))._id }
-                    console.log(read)
+
                     const result = await fetch(Url, {
                         method: `${Metodo}`,
-                        body:read,
+                        body:JSON.stringify(read),
                         headers: {"Content-type": "application/json; charset=UTF-8"}
                     });
-                    const responseResult = await result.json();
+                    await result.json();
 
                     if(result.status === 201){
 
-                        if(localStorage.getItem('Pedido') === null){
+    
     
                             var REMOVE = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'Modelo']
     
@@ -79,20 +69,8 @@ function Finalizar(){
                                 localStorage.removeItem(REMOVE[REMOV])
                             }
                             setTimeout(setvalor('PEDIDO ENVIADO'), 5);
-                            localStorage.setItem('Pedido', responseResult.Nu_Pedido)
                             setTimeout(()=>{window.location.href ='/pedido'}, 5)
-    
-                        }else{
-    
-                                var It = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'temp', 'Modelo']
-    
-                                for(var Y=0; Y < It.length; Y++){
-                                    localStorage.removeItem(It[Y])
-                                }
-                                setTimeout(setvalor('FALHA AO PRECESSAR PEDIDO'), 20);
-    
-                                // setTimeout(()=>{window.location.href ='/pedido'}, 30)   
-                        }
+
                     }
                 }
             
