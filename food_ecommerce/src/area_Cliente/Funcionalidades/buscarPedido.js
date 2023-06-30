@@ -1,9 +1,15 @@
-const umeroPedido = localStorage.getItem('Pedido')
-
 export async function fetchPedido(pedidoId) {
 
-    const resposta = await fetch(`http://192.168.31.3:8080/pedidoUnico/${pedidoId}`);
-    return resposta.json();
+    try {
+
+        const resposta = await fetch(`http://192.168.31.3:8080/pedidoUnico/${pedidoId}`);
+        const resp = await resposta.json();
+        return resp
+
+    } catch (error) {
+        console.log('ERRO AO BUSCAR PEIDO',error)
+        
+    }
     
 }
 
@@ -31,13 +37,7 @@ export async function apagar(...args){
                 console.log('ALGO ERRADO NO FECHAMENTO MESA', error)
             }
             break
-        
-//ABAIXAO AINDA NAO FOI REVISADO
 
-        case 'deletar':
-            const APAGARKEY = await fetch(`http://192.168.31.3:8080/mesa/${umeroPedido}/${args[0]}`);
-            return APAGARKEY.json();                
-            
         default:
             break
     }
@@ -46,9 +46,12 @@ export async function apagar(...args){
 export async function removeElemnto(...args){
 
     try {
-        const RETORNO_DADOS = await fetch(`http://192.168.31.3:8080/input/remover`, {
+        const [IdP, Index] = args
+        const bodY = {'Id': IdP, 'Index': Index}
+
+        const RETORNO_DADOS = await fetch(`http://192.168.31.3:8080/entrada/removerItemPedido`, {
             method: `PUT`,
-            body: JSON.stringify(args),
+            body: JSON.stringify(bodY),
             headers: {"Content-type": "application/json; charset=UTF-8"}
         });
         

@@ -29,8 +29,13 @@ function Pedido(){
       const pedidoId = localStorage.getItem('Pedido');
       fetchPedido(pedidoId)
         .then(data => {
-            setPedido(data)
-            setpreco(data.valor_total)
+            if(data === null){
+                setPedido(false)
+            }else{
+                setPedido(data)
+                setpreco(data.valor_total)
+            }
+
         })
         .catch(error => console.error(error));
     }, []);
@@ -49,13 +54,11 @@ function Pedido(){
     }
     
     if(pedido === false){
-        apagar('deletar')
         setTimeout(()=>apagarPedido(), 5)
         setTimeout(()=>{window.location.href =`/tipo/${MESA}`}) 
     }
 
     const LocalStor = JSON.parse(localStorage.getItem('Key'))
-
     return(
         <>
         <section className={style.conteiner}>
@@ -69,7 +72,11 @@ function Pedido(){
                 {
                         pedido && pedido.Itens &&
                         Object.keys(pedido.Itens).map((indeX) => {
-                            return <div key={indeX} className={style.cab} onClick={()=>{if(window.confirm(`VOCE ESTA REMOVENDO O ITEM :  ${pedido['Itens'][indeX]['Item']['Sabor']}`)){removeElemnto(indeX, PEDIDO); handleClick()}}}><span className={style.Qnt}>{pedido['Itens'][indeX]['Item']['Quantidade']}</span>  <span className={style.tmn}>{pedido['Itens'][indeX]['Item']['Sabor']} - {pedido['Itens'][indeX]['Item']['Tipo']}</span>  <span className={style.vlu}>{pedido['Itens'][indeX]['Item']['Valor']}</span></div>;
+                            return <div key={indeX} className={style.cab} onClick={()=>{if(window.confirm(`VOCE ESTA REMOVENDO O ITEM :  ${pedido['Itens'][indeX]['Item']['Sabor']}`)){removeElemnto(pedido._id, indeX); handleClick()}}}>
+                                    <span className={style.Qnt}>{pedido['Itens'][indeX]['Item']['Quantidade']}</span>
+                                    <span className={style.tmn}>{pedido['Itens'][indeX]['Item']['Sabor']} - {pedido['Itens'][indeX]['Item']['Tipo']}</span>
+                                    <span className={style.vlu}>{pedido['Itens'][indeX]['Item']['Valor']}</span>
+                                </div>;
                         })
                     }
             </div>
