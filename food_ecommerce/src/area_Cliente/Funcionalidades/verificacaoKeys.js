@@ -3,33 +3,19 @@ let keyConst = []
 
 export async function validar(...args){
     
-    const [Mesa , key] = args
+    const [Mesa] = args
     
     const RespostaKEY = await fetch(`http://192.168.31.3:8080/Mesa/${Mesa}`)
     const ResultKey = await RespostaKEY.json()
 
-    if(key === null && ResultKey[0]['Chave'].length < 10){
-        return 0
-    }
-
-    if(key === null && ResultKey[0]['Chave'].length === 10){
-        return 1
-    }
-
-    if(key !== null && ResultKey[0]['Chave'] !== key[0] && ResultKey[0]['Chave'].length < 10){
-        return 0
-    }
-
-    if(key !== null && ResultKey[0]['Chave'] === key[0]){
-        return 2
-    }
+    return ResultKey
 
 };
 
 export async function libera(...args){
 
     const [Mesa] = args
-    const Body = [{'Id':Mesa, 'Operacao':1}]
+    const Body = {'Id':Mesa, 'Operacao':1}
 
     try {
         const RespostaKEY = await fetch(`http://192.168.31.3:8080/entrada/alterarStatusMesa`, 

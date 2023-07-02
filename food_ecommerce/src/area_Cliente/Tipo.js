@@ -14,8 +14,6 @@ function Tipo(){
     const {Operacao ,Mesa} = useParams();
     const [controle, setControle] = useState(0);
 
-    const key = JSON.parse(localStorage.getItem('Key'))
-
     try {
 
         if(Operacao === 'novoItem'){
@@ -29,10 +27,10 @@ function Tipo(){
 
         }else{
 
-            validar(Mesa, key)
+            validar(Mesa)
             .then((resp)=>{
-
-                if(resp === 0){
+                
+                if(resp[0]['Estado'] === 0){
 
                     libera(Mesa)
                         .then((retor)=>{
@@ -42,9 +40,22 @@ function Tipo(){
                         })
                 }
             
-                if(resp === 1){
-                    setControle(1)
-                    removerItensArmazenado()
+                if(resp[0]['Estado'] === 1) {
+                    
+                    if(localStorage.getItem('Key') === null){
+                        setControle(1)
+                    } else {
+                        const key  = JSON.parse(localStorage.getItem('Key'))
+                        
+                        if ( key[0] === resp[0]['Chave']){
+                            setControle(0)
+                        } else {
+                            setControle(1)
+                            removerItensArmazenado()
+                        }
+                    }
+                    
+
                 }
 
                 if(resp === 2){

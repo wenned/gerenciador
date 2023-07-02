@@ -1,6 +1,6 @@
 export async function fecharMesa(NMesa){
 
-    const Body = [{'Id':NMesa, 'Operacao':0}]
+    const Body = {'Id':NMesa, 'Operacao':0}
 
     const Resposta =  await fetch(`http://192.168.31.3:8080/entrada/alterarStatusMesa`, 
                                 {
