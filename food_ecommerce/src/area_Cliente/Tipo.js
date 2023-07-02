@@ -12,7 +12,7 @@ import { pegarPedido, verificarPropriedadesPedido } from './Funcionalidades/veri
 function Tipo(){
     
     const {Operacao ,Mesa} = useParams();
-    const [controle, setControle] = useState(false);
+    const [controle, setControle] = useState(0);
 
     const key = JSON.parse(localStorage.getItem('Key'))
 
@@ -28,10 +28,12 @@ function Tipo(){
             }
 
         }else{
+
             validar(Mesa, key)
             .then((resp)=>{
 
-                if(resp === false && localStorage.getItem('Key') === null){
+                if(resp === 0){
+
                     libera(Mesa)
                         .then((retor)=>{
                             if(retor === true){
@@ -39,28 +41,26 @@ function Tipo(){
                             }
                         })
                 }
-
-                if(resp === true){
-                    carga()
-                }
-                
-                if(resp === false && localStorage.getItem('Key') !== null && localStorage.getItem('Key') !== undefined){
-                    setControle(true)
+            
+                if(resp === 1){
+                    setControle(1)
                     removerItensArmazenado()
-
                 }
-            })
+
+                if(resp === 2){
+                    carga()
+                    localStorage.removeItem('Modelo')
+                }
+            })            
         }
-
-
 
     } catch (error) {
         console.log(error)
     }
-
+    
     return (
         <>
-        {controle === false?
+        {controle === 0?
         <section className={style.conteiner}>
                 
                 <div className={style.alt}>
@@ -96,19 +96,19 @@ function Tipo(){
                 <div className={style.radape}><Logo/></div>
 
         </section>:
-            controle === 1?
+            controle === 3?
 
             <div className={style.Err}>
                 Erro ao conectar ao servidor!
                 <Logo/>
 
             </div>:
-
+                controle === 1?
                 <section className={style.busy}>
                     <div>{Mesa} - OCUPADA</div>
                     <div>Escanei outro QRCode ou solicite a quem fez o primeiro escaneamento para adicionar o seu item ao pedido que ja esta em aberto!</div>
                     <div><Logo/></div>
-                </section>
+                </section>:undefined
 
         }
         </>

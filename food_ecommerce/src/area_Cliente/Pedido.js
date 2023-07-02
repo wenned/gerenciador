@@ -38,7 +38,7 @@ function Pedido(){
 
         })
         .catch(error => console.error(error));
-    }, []);
+    }, [pedido]);
 
     try {
             

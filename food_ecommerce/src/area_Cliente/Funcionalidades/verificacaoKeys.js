@@ -5,17 +5,23 @@ export async function validar(...args){
     
     const [Mesa , key] = args
     
-    const RespostaKEY = await fetch(`http://192.168.31.3:8080/Mesa/'${Mesa}'`)
+    const RespostaKEY = await fetch(`http://192.168.31.3:8080/Mesa/${Mesa}`)
     const ResultKey = await RespostaKEY.json()
 
-    if(key === null){
-        return false
-    }else{
-        if(ResultKey.Chave === key[0]){
-            return true
-        }else{
-            return false
-        }
+    if(key === null && ResultKey[0]['Chave'].length < 10){
+        return 0
+    }
+
+    if(key === null && ResultKey[0]['Chave'].length === 10){
+        return 1
+    }
+
+    if(key !== null && ResultKey[0]['Chave'] !== key[0] && ResultKey[0]['Chave'].length < 10){
+        return 0
+    }
+
+    if(key !== null && ResultKey[0]['Chave'] === key[0]){
+        return 2
     }
 
 };
