@@ -20,10 +20,11 @@ export async function apagar(...args){
         case 'pagar':
 
             try {
+                apagarLocal()
                 const IdPedido = await fetch(`http://192.168.31.3:8080/Mesa/${args[1]}`);
 
                 const RespostaId = await IdPedido.json()
-                const Body = [{'Id':RespostaId[0]['_id'], 'Operacao':2}]
+                const Body = {'Id':RespostaId[0]['_id'], 'Operacao':2}
 
                 const Resposta =  await fetch(`http://192.168.31.3:8080/entrada/alterarStatusMesa`, 
                                             {
@@ -31,7 +32,7 @@ export async function apagar(...args){
                                                 body:JSON.stringify(Body),
                                                 headers: {"Content-type": "application/json; charset=UTF-8"}
                                             });
-                apagarLocal()
+                
                 return Resposta
             } catch (error) {
                 console.log('ALGO ERRADO NO FECHAMENTO MESA', error)

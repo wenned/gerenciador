@@ -4,12 +4,12 @@
     display: flex;
     background: linear-gradient(45deg, rgb(114, 111, 105), rgb(169, 166, 159),rgb(114, 111, 105));
     height: 80vh;
-    width: 22.5rem;
+    width: 34%;
     z-index: 1;
     border-radius: 7px;
     align-items: center;
     overflow: hidden;
-    left: 38.9%;
+    left: 33%;
     color: rgb(0, 0, 0);
 }
 
