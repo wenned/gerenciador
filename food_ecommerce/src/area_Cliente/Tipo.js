@@ -19,7 +19,7 @@ function Tipo(){
         if(Operacao === 'novoItem'){
 
             verificarPropriedadesPedido()
-            
+
             if(localStorage.getItem('Pedido') !== null && localStorage.getItem('Modelo') === null){
                 pegarPedido()
                 carga()
@@ -29,9 +29,7 @@ function Tipo(){
 
             validar(Mesa)
             .then((resp)=>{
-                
-                if(resp[0]['Estado'] === 0){
-
+                if(resp.Estado === 0){
                     libera(Mesa)
                         .then((retor)=>{
                             if(retor === true){
@@ -40,14 +38,14 @@ function Tipo(){
                         })
                 }
             
-                if(resp[0]['Estado'] === 1) {
+                if(resp.Estado === 1) {
                     
                     if(localStorage.getItem('Key') === null){
                         setControle(1)
                     } else {
                         const key  = JSON.parse(localStorage.getItem('Key'))
                         
-                        if ( key[0] === resp[0]['Chave']){
+                        if ( key[0] === resp.Chave){
                             setControle(0)
                         } else {
                             setControle(1)
