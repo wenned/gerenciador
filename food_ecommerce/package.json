@@ -12,20 +12,22 @@
     "bootstrap": "^5.2.3",
     "crypto-js": "^4.1.1",
     "lodash": "^4.17.21",
+    "node": "^20.14.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.8.2",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-slick": "^0.29.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start"
   },
   "eslintConfig": {
     "extends": [
