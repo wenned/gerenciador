@@ -16,7 +16,6 @@ function Sabores(){
         async function carregaDados () {
 
           const resposta = await fetch(`http://192.168.31.3:8080/${id}`);
-
           const repositorios = await resposta.json();
           setValor(repositorios);
         }

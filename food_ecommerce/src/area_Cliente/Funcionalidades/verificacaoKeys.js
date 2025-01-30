@@ -4,10 +4,8 @@ let keyConst = []
 export async function validar(...args){
     
     const [Mesa] = args
-    
-    const RespostaKEY = await fetch(`http://192.168.31.3:8080/Mesa/${Mesa}`)
+    const RespostaKEY = await fetch(`http://192.168.31.3:8080/mesas/${Mesa}`)
     const ResultKey = await RespostaKEY.json()
-
     return ResultKey
 
 };
@@ -15,17 +13,16 @@ export async function validar(...args){
 export async function libera(...args){
 
     const [Mesa] = args
-    const Body = {'Id':Mesa, 'Operacao':1}
+    const Body = {'operacao':1, 'id':Mesa}
 
     try {
-        const RespostaKEY = await fetch(`http://192.168.31.3:8080/entrada/alterarStatusMesa`, 
+        const RespostaKEY = await fetch(`http://192.168.31.3:8080/entrada/ocuparMesa`, 
                                     {
                                         method: 'PUT',
                                         body:JSON.stringify(Body),
                                         headers: {"Content-type": "application/json; charset=UTF-8"}
                                     });
         const ResultKey = await RespostaKEY.json()
-
         keyConst.push(ResultKey)
         keyConst.push({"Mesa":`${Mesa}`})
 

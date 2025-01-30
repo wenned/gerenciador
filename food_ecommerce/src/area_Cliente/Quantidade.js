@@ -76,7 +76,7 @@ function Quantidade(){
               default:
                 break
     };
-    
+
     return (
         <section className={style.conteiner}>
         
