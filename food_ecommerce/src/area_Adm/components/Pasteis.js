@@ -19,8 +19,7 @@ function Pasteis(){
     const [valida, setvalida] = useState(false)
 
     useEffect(() => { 
-
-      
+ 
       async function carregaDados () {
 
         try {
@@ -60,8 +59,8 @@ function Pasteis(){
 
   return (
 
-    <>{valor.length > 0 && valor !== false?
-      <section  className={style.conteiner}>
+    <section>{valor.length > 0 && valor !== false?
+      <div  className={style.conteiner}>
 
         <div onClick={fechar} className={close === null?style.none: style.close}>{close}</div>
 
@@ -74,7 +73,7 @@ function Pasteis(){
               </Link>
             ))}
           </div>
-      </section>
+      </div>
 
       :valida === true && valor === false?
         <div className={style.Err}>
@@ -82,7 +81,7 @@ function Pasteis(){
         <Logo/>
       </div>:<div className={style.lg}><Logo/></div>
       }
-    </>
+    </section>
 
     );
 

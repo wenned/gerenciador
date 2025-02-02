@@ -6,7 +6,7 @@ import { alterar } from '../Funcionalidades_adm/alteracaoItens';
 import { fetchPedido } from '../../area_Cliente/Funcionalidades/buscarPedido';
 
 function PedidoAlterar(props){
-
+    
     const [pedido, setPedido] = useState('');
 
     useEffect(() => {
@@ -16,7 +16,6 @@ function PedidoAlterar(props){
         })
         .catch(error => console.error(error));
     }, [props.pedido, pedido]);
-
 
     return(
         <>
@@ -31,7 +30,7 @@ function PedidoAlterar(props){
                             return <div key={p} className={style.cab}>
                                       <div className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</div>
                                         <div className={style.itn}>{pedido['Itens'][p]['Item']['Sabor']} - {pedido['Itens'][p]['Item']['Tipo']}</div>
-                                        <div className={pedido['Itens'][p]['Item']['Status'][0] === "Feito"? `${style.feito}`: style.bnt} onClick={()=>{alterar(pedido.Itens[p]['_id'], pedido._id)}}>Feito</div>
+                                        <div className={pedido['Itens'][p]['Item']['Status'][0] === "Feito"? `${style.feito}`: style.bnt} onClick={()=>{alterar(pedido._id, pedido.Itens[p]['_id'])}}>Feito</div>
                                   </div>;
                         })
                     }
