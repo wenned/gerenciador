@@ -14,19 +14,19 @@ export async function fetchPedido(pedidoId) {
 }
 
 export async function apagar(...args){
-
+    
     switch(args[0]){
 
         case 'pagar':
 
             try {
                 apagarLocal()
-                const IdPedido = await fetch(`http://192.168.31.3:8080/Mesa/${args[1]}`);
+                const IdPedido = await fetch(`http://192.168.31.3:8080/mesas/${args[1]}`);
 
                 const RespostaId = await IdPedido.json()
-                const Body = {'Id':RespostaId[0]['_id'], 'Operacao':2}
+                const Body = {'operacao':2, 'id':RespostaId._id}
 
-                const Resposta =  await fetch(`http://192.168.31.3:8080/entrada/alterarStatusMesa`, 
+                const Resposta =  await fetch(`http://192.168.31.3:8080/entrada/alteraMesa`, 
                                             {
                                                 method: 'PUT',
                                                 body:JSON.stringify(Body),
