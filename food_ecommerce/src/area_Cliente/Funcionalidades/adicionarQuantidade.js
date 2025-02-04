@@ -15,28 +15,30 @@ export async function adicionarTipo(arg){
 
             dadosInsert = JSON.parse(localStorage.getItem('Modelo'))
 
-            var NewItem = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"", "Status":["Pendente","false"],"Adicional":""}}
+            var NewItem = {"Item":{"Sabor":[], "Valor": 0, "Quantidade":"", "Tipo":"", "Status":["Pendente","false"],"Adicional":""}}
             NewItem['Item']['Tipo'] = arg
             dadosInsert['Itens'].push(NewItem)
             localStorage.setItem('Modelo', JSON.stringify(dadosInsert))
 
         }else{
-            var PEDIDO = [{"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"], "Adicional":""}}]
+            var PEDIDO = [{"Item":{"Sabor":[], "Valor": 0, "Quantidade":"", "Tipo":"","Status":["Pendente","false"], "Adicional":""}}]
             PEDIDO[0]['Item']['Tipo'] = arg
             Model['Itens']= PEDIDO
             localStorage.setItem('Modelo', JSON.stringify(Model))
         }
     }else{
         
-        if(localStorage.getItem('Modelo')){
+        if(localStorage.getItem('id')){
 
-            dadosInsert = JSON.parse(localStorage.getItem('Modelo'))
+            dadosInsert = JSON.parse(localStorage.getItem('id'))
 
-            var PEds = {"Item":{"Sabor":[], "Valor": "", "Quantidade":"", "Tipo":"","Status":["Pendente","false"]}, "Adicional":""}
-            PEds['Item']['Tipo'] = arg
-            dadosInsert['Itens'].push(PEds)
-            localStorage.setItem('Modelo', JSON.stringify(dadosInsert))
-
+            dadosInsert.item.forEach((element, index) => {
+                if(element.Item.Tipo === false){
+                    dadosInsert.item[index].Item.Tipo = arg
+                    localStorage.setItem('id', JSON.stringify(dadosInsert))
+                }
+                
+            });
         }
     }
 }
