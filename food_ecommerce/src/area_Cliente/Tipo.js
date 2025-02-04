@@ -19,12 +19,13 @@ function Tipo(){
         if(Operacao === 'novoItem'){
 
             verificarPropriedadesPedido()
-
-            if(localStorage.getItem('Pedido') !== null && localStorage.getItem('Modelo') === null){
+            
+            if(localStorage.getItem('Pedido') !== null && localStorage.getItem('id') === null){
                 pegarPedido()
                 carga()
+            }else{
+                pegarPedido()
             }
-
         }else{
 
             validar(Mesa)
@@ -52,8 +53,6 @@ function Tipo(){
                             removerItensArmazenado()
                         }
                     }
-                    
-
                 }
 
                 if(resp === 2){
@@ -118,7 +117,6 @@ function Tipo(){
                     <div>Escanei outro QRCode ou solicite a quem fez o primeiro escaneamento para adicionar o seu item ao pedido que ja esta em aberto!</div>
                     <div><Logo/></div>
                 </section>:undefined
-
         }
         </>
     )

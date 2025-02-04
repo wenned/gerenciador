@@ -45,19 +45,25 @@ function Quantidade(){
     var item;
     var tip;
     var dado = JSON.parse(localStorage.getItem('Modelo'))
+    var idModelo = JSON.parse(localStorage.getItem('id')) 
 
     if(dado === null){
-      //
+
+      idModelo.item.forEach((element)=> {
+        if(element.Item.Valor === 0 ){
+          item = element.Item.Sabor
+          tip = element.Item.Tipo
+        }
+      });
     }else{
-      
-      dado['Itens'].forEach((element)=> {
-          if(element['Item']['Valor'].length === 0 ){
-            item = element['Item']['Sabor']
-            tip = element['Item']['Tipo']
+      dado.Itens.forEach((element)=> {
+          if(element.Item.Valor === 0 ){
+            item = element.Item.Sabor
+            tip = element.Item.Tipo
           }
         });
     }
-
+    
     var IMAGEM = Pastel
 
     switch(tip){
@@ -76,7 +82,7 @@ function Quantidade(){
               default:
                 break
     };
-
+   
     return (
         <section className={style.conteiner}>
         

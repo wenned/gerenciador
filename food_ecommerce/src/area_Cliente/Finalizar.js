@@ -50,7 +50,7 @@ function Finalizar(){
 
                 }else{
 
-                    const read = {'Itens':JSON.parse(localStorage.getItem('Modelo')).Itens, 'Id':JSON.parse(localStorage.getItem('Modelo'))._id }
+                    const read = JSON.parse(localStorage.getItem('id'))
 
                     const result = await fetch(Url, {
                         method: `${Metodo}`,
@@ -63,7 +63,7 @@ function Finalizar(){
 
     
     
-                            var REMOVE = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'Modelo']
+                            var REMOVE = ['menu_bebidas', 'menu_pasteis', 'menu_frances', 'menu_suicos', 'Modelo', 'id']
     
                             for(var REMOV=0; REMOV < REMOVE.length; REMOV++){
                                 localStorage.removeItem(REMOVE[REMOV])
