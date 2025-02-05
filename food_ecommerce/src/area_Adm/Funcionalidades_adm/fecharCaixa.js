@@ -1,11 +1,12 @@
 export async function verificarCaixa(...args){
+    const dadosVerificacao = {"nome" : args[0], "id" : args[1] }
 
-    const Url = 'http://192.168.31.3:8080/input/verificar'
-    const Metodo = 'PUT'
+     const Url = 'http://192.168.31.3:8080/conferirCaixa'
+     const Metodo = 'PUT'
 
     const response = await fetch(Url, {
         method: `${Metodo}`,
-        body: JSON.stringify(args),
+        body: JSON.stringify(dadosVerificacao),
         headers: {"Content-type": "application/json; charset=UTF-8"}
     });
     
@@ -13,10 +14,23 @@ export async function verificarCaixa(...args){
     return data
 }
 
+export async function carregaCaixas(){
+    var dados = []
+    const resposta = await fetch(`http://192.168.31.3:8080/caixas`);
+    const Caixas = await resposta.json();
+    
+    for (var i=0; i < Caixas.length; i++){
+        if(Caixas[i].Verificado === false){
+            dados.push(Caixas[i])
+        }
+    };
+    return dados
+}
+
 
 export async function fecharCaixa(...args){
     
-    var DADOS_FECHAMENTO =[{
+    var DADOS_FECHAMENTO ={
         "Nome":"",
         "Data":"",
         "Itens":"",
@@ -25,7 +39,7 @@ export async function fecharCaixa(...args){
         "Verificador":"",
         "Verificado":false,
         "Id":""
-    }]
+    }
 
     const [itens, data, ValorTotal, nome, saldodia] = args
 
@@ -39,17 +53,17 @@ export async function fecharCaixa(...args){
 		counter+=1
 	}
 
-    DADOS_FECHAMENTO[0]['Nome'] = nome
-    DADOS_FECHAMENTO[0]['Data'] = data
-    DADOS_FECHAMENTO[0]['Itens'] = itens
-    DADOS_FECHAMENTO[0]['Valor_Lancamento'] = ValorTotal
-    DADOS_FECHAMENTO[0]['Valor_Total'] = saldodia
-    DADOS_FECHAMENTO[0]['Id'] = result
+    DADOS_FECHAMENTO['Nome'] = nome
+    DADOS_FECHAMENTO['Data'] = data
+    DADOS_FECHAMENTO['Itens'] = itens
+    DADOS_FECHAMENTO['Valor_Lancamento'] = ValorTotal
+    DADOS_FECHAMENTO['Valor_Total'] = saldodia
+    DADOS_FECHAMENTO['Id'] = result
 
     try {
         const RETORNO_DADOS = await fetch(`http://192.168.31.3:8080/fechamento_caixa/`, {
             method: `POST`,
-            body: JSON.stringify(DADOS_FECHAMENTO[0]),
+            body: JSON.stringify(DADOS_FECHAMENTO),
             headers: {"Content-type": "application/json; charset=UTF-8"}
         });
         
@@ -57,7 +71,7 @@ export async function fecharCaixa(...args){
         return DATA
 
     } catch (error) {
-        console.log('Deu erro aqui ',error)
+        console.error('Deu erro aqui ',error)
     }
 
 }

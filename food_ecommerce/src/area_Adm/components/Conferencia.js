@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import style from './Styles/Conferencia.module.css'
 
-import { verificarCaixa } from '../Funcionalidades_adm/fecharCaixa';
+import { verificarCaixa ,carregaCaixas} from '../Funcionalidades_adm/fecharCaixa';
 
 function Conferencia(){
 
@@ -15,19 +15,8 @@ function Conferencia(){
         setNome(e.target.value)
     };
 
-
     useEffect(()=>{
-
-        async function carregaCaixas(){
-            const resposta = await fetch(`http://192.168.31.3:8080/caixas`);
-            // const resposta = await fetch(`http://192.168.3.52:8080/pedidos`);
-            // const resposta = await fetch(`http://192.168.2.9:8080/pedidos`);
-            const Caixas = await resposta.json();
-            setCaixas(Caixas)
-        }
-
-        carregaCaixas()
-
+        carregaCaixas().then((dados)=>{setCaixas(dados)})
     },[])
 
     function Dados(...args){
