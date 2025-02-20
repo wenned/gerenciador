@@ -78,7 +78,7 @@ export const Pastel = {
       "Frango Queijo": frangoqueijo,
       "Frango Cheddar": frangocheddar,
       "Frango": frango,
-      "Carnesol": carnesol,
+      "Carne Sol": carnesol,
       "Carnesol Queijo": carnesolqueijo,
       "Presunto Queijo": presuntoqueijo,
       "Carne Cheddar": carnecheddar,
