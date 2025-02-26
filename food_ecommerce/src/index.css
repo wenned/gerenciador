@@ -1,15 +1,9 @@
-*{
-  height: 100%;
-  font-family: 'Righteous', cursive;
-}
 
 body {
   margin: 0;
   padding: 0;
   position: relative;
   display: flex;
-  text-align: center;
-  justify-content: center;
   background-image: url('./pexels-rachel-claire-4993256.jpg') ;
   background-repeat: no-repeat;
   background-size: cover;
