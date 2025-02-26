@@ -3,16 +3,15 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    justify-content: space-evenly;
-    width: 90%;
+    padding: 1rem;
+    height: 100%;
 }
 
 .cont{
     position: relative;
+    width: 30%;
 }
 
 .conter{
     position: relative;
-    height: 80%;
-    width: 100%;
 }

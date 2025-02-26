@@ -1,15 +1,12 @@
 .conteiner{
     position: relative;
     display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    align-content: space-between;
-    height: 30vh;
-    top: 10%;
+    width: 100%;
 }
 
 .bnt{
     position: relative;
+    display: flex;
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(43, 42, 39),rgb(0, 0, 0));
     height: 12rem;
     width: 12rem;
@@ -20,6 +17,8 @@
 
 .vl{
     position: relative;
-    top: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.3rem;
 }
