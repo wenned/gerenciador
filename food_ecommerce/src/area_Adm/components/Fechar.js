@@ -72,7 +72,7 @@ function Fechar(){
     }
 
     return(
-        <>
+  
         <section className={style.conteiner} >
             <div className={style.pedidos}>
 
@@ -80,35 +80,41 @@ function Fechar(){
             
             <div key={i} className={style.PedidosFechamento}>{ValorElemento.Nu_Pedido}</div>
             
-            )): <Logo/> }
+            )): <span className={style.conteinerlogo}><Logo/> </span>}
                 
             </div>
 
             <span className={style.line}></span>
-            <div className={style.lancamento}>
 
-                <form >
-                    <div className={style.cabecario}>Lancamento de Entradas</div>
+            <div className={style.lancamento}>
+                
+                <div className={style.cabecario}>Lancamento de Entradas</div>
+
+                <form className={style.formulario}>
 
                     <input id='date' type='date' onChange={handleChanger} ref={dateInputRef} className={style.butt}></input>
 
                     <input id='cache' onChange={handleChanger} ref={cacheInputRef} className={style.butt} placeholder='Dinheiro'></input>
                     <input id='card' onChange={handleChanger} ref={cardInputRef} className={style.butt} placeholder='Cartao'></input>
                     <input id='pix' onChange={handleChanger} ref={pixInputRef} className={style.butt} placeholder='Pix'></input>
-                    <button type='button' className={style.butt} onClick={()=>fecharCaixa(DADOS_RETORNO, date, Valor, nome, SALDO_TOTAL_DIA)}>Fechar Caixa</button>
-
-                    <div className={style.saldoTotal}>Saldo Total: R$ {SALDO_TOTAL_DIA.toFixed(2)}</div>
-                    <div className={style.saldo}>Total Lancamento: R$ {Valor}</div>
                     
                     <input id='nome' onChange={handleChanger} ref={nomeInputRef} placeholder='Digite seu nome' className={style.butt}></input>
+                    
+                    <button type='button' className={style.butt} onClick={()=>fecharCaixa(DADOS_RETORNO, date, Valor, nome, SALDO_TOTAL_DIA)}>Fechar Caixa</button>
 
 
                 </form>
-            
+
+                <div className={style.saldo}>
+                    <div>Total Lancamento: R$ {Valor}</div>
+                    <div>Saldo Total: R$ {SALDO_TOTAL_DIA.toFixed(2)}</div>
+                </div>
+           
             </div>
+                    
         
         </section>
-        </>
+
     )
 }
 
