@@ -1,7 +1,7 @@
 .conteiner{
     position: relative;
     display: flex;
-    width: 100%;
+    width: 80%;
     height: 70vh;
     background: linear-gradient(45deg, rgb(114, 111, 105), rgb(169, 166, 159),rgb(114, 111, 105));
     padding: 1rem;
@@ -19,21 +19,27 @@
 .cabecario{
     position: relative;
     height: 2.5rem;
-    top: 3%;
     font-size: 1.4rem;
 }
 
+.formulario{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ 
 .butt{
     position: relative;
     justify-content: center;
     align-items: center;
     display: flex;
     height: 2.5rem;
-    width: 80%;
+    width: 60%;
     padding: 3px;
     margin-top: 3%;
-    top: 3%;
-    left: 20%;
+    top: 5%;
     border-radius: 7px;
 
 }
@@ -58,6 +64,15 @@
     color: white;
 }
 
+.conteinerlogo{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+}
+
 .lancamento{
     position: relative;
     display: flex;
@@ -72,16 +87,8 @@ button{
 
 .saldo{
     position: relative;
+    display: flex;
     height: 2.5rem;
-    top: 25%;
-    right: 15%;
     font-size: 1.1rem;
-}
-
-.saldoTotal{
-    position: relative;
-    height: 2.5rem;
-    top: 37%;
-    right: 16%;
-    font-size: 1.1rem;
+    top: 50px;
 }
