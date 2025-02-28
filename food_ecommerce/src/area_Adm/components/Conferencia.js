@@ -34,37 +34,40 @@ function Conferencia(){
     }
 
     return (
-        <>
-        <section className={style.conteiner}>
 
-            <div className={style.conte}>
-                <div className={style.cf}>Caixas Fechado</div>
-                <div className={style.caixasAb}>
+        <section className={style.conteiner}>
+            <div className={style.conteinerBox}>
+                <span className={style.cf}>Caixas Fechado</span>
+                <span className={style.conteinerCaixas}>
                     {
                         Object.values(caixas).map((caixa, index)=>(
-                            <div onClick={()=>{Dados(caixa['_id'])}} key={index} className={style.bott} >{caixa['Nome']} / {caixa['Data']}</div>
+                            <span onClick={()=>{Dados(caixa['_id'])}} key={index} className={style.bott} >
+                                    {caixa['Nome']} / {caixa['Data']}</span>
                         ))
                     }
-                </div>
+                </span>
             </div>
-            
+
             <span className={style.line}></span>
             
             <div className={style.conTeiner}>
+                
                 <div className={style.Btn}>
                     <label className={style.btn}>Nome : {result.Nome}</label>
                     <label className={style.btn}>Data : {result.Data}</label>
                     <label className={style.btn}>Valor Total : {result.Valor_Total}</label>
                     <label className={style.btn}>Valor Lancado : {result.Valor_Lancamento}</label>
                 </div>
+
                 <div className={style.Conf}>
                     <label className={style.nome}>Nome:</label>
                     <input onChange={handleChanger} ref={nomeRef} type='text'className={style.bTnLabel}></input>
-                    <button onClick={()=>{verificarCaixa(nome.toLocaleUpperCase(), result['Id']);redefinir()}} className={style.bTn}>Finalizar</button>
+                    <button onClick={()=>{
+                        verificarCaixa(nome.toLocaleUpperCase(), result['Id']);redefinir()}} className={style.bTn}>Finalizar</button>
                 </div>
             </div>
         </section>
-        </>
+   
     );
 };
 
