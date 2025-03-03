@@ -30,7 +30,9 @@ function Mesa(){
                 {
                     Object.values(DADOS).map((mesa, index)=>(
                     
-                    <div key={index} className={ESTATO_GLOBAL === undefined? style.estilo:ESTATO_GLOBAL[`${index}`][`Estado`] === 2? style.pagamento:ESTATO_GLOBAL[`${index}`][`Estado`] === 1?style.ocupada:style.estilo}>
+                    <div key={index} className={ESTATO_GLOBAL === undefined? 
+                            style.estilo:ESTATO_GLOBAL[`${index}`][`Estado`] === 2? 
+                                    style.pagamento:ESTATO_GLOBAL[`${index}`][`Estado`] === 1?style.ocupada:style.estilo}>
 
                         <span className={style.numero}>{mesa}</span>
                         <span>
