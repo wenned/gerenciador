@@ -12,7 +12,12 @@
     overflow: auto;
 }
 
-
+.subConteiner{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .btn{
     position: relative;
@@ -22,7 +27,7 @@
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(43, 42, 39),rgb(0, 0, 0));
     height: 2.5rem;
     margin: 1rem;
-    width: 21rem;
+    width: 20rem;
     border-radius: 7px;
 }
 
@@ -33,13 +38,14 @@
     align-items: center;
     z-index: 2;
     height: 2rem;
-    top: 2%;
-    left: 70%;
+    width: 150px;
     font-size: 1.5rem;
     color: rgb(177, 58, 58);
     border: 2px solid rgb(177, 58, 58);
     border-radius: 7px;
     cursor: pointer;
+    top: 5px;
+    right: 0px;
 }
 
 
