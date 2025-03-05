@@ -1,6 +1,5 @@
 import style from './Styles/PedidoAlterar.module.css'
 import { useEffect, useState } from 'react';
-import Logo from '../../componentes/Logo'
 
 import { alterar } from '../Funcionalidades_adm/alteracaoItens';
 import { fetchPedido } from '../../area_Cliente/Funcionalidades/buscarPedido';
@@ -40,10 +39,10 @@ function PedidoAlterar(props){
                     <div>Despachar</div>
             </div> */}
 
-            <div className={style.ped}>Pedido : {props.pedido}</div>
-
-            <div className={style.cn}><strong>CNPJ :</strong> 19.375.999/0001-81</div>
-            <div className={style.log}><Logo/></div>
+            <div className={style.log}>
+                <span>Pedido : {props.pedido}</span>
+                <span ><strong>CNPJ :</strong> 19.375.999/0001-81</span>
+            </div>
 
         </section> 
         </>
