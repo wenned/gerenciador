@@ -12,13 +12,6 @@
     overflow: auto;
 }
 
-.subConteiner{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .btn{
     position: relative;
     display: flex;

@@ -59,20 +59,18 @@ function Pasteis(){
 
   return (
 
-    <section className={style.conteiner}>{valor.length > 0 && valor !== false?
+    <>{valor.length > 0 && valor !== false?
 
-      <div>
+      <div className={style.conteiner}>
         <div onClick={fechar} className={close === null?style.none: style.close}>{close}</div>
+        <div className={style.element}>{element}</div>
 
-        <div className={style.subConteiner}>
-          <div className={style.element}>{element}</div>
-            <div className={style.subConteiner}>
-              {Object.values(valor).map((pastel) => (
-                <Link  key={pastel['_id']} onClick={()=>Elemente(pastel.Nu_Pedido)}>
-                  <div className={style.btn} >{pastel.Nu_Pedido} / {hora}</div>
-                </Link>
-              ))}
-            </div>
+        <div>
+            {Object.values(valor).map((pastel) => (
+              <Link  key={pastel['_id']} onClick={()=>Elemente(pastel.Nu_Pedido)}>
+                <div className={style.btn} >{pastel.Nu_Pedido} / {hora}</div>
+              </Link>
+            ))}
         </div>
       </div>
 
@@ -82,7 +80,7 @@ function Pasteis(){
         <Logo/>
       </div>:<div className={style.lg}><Logo/></div>
       }
-    </section>
+    </>
 
     );
 
