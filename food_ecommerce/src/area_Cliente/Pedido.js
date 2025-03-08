@@ -29,8 +29,9 @@ function Pedido(){
       const pedidoId = localStorage.getItem('Pedido');
       fetchPedido(pedidoId)
         .then(data => {
-            if(data === null){
-                setPedido(false)
+            if(data === undefined){
+                localStorage.removeItem('Pedido')
+                setTimeout(()=>{window.location.href =`/`}) 
             }else{
                 setPedido(data)
                 setpreco(data.valor_total)
@@ -38,7 +39,7 @@ function Pedido(){
 
         })
         .catch(error => console.error(error));
-    }, [pedido]);
+    }, [pedido, MESA]);
 
     try {
             
@@ -59,6 +60,7 @@ function Pedido(){
     }
 
     const LocalStor = JSON.parse(localStorage.getItem('Key'))
+
     return(
         <>
         <section className={style.conteiner}>
@@ -90,7 +92,7 @@ function Pedido(){
 
             <div className={style.bod}>
                 <Link to={`/pagamento/${pedido.Nu_Pedido}`}>
-                    <div id='pastel'  onClick={()=>{apagar('pagar', MESA)}} className={style.cn}>Efetuar Pagamento</div>
+                    <div id='pastel'  onClick={()=>{apagar('pagar', MESA, LocalStor)}} className={style.cn}>Efetuar Pagamento</div>
                 </Link>
             </div>
 

@@ -45,7 +45,6 @@ function Tipo(){
                         setControle(1)
                     } else {
                         const key  = JSON.parse(localStorage.getItem('Key'))
-                        
                         if ( key[0] === resp.Chave){
                             setControle(0)
                         } else {
