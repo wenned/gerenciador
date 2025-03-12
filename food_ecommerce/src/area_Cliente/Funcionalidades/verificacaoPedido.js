@@ -31,7 +31,7 @@ export async function pegarPedido(){
 							"Quantidade":"",
 							"Tipo": false,
 							"Status": ["Pendente","false"],
-							"Adicional": []
+							"Adicional": ""
 			}
 		}]
 	}
@@ -43,7 +43,7 @@ export async function pegarPedido(){
                 "Quantidade": "",
                 "Tipo": false,
                 "Status": ["Pendente","false"],
-                "Adicional": []
+                "Adicional": ""
             }			
         }
 
@@ -57,17 +57,25 @@ export async function pegarPedido(){
             localStorage.setItem('id', JSON.stringify(itemInserir))  
 
         }else{
-            var cont = 0;
-            const verificar = JSON.parse(localStorage.getItem('id'))
 
-            verificar.item.forEach((e)=>{ if( e.Item.Valor === 0){ cont++ }});
+            if(localStorage.getItem('Modelo')){
+                var proximoItemModelo = JSON.parse(localStorage.getItem('Modelo'));
+                proximoItemModelo.Itens.push(itemProximo)
+                localStorage.setItem('Modelo', JSON.stringify(proximoItemModelo))
 
-            if(cont === 0){
+            }else{
+                var cont = 0;
+                const verificar = JSON.parse(localStorage.getItem('id'))
 
-                var proximoItem = JSON.parse(localStorage.getItem('id'));
-                proximoItem.item.push(itemProximo)
-                localStorage.setItem('id', JSON.stringify(proximoItem))
+                verificar.item.forEach((e)=>{ if( e.Item.Valor === 0){ cont++ }});
 
+                if(cont === 0){
+
+                    var proximoItem = JSON.parse(localStorage.getItem('id'));
+                    proximoItem.item.push(itemProximo)
+                    localStorage.setItem('id', JSON.stringify(proximoItem))
+
+                }
             }
         }
     } catch (error) {

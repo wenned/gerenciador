@@ -7,10 +7,9 @@ export function adicionar_adicional(...args){
     for(var item=0; item < dado.Itens.length; item++){
 
         if(typeof(dado.Itens[item]['Item']['Quantidade']) === "string"){
-
             var arr = []
 
-            if(typeof(dado.Itens[item]['Item']['Adicional']) === "string"){
+            if(typeof(dado.Itens[item]['Item']['Adicional']) === 'string'){
 
                 arr.push(args[0]);
                 trocar.Itens[item]['Item']['Adicional'] = arr;

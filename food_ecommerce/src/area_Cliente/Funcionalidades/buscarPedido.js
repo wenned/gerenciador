@@ -16,16 +16,13 @@ export async function fetchPedido(pedidoId) {
 export async function apagar(...args){
     
     switch(args[0]){
-
         case 'pagar':
 
             try {
                 apagarLocal()
-                const IdPedido = await fetch(`http://192.168.31.3:8080/mesas/${args[1]}`);
-
+                const IdPedido = await fetch(`http://192.168.31.3:8080/mesas/${args[1]}/${args[2][0]}`);
                 const RespostaId = await IdPedido.json()
                 const Body = {'operacao':2, 'id':RespostaId._id}
-
                 const Resposta =  await fetch(`http://192.168.31.3:8080/entrada/alteraMesa`, 
                                             {
                                                 method: 'PUT',
@@ -48,7 +45,7 @@ export async function removeElemnto(...args){
 
     try {
         const [IdP, Index] = args
-        const bodY = {'Id': IdP, 'Index': Index}
+        const bodY = {'id': IdP, 'index': Index}
 
         const RETORNO_DADOS = await fetch(`http://192.168.31.3:8080/entrada/removerItemPedido`, {
             method: `PUT`,
