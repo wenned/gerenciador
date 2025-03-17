@@ -1,99 +1,76 @@
-.conteiner{
-    position:relative;
+.conteiner {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
-    height: 27vh;
-    width: 40%;
-    top: 5%;
-    left: 4%;
-    border-radius: 7px;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    align-items: center; 
+    width:50%; 
+    height: 80%;
+    padding-top: 3%;
 }
 
-.bodY{
-    position:relative;
+.button {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #000000, #221701,#000000);
-    width: 170px;
-    height: 170px;
+    background: linear-gradient(45deg, #000000, #221701, #000000);
+    width: calc(50% - 5px);
+    height: 100px;
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
-    margin-right: 10px;
     font-size: 1.5rem;
+    box-sizing: border-box;
+    margin: 10px;
+    letter-spacing: calc(10px);
 }
 
-.atl{
+
+.busy {
     position: relative;
     display: flex;
-    height: 70px;
-    top: 10%;
-}
-
-.radape{
-    position:relative;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 170px;
-    height: 170px;
-    text-align: center;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-right: 10px;
-    font-size: 1rem;
-    bottom: 35%;
-    z-index: -3;
-}
-
-.busy{
-    position: relative;
-    height: 80vh;
-    top: 5%;
     border-radius: 7px;
     color: #171d12;
+    width: 40%;
 }
 
-.busy :nth-child(1){
-    position: relative;
+.busy div:nth-child(1) {
     font-size: 1.7rem;
-    height: 2rem;
-    top: 10%;
+    letter-spacing: calc(2px);
+    margin-bottom: 10%;
 }
 
-.busy :nth-child(2){
-    position: relative;
+.busy div:nth-child(2) {
     width: 350px;
-    height: 10rem;
-    padding: 5px;
+    margin: 20px auto;
     font-size: 1.5rem;
+    letter-spacing: calc(3px);
     text-align: center;
-    top: 20%;
+
 }
 
-.busy :nth-child(3){
-    position: relative;
-    width: 350px;
-    height: 10rem;
-    top: 40%;
+.busy div:nth-child(3) {
+    margin-top: 10%;
+    width: 50%;
 }
 
-.Err{
+.Err {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    top: 5%;
-    border-radius: 7px;
     height: 80vh;
     width: 300px;
     font-size: 1.7rem;
-
+    margin: 0 auto;
 }
 
-@media (max-width: 414px){
+/* @media (max-width: 414px){
     .conteiner{
         width: 100%;
         left: 8%;
@@ -133,4 +110,4 @@
         width: 9rem;
         height: 8rem;
     }
-}
+} */
