@@ -3,45 +3,32 @@
     display: flex;
     flex-wrap: wrap;
     width: 40%;
-    top: 3%;
-    left: 3%;
-    border-radius: 7px;
+    margin-top: 2%;
 }
 
 .bo{
     position:relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
-    width: 170px;
-    height: 90px;
+    width: 250px;
+    height: 80px;
     text-align: center;
     border-radius: 10px;
+    box-sizing: border-box;
     cursor: pointer;
-    margin-right: 10px;
     font-size: 1.1rem;
+    margin: 10px;
+    letter-spacing: calc(3px);
 }
 
-.atl{
-    position: relative;
-    display: flex;
-    height: 110px;
-}
 
 ::-webkit-scrollbar {display: none;}
 
-.boo{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    bottom: 25%;
-    left: 2%;
-    z-index: 1;
-    height: 1rem;    
-}
 
-@media (max-width: 414px){
+/* @media (max-width: 414px){
     .atl{
         left: 5.5%;
     }
@@ -61,4 +48,4 @@
     }
 
     .atl{height: 100px;}
-}
+} */

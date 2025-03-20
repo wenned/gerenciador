@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <>
+
         <Routes>
           {/*AREA CAXAI E PRODUCAO*/}
           
@@ -36,7 +36,6 @@ function App() {
           <Route path='/conferencia' element={<Conferencia/>}/>
           
         </Routes>
-      </>
 
     </div>
   );
