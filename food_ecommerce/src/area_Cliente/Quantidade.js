@@ -85,12 +85,13 @@ function Quantidade(){
    
     return (
         <section className={style.conteiner}>
+
+          <img className={style[`${imgoff}`]} src={IMAGEM[item]} alt='Imagem Pastel'/>
         
           <h1 className={style.nomes}>{item}</h1>
 
-          <img className={style[`${imgoff}`]} src={IMAGEM[item]} alt='Imagem Pastel'/>
 
-          <div className={style[`${displayoff}`]} onClick={()=>{setdisplayoff('displayon'); setimgoff('imgon'); setativado('adicioactive_on'); setnome('nome_act')}}>
+          {/* <div className={style[`${displayoff}`]} onClick={()=>{setdisplayoff('displayon'); setimgoff('imgon'); setativado('adicioactive_on'); setnome('nome_act')}}>
             
             <div className={style[`${nome}`]}>Adicional</div>
             
@@ -119,34 +120,37 @@ function Quantidade(){
               }
 
             </div>
+          </div> */}
+
+          <div className={style.conteinerAcao}>
+            <span className={style.preco}>${valor_item.toFixed(2)}</span>
+
+            <span className={style.buttonQuantidade}>
+
+              <button onClick={()=>{setValor(Valor + 1); setvalor_item(Valor_Atual + valor_item)}} className={style.But}>+</button>
+
+              <span className={style.qnt}>{Valor}</span>
+
+              <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}; setvalor_item(valor_item - Valor_Atual)}} className={style.But}>-</button>
+
+            </span>
+
+          </div>
+          
+          <div className={style.descricao}>
+            <span>Igredientes :</span>
+            <span>Massa pastel, Carne, Queijo</span>
           </div>
 
-          <div className={style.conteiner_Button}>
+          <div className={style.conteinerButton}>
 
-            <button onClick={()=>{setValor(Valor + 1); setvalor_item(Valor_Atual + valor_item)}} className={style.But}>+</button>
-
-            <span className={style.Valor}>{Valor}</span>
-
-            <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}; setvalor_item(valor_item - Valor_Atual)}} className={style.But}>-</button>
-
-          </div>
-
-          <div className={style.preco}>${valor_item.toFixed(2)}</div>
-
-          <div className={style.adicionarNovo}>
-
-              <Link onClick={()=>{addValores(Number(valores), Valor)}} to={`/tipo/${MESAKEY[1]['Mesa']}/novoItem`}>
-                  <div className={style.Butao}>Adicionar Novo Item</div>
+              <Link className={style.Butao} onClick={()=>{addValores(Number(valores), Valor)}} to={`/tipo/${MESAKEY[1]['Mesa']}/novoItem`}>
+                  ADICIONAR NOVO ITEM
               </Link>
 
-          </div>
-
-          <div className={style.final}>
-
-              <Link to='/finalizar'>
-                  <div onClick={()=>{ addValores( Number(valores), Valor)}} className={style.Butao}>Finalizar</div>
+              <Link to='/finalizar' onClick={()=>{ addValores( Number(valores), Valor)}} className={style.Butao}>
+                  FINALIZAR
               </Link>
-              
           </div>
 
       </section>

@@ -4,18 +4,24 @@
     flex-direction: column;
     align-items: center;
     width: 23rem;
+    height: 90%;
+
 }
 
 .imgoff{
     position: relative;
-    top: 2%;
-    border-radius: 10px;
+    top: 50px;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 120px;
+    border-bottom-right-radius: 110px;
+    border-bottom-left-radius: 90px;
     right: 3%;
-    width: 75%;
-    height: 20%;
+    width: 270px;
+    height:250px;
+
 }
 
-.imgon{
+/* .imgon{
     position: relative;
     top: 3%;
     border-radius: 50%;
@@ -26,7 +32,119 @@
     animation-name: imagemon;
     animation-duration: 1s;
     z-index: 2;
+} */
+
+.nomes {
+    position: relative;
+    align-items: center;
+    justify-content: start;
+    padding: 10px;
+    display: flex;
+    color: #000000;
+    top: 60px;
+    font-size:x-large;
+    letter-spacing: calc(3px);
+    width: 100%;
 }
+
+.conteinerAcao{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    top: 50px;
+    padding: 10px;
+
+}
+
+.preco {
+    font-size: 20px;
+    color: #FFBF00;
+    width: 4em;
+    letter-spacing: calc(2px);
+}
+
+.buttonQuantidade{
+    background: linear-gradient(45deg, #000000, #221701,#000000);
+    border-radius: 7px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    height: 2rem;
+    width: 6em;
+}
+
+.But{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    background: none;
+    border: none;
+}
+
+.qnt{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.3em;
+    height: 0.3em;
+    border-radius: 10px;
+    margin: 2px;
+    font-size: 1.5rem;
+}
+
+.descricao{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 70px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.descricao span {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    padding-bottom: 5px;
+    letter-spacing: calc(2px);
+    padding: 5px;
+}
+
+.descricao :nth-child(1){
+    font-size: 10px;
+}
+
+.conteinerButton{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 140px;
+
+}
+
+.Butao{
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    height: 50px;
+    width: 360px;
+    margin-bottom: 10px;
+    letter-spacing: calc(2px);
+}
+
+/* 
+
 
 @keyframes imagemon{
 
@@ -41,29 +159,7 @@ to{
 }
 
 
-.nomes {
-    position: relative;
-    display: flex;
-    text-align: justify;
-    top: 3%;
-    right: 10%;
-    height: 5%;
-    font-size: 1.3rem;
-    color: #000000;
-}
 
-.conteiner_Button{
-    background: linear-gradient(45deg, #000000, #221701,#000000);
-    border-radius: 7px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 6rem;
-    width: 2em;
-    left: 40.5%;
-    bottom: 15.5%;
-}
 
 .nome_act{
     display: none;
@@ -114,60 +210,11 @@ to{
     }
 }
 
-.preco {
-    position: relative;
-    bottom: 6.5%;
-    left: 17%;
-    width: 5%;
-    height: 0%;
-    font-size: 2rem;
-    color: #000000;
-}
 
-.But{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.3rem;
-    background: none;
-    border: none;
-}
 
-.Valor{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2.3em;
-    height: 2.3em;
-    border-radius: 10px;
-    margin: 2px;
-    font-size: 1.5rem;
-}
 
-.Butao{
-    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 7px;
-    height: 40px;
-    width: 330px;
-}
 
-.adicionarNovo{
-    position: relative;
-    height: 0;
-    top: 7%;
-}
 
-.final{
-    position: relative;
-    height: 0;
-    top: 15%;
-}
 
 .ativado{
    display: none;
@@ -214,4 +261,4 @@ to{
     top: 6%;
     border-radius: 7px;
     cursor: pointer;
-}
+} */
