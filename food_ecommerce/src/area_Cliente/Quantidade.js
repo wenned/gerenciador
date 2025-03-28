@@ -15,8 +15,7 @@ function Quantidade(){
   const {valores} = useParams()
   var Valor_Atual =  Number(valores)
 
-  const [displayoff, setdisplayoff] = useState('displayoff')
-  const [imgoff, setimgoff] = useState('imgoff')
+  const [displayoff, setdisplayoff] = useState('Butao')
   const [ativado, setativado] = useState('ativado')
   const [nome, setnome] = useState('nome_off')
 
@@ -86,41 +85,9 @@ function Quantidade(){
     return (
         <section className={style.conteiner}>
 
-          <img className={style[`${imgoff}`]} src={IMAGEM[item]} alt='Imagem Pastel'/>
+          <img className={style.itemImagem} src={IMAGEM[item]} alt='Imagem Pastel'/>
         
           <h1 className={style.nomes}>{item}</h1>
-
-
-          {/* <div className={style[`${displayoff}`]} onClick={()=>{setdisplayoff('displayon'); setimgoff('imgon'); setativado('adicioactive_on'); setnome('nome_act')}}>
-            
-            <div className={style[`${nome}`]}>Adicional</div>
-            
-            <div className={style[`${ativado}`]}>
-
-              {
-                Object.values(Item).map((mesa, index)=>(
-
-                  <label key={index} className={isChecked[index]? style.Input_check : style.bntadicional}>
-                    
-                    {mesa}
-
-                    <input id={index} className={style.Input} 
-                      type='checkbox'
-                      checked={isChecked[index]}
-                      onChange={() => {
-                        setdisplayoff('displayoff');
-                        setimgoff('imgoff');
-                        setativado('ativado');
-                        setnome('nome_off');
-                        handleCheckboxChange(index);
-                        adicionar_adicional(`${mesa}`)
-                      }}/>
-                    </label>
-                ))
-              }
-
-            </div>
-          </div> */}
 
           <div className={style.conteinerAcao}>
             <span className={style.preco}>${valor_item.toFixed(2)}</span>
@@ -140,17 +107,49 @@ function Quantidade(){
           <div className={style.descricao}>
             <span>Igredientes :</span>
             <span>Massa pastel, Carne, Queijo</span>
-          </div>
+          </div> {/*area de teste*/}
 
           <div className={style.conteinerButton}>
 
-              <Link className={style.Butao} onClick={()=>{addValores(Number(valores), Valor)}} to={`/tipo/${MESAKEY[1]['Mesa']}/novoItem`}>
-                  ADICIONAR NOVO ITEM
-              </Link>
 
-              <Link to='/finalizar' onClick={()=>{ addValores( Number(valores), Valor)}} className={style.Butao}>
-                  FINALIZAR
-              </Link>
+            <div className={style[`${displayoff}`]} 
+                onClick={()=>{setdisplayoff('displayon'); setativado('adicioactive_on'); setnome('nome_act')}}>
+              
+              <span className={style[`${nome}`]}>ADICIONAL</span>
+              
+              <span className={style[`${ativado}`]}>
+
+                {
+                  Object.values(Item).map((mesa, index)=>(
+
+                    <label key={index} className={isChecked[index]? style.Input_check : style.bntadicional}>
+                      
+                      {mesa.toLocaleUpperCase()}
+
+                      <input id={index} className={style.Input} 
+                        type='checkbox'
+                        checked={isChecked[index]}
+                          onChange={() => {
+                            setdisplayoff('Butao');
+                              setativado('ativado');
+                                setnome('nome_off');
+                                  handleCheckboxChange(index);
+                                    adicionar_adicional(`${mesa}`)
+                        }}/>
+                      </label>
+                  ))
+                }
+
+              </span>
+            </div>
+
+            <Link className={style.Butao} onClick={()=>{addValores(Number(valores), Valor)}} to={`/tipo/${MESAKEY[1]['Mesa']}/novoItem`}>
+                ADICIONAR NOVO ITEM
+            </Link>
+
+            <Link to='/finalizar' onClick={()=>{ addValores( Number(valores), Valor)}} className={style.Butao}>
+                FINALIZAR
+            </Link>
           </div>
 
       </section>

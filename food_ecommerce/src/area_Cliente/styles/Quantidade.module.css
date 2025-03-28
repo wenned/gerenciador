@@ -8,31 +8,16 @@
 
 }
 
-.imgoff{
+.itemImagem{
     position: relative;
     top: 50px;
     border-top-right-radius: 100px;
     border-top-left-radius: 120px;
     border-bottom-right-radius: 110px;
     border-bottom-left-radius: 90px;
-    right: 3%;
-    width: 270px;
-    height:250px;
-
+    width: 250px;
+    height:230px;
 }
-
-/* .imgon{
-    position: relative;
-    top: 3%;
-    border-radius: 50%;
-    right: 25%;
-    width: 20%;
-    height: 10%;
-
-    animation-name: imagemon;
-    animation-duration: 1s;
-    z-index: 2;
-} */
 
 .nomes {
     position: relative;
@@ -55,7 +40,6 @@
     width: 100%;
     top: 50px;
     padding: 10px;
-
 }
 
 .preco {
@@ -126,8 +110,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 140px;
-
+    top: 130px;
 }
 
 .Butao{
@@ -143,31 +126,7 @@
     letter-spacing: calc(2px);
 }
 
-/* 
-
-
-@keyframes imagemon{
-
-from{
-    width: 60%;
-}
-
-to{
-    width: 20%;
-}
-
-}
-
-
-
-
-.nome_act{
-    display: none;
-}
-
-.nome_off{ 
-    display: block;
-}
+/* area label flutuante */
 
 .displayoff{
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
@@ -184,47 +143,47 @@ to{
 
 .displayon{
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
-    position: relative;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 7px;
-    height: 30%;
-    width: 90%;
+    height: 40%;
+    width: 20%;
     font-size: 13px;
     z-index: 1;
+    bottom: 40%;
 
     animation-name: aparecer;
     animation-duration: 1s;
 }
 
-@keyframes aparecer{
-    from{
-        width: 40%;
-        height: 3.5%;
-    }
+.nome_act{
+    display: none;
+}
 
-    to{
-        width: 90%;
-        height: 30%;
-    }
+.nome_off{
+    position: relative;
+    display: flex;
+    letter-spacing: calc(3px);
+    display: block;
 }
 
 
-
-
+/* ---------- */
 
 
 
 .ativado{
-   display: none;
+    display: none;
 }
 
 .adicioactive_on{
     position: relative;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 80%;
 }
 
@@ -233,13 +192,12 @@ to{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
+    background-color:#FFBF00;
+    color: #000000;
     height: 10%;
-    width: 30%;
-    margin: 1%;
-    top: 6%;
-    border-radius: 7px;
+    width: 40%;
     cursor: pointer;
+    letter-spacing: calc(2px);
 }
 
 .Input{
@@ -256,9 +214,7 @@ to{
     background-color: #a9a7a7;
     color: #000000;
     height: 10%;
-    width: 30%;
-    margin: 1%;
-    top: 6%;
-    border-radius: 7px;
+    width: 40%;
     cursor: pointer;
-} */
+    letter-spacing: calc(2px);
+} 
