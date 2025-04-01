@@ -124,6 +124,7 @@
     width: 360px;
     margin-bottom: 10px;
     letter-spacing: calc(2px);
+    cursor: pointer;
 }
 
 /* area label flutuante */

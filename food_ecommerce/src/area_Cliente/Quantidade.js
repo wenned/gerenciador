@@ -94,11 +94,17 @@ function Quantidade(){
 
             <span className={style.buttonQuantidade}>
 
-              <button onClick={()=>{setValor(Valor + 1); setvalor_item(Valor_Atual + valor_item)}} className={style.But}>+</button>
+              <button 
+                onClick={()=>{
+                  setValor(Valor + 1); setvalor_item(Valor_Atual + valor_item)}} className={style.But}>+</button>
 
               <span className={style.qnt}>{Valor}</span>
 
-              <button onClick={() =>{ if(Valor > 0){setValor(Valor - 1)}; setvalor_item(valor_item - Valor_Atual)}} className={style.But}>-</button>
+              <button 
+                onClick={() =>{ if(Valor > 0 && Valor >= 1){
+                  setValor(Valor - 1)
+                    setvalor_item(valor_item - Valor_Atual)
+                }; }} className={style.But}>-</button>
 
             </span>
 
