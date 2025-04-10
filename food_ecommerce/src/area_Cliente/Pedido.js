@@ -7,9 +7,9 @@ import {fetchPedido, apagar, removeElemnto} from './Funcionalidades/buscarPedido
 
 const MESAKEY =JSON.parse(localStorage.getItem('Key'))
 
-function apagarPedido(){
-    localStorage.removeItem('Pedido')
-}
+// function apagarPedido(){
+//     localStorage.removeItem('Pedido')
+// }
 
 function Pedido(){
 
@@ -54,54 +54,55 @@ function Pedido(){
         }
     }
     
-    if(pedido === false){
-        setTimeout(()=>apagarPedido(), 5)
-        setTimeout(()=>{window.location.href =`/tipo/${MESA}`}) 
-    }
+    // if(pedido === false){
+    //     setTimeout(()=>apagarPedido(), 5)
+    //     setTimeout(()=>{window.location.href =`/tipo/${MESA}`}) 
+    // }
 
     const LocalStor = JSON.parse(localStorage.getItem('Key'))
 
     return(
-        <>
         <section className={style.conteiner}>
-            <span className={style.ped}>Pedido : {PEDIDO} / {LocalStor[1]['Mesa']}</span>
-            <div className={style.preCo}>{preco}</div>
 
+            <div className={style.preCo}>
+                <span>Pedido : {PEDIDO} / {LocalStor[1]['Mesa']}</span>
+                <span>Valor : {preco}</span>
+            </div>
 
-            <div className={style.cabeca}><span>Quantidade</span><span>Itens</span><span>Valor Unit</span></div>
+            <div className={style.cabeca}>
+                <span>QNT</span>
+                <span>ITENS</span>
+                <span>VUP</span>
+            </div>
 
-            <div className={style.c} >
+            <div className={style.itens} >
                 {
                         pedido && pedido.Itens &&
                         Object.keys(pedido.Itens).map((indeX) => {
-                            return <div key={indeX} className={style.cab} onClick={()=>{if(window.confirm(`VOCE ESTA REMOVENDO O ITEM :  ${pedido['Itens'][indeX]['Item']['Sabor']}`)){removeElemnto(pedido._id, indeX); handleClick()}}}>
-                                    <span className={style.Qnt}>{pedido['Itens'][indeX]['Item']['Quantidade']}</span>
-                                    <span className={style.tmn}>{pedido['Itens'][indeX]['Item']['Sabor']} - {pedido['Itens'][indeX]['Item']['Tipo']}</span>
-                                    <span className={style.vlu}>{pedido['Itens'][indeX]['Item']['Valor']}</span>
-                                </div>;
+                            return <div key={indeX} className={style.itensPedido} onClick={()=>{if(window.confirm(`VOCE ESTA REMOVENDO O ITEM :  ${pedido['Itens'][indeX]['Item']['Sabor']}`)){removeElemnto(pedido._id, indeX); handleClick()}}}>
+                                        <span >{pedido['Itens'][indeX]['Item']['Quantidade']}</span>
+                                        <span >{pedido['Itens'][indeX]['Item']['Sabor']} - {pedido['Itens'][indeX]['Item']['Tipo']}</span>
+                                        <span >{pedido['Itens'][indeX]['Item']['Valor']}</span>
+                                    </div>;
                         })
                     }
             </div>
 
-            <div  className={style.bodY} >
+            <div  className={style.conteinerBotoes} >
 
-                <Link to={`/tipo/${MESAKEY[1]['Mesa']}/novoItem`}>
-                    <div id='pastel' className={style.cn}>Adicionar Novo Item</div>
+                <Link id='pastel' className={style.botao} to={`/tipo/${MESAKEY[1]['Mesa']}/novoItem`}>
+                    ADICIONAR NOVO ITEM
+                </Link>
+                
+                <Link id='pastel'  onClick={()=>{apagar('pagar', MESA, LocalStor)}} className={style.botao} to={`/pagamento/${pedido.Nu_Pedido}`}>
+                    EFETUAR PAGAMENTO
                 </Link>
             </div>
-
-            <div className={style.bod}>
-                <Link to={`/pagamento/${pedido.Nu_Pedido}`}>
-                    <div id='pastel'  onClick={()=>{apagar('pagar', MESA, LocalStor)}} className={style.cn}>Efetuar Pagamento</div>
-                </Link>
-            </div>
-
 
             <div className={style.cnpj}><strong>CNPJ :</strong> 19.375.999/0001-81</div>
             <div className={style.cnn}><Logo/></div>
 
         </section> 
-        </>
     )
 
 };

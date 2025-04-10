@@ -1,58 +1,69 @@
 .conteiner{
     position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     height: 83vh;
-    top: 7%;
-    border-radius: 7px;
+    width: 350px;
     color: rgb(23, 29, 18);
 }
 
-.bodY{
-    position:relative;
-    top: 13%;
-    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
-    width: 350px;
-    height: 50px;
-    border-radius: 7px;
-    cursor: pointer;
-    margin: 9px;
-}
-
-.bod{
-    position:relative;
-    top: 12%;
-    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
-    width: 350px;
-    height: 50px;
-    border-radius: 7px;
-    cursor: pointer;
-    margin: 9px;
+.preCo{
+    position: relative;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+    font-size: 13px;
+    padding: 3px;
 }
 
 .cabeca{
     position: relative;
     display: flex;
-    top: 13%;
+    top: 7%;
     height: 1.3rem;
-    width: 90%;
-    justify-content: space-between;
-    margin: 10px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 5px;
+    background-color:#FFBF00;
+    font-size: 12px;
 }
 
-.c{
+.itens{
     position:relative ;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    top: 12%;
+    top: 7%;
     height: 300px;
     overflow: auto;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 7px;
-    margin: 2%;
 }
 
-.cab{
+.conteinerBotoes{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 60px;
+}
+
+.botao{
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(34, 23, 1),rgb(0, 0, 0));
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    height: 50px;
+    width: 360px;
+    margin-bottom: 10px;
+    letter-spacing: calc(5px);
+    cursor: pointer;
+}
+
+.itensPedido{
     position: relative;
     text-align: center;
     display: flex;
@@ -63,37 +74,10 @@
     cursor: pointer;
 }
 
-.ped{
-    position: absolute;
-    left: 3%;
+.itensPedido :nth-child(2){
+    font-size: 10px;
 }
 
-.Qnt{
-    position: absolute;
-    left: 10px;
-    width: 2rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.vlu{
-    position: absolute;
-    right: 10px;
-    width: 2rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.cn{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-top: 3.3%;
-    height: 1rem;
-    bottom: -17.5%;
-}
 
 .cnpj{
     position: relative;
@@ -107,28 +91,7 @@
     height: 7rem;
 }
 
-.tmn{
-    font-size: 13px;
-}
-
-.preCo{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    right: 5%;
-    font-size: 1.5rem;
-    height: 1.8rem;
-    width: 5rem;
-    border-radius: 7px;
-    border: 2px solid rgb(0, 0, 0)
-}
-
-.cent{
-    position: relative;
-    font-size: 1.3rem;
-}
-
+/* 
 @media (max-width: 375px) {
     .bodY{
         width: 300px;
@@ -174,4 +137,4 @@
         bottom: -10%;
     }
     
-}
+} */
