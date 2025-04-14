@@ -1,4 +1,4 @@
-const itensRemover = ['temp', 'Modelo', 'menu_bebidas', 'menu_frances', 'menu_pasteis', 'menu_suicos', 'Key']
+const itensRemover = ['temp', 'Modelo', 'menu_bebidas', 'menu_frances', 'menu_pasteis', 'menu_suicos', 'Key', 'Pedido']
 
 export function removerItensArmazenado(){
     

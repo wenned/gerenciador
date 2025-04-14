@@ -1,3 +1,5 @@
+import {fecthMesas} from '../Funcionalidades_adm/fecharMesa'
+
 export async function verificarCaixa(...args){
     const dadosVerificacao = {"nome" : args[0], "id" : args[1] }
 
@@ -16,15 +18,40 @@ export async function verificarCaixa(...args){
 
 export async function carregaCaixas(){
     var dados = []
-    const resposta = await fetch(`http://192.168.31.3:8080/caixas`);
-    const Caixas = await resposta.json();
-    
-    for (var i=0; i < Caixas.length; i++){
-        if(Caixas[i].Verificado === false){
-            dados.push(Caixas[i])
+
+    try {
+        const resposta = await fetch(`http://192.168.31.3:8080/caixas`);
+        const Caixas = await resposta.json();
+
+        for (var i=0; i < Caixas.length; i++){
+            if(Caixas[i].Verificado === false){
+                dados.push(Caixas[i])
+            }
+        };
+
+        return dados
+      
+    } catch (error) {
+
+        try {
+            const resPosta = await fecthMesas('closed_boxes');
+
+            for (var e=0; e < resPosta.length; e++){
+                if(resPosta[e].Verificado === false){
+                    dados.push(resPosta[e])
+                }
+            };
+
+            return dados
+
+        } catch (error) {
+            console.error('Erro na API fallback:', error);
         }
-    };
-    return dados
+    }
+
+
+
+
 }
 
 
