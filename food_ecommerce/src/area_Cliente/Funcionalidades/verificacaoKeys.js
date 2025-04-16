@@ -1,3 +1,5 @@
+import {fecthMesas} from '../../area_Adm/Funcionalidades_adm/fecharMesa'
+
 const GetItems = ["menu_bebidas","menu_frances", "menu_pasteis", "menu_suicos"]
 let keyConst = []
 
@@ -43,7 +45,7 @@ export async function libera(...args){
 }   
 
 export function carga(){
-
+    
     for(var l=0; l < GetItems.length; l++){
         carregaDados(GetItems[l]);
     };
@@ -51,9 +53,20 @@ export function carga(){
 
 async function carregaDados (x) {
 
-    const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
+    try {
+        const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
 
-    const RESULT = await resposta.json();
-    localStorage.setItem(`${x}`, JSON.stringify(RESULT));
+        const RESULT = await resposta.json();
+        localStorage.setItem(`${x}`, JSON.stringify(RESULT)); 
+
+    } catch (error) {
+        try {
+            const resp = await fecthMesas(x)
+            localStorage.setItem(`${x}`, JSON.stringify(resp)); 
+        } catch (error) {
+            
+        }
+    }
+
 }
 
