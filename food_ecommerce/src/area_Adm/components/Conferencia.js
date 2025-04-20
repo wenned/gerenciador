@@ -18,7 +18,7 @@ function Conferencia(){
     useEffect(()=>{
         carregaCaixas().then((dados)=>{setCaixas(dados)})
     },[])
-
+    
     function Dados(...args){
 
         for(var CX = 0; CX < caixas.length; CX++){
