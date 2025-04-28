@@ -25,11 +25,11 @@ function PedidoAlterar(props){
             <div className={style.c} >
                 {
                         pedido && pedido.Itens &&
-                        Object.keys(pedido.Itens).map((p) => {
+                        Object.keys(pedido.Itens).map((p, i) => {
                             return <div key={p} className={style.cab}>
                                       <div className={style.Qnt}>{pedido['Itens'][p]['Item']['Quantidade']}</div>
                                         <div className={style.itn}>{pedido['Itens'][p]['Item']['Sabor']} - {pedido['Itens'][p]['Item']['Tipo']}</div>
-                                        <div className={pedido['Itens'][p]['Item']['Status'][0] === "Feito"? `${style.feito}`: style.bnt} onClick={()=>{alterar(pedido._id, pedido.Itens[p]['_id'])}}>Feito</div>
+                                        <div className={pedido['Itens'][p]['Item']['Status'][0] === "Feito"? `${style.feito}`: style.bnt} onClick={()=>{alterar(pedido._id, pedido.Itens[p]['_id'], i)}}>Feito</div>
                                   </div>;
                         })
                     }
