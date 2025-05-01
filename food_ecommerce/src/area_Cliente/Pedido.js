@@ -27,18 +27,23 @@ function Pedido(){
     
     useEffect(() => {
       const pedidoId = localStorage.getItem('Pedido');
-      fetchPedido(pedidoId)
-        .then(data => {
-            if(data === undefined){
-                localStorage.removeItem('Pedido')
-                setTimeout(()=>{window.location.href =`/`}) 
-            }else{
-                setPedido(data)
-                setpreco(data.valor_total)
-            }
+        function capture(){
+            fetchPedido(pedidoId)
+                .then(data => {
+                    if(data === undefined){
+                        localStorage.removeItem('Pedido')
+                        setTimeout(()=>{window.location.href =`/`}) 
+                    }else{
+                        setPedido(data)
+                        setpreco(data.valor_total)
+                    }
 
-        })
-        .catch(error => console.error(error));
+                })
+                .catch(error => console.error(error));
+        }
+        const intervalId = setInterval(capture, 10000);
+    
+        return () => clearInterval(intervalId);
     }, [pedido, MESA]);
 
     try {
@@ -54,11 +59,6 @@ function Pedido(){
         }
     }
     
-    // if(pedido === false){
-    //     setTimeout(()=>apagarPedido(), 5)
-    //     setTimeout(()=>{window.location.href =`/tipo/${MESA}`}) 
-    // }
-
     const LocalStor = JSON.parse(localStorage.getItem('Key'))
 
     return(

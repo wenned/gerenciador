@@ -1,20 +1,32 @@
+.box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+}
+
 .container{
     position: relative;
+    display: flex;
+    justify-content: center;
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(114, 111, 105),rgb(0, 0, 0));
     height: 330px;
     width: 330px;
     border-radius: 100%;
-    top: 17%;
 }
 
 .texto{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: rgb(244, 243, 242);
     font-size: 1.5rem;
-    top: 45%;
 }
 
 .cont{
     position: relative;
-    top: 10rem;
+    top: 5rem;
 }

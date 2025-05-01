@@ -89,7 +89,7 @@ function Finalizar(){
     },[Metodo, Url]);
 
     return(
-        <section>
+        <section className={style.box}>
             <div className={style.container}><span className={style.texto}>{valor}</span></div>
             <div className={style.cont}>
                 <Logo/>
