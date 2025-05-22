@@ -31,7 +31,7 @@ export async function pegarPedido(){
 							"Quantidade":"",
 							"Tipo": false,
 							"Status": ["Pendente","false"],
-							"Adicional": ""
+							"Adicional": []
 			}
 		}]
 	}
@@ -43,7 +43,7 @@ export async function pegarPedido(){
                 "Quantidade": "",
                 "Tipo": false,
                 "Status": ["Pendente","false"],
-                "Adicional": ""
+                "Adicional": []
             }			
         }
 
