@@ -13,10 +13,10 @@ function Finalizar(){
     useEffect(()=>{
 
         if(localStorage.getItem('Pedido') === null){
-            setUrl('http://192.168.31.3:8080/inserir')
+            setUrl('http://192.168.31.35:8080/inserir')
             setMetodo('POST')
         }else{
-            setUrl(`http://192.168.31.3:8080/entrada/inserirItemPedido`)
+            setUrl(`http://192.168.31.35:8080/entrada/inserirItemPedido`)
             setMetodo('PUT')
         }
     

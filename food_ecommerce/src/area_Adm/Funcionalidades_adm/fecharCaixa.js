@@ -3,7 +3,7 @@ import {fecthMesas} from '../Funcionalidades_adm/fecharMesa'
 export async function verificarCaixa(...args){
     const dadosVerificacao = {"nome" : args[0], "id" : args[1] }
 
-     const Url = 'http://192.168.31.3:8080/conferirCaixa'
+     const Url = 'http://192.168.31.35:8080/conferirCaixa'
      const Metodo = 'PUT'
 
     const response = await fetch(Url, {
@@ -20,7 +20,7 @@ export async function carregaCaixas(){
     var dados = []
 
     try {
-        const resposta = await fetch(`http://192.168.31.3:8080/caixas`);
+        const resposta = await fetch(`http://192.168.31.35:8080/caixas`);
         const Caixas = await resposta.json();
 
         for (var i=0; i < Caixas.length; i++){
@@ -88,7 +88,7 @@ export async function fecharCaixa(...args){
     DADOS_FECHAMENTO['Id'] = result
 
     try {
-        const RETORNO_DADOS = await fetch(`http://192.168.31.3:8080/fechamento_caixa/`, {
+        const RETORNO_DADOS = await fetch(`http://192.168.31.35:8080/fechamento_caixa/`, {
             method: `POST`,
             body: JSON.stringify(DADOS_FECHAMENTO),
             headers: {"Content-type": "application/json; charset=UTF-8"}

@@ -2,7 +2,7 @@ export async function fetchPedido(pedidoId) {
 
     try {
 
-        const resposta = await fetch(`http://192.168.31.3:8080/pedidoUnico/${pedidoId}`);
+        const resposta = await fetch(`http://192.168.31.35:8080/pedidoUnico/${pedidoId}`);
         const resp = await resposta.json();
         return resp
 
@@ -20,10 +20,10 @@ export async function apagar(...args){
 
             try {
                 apagarLocal()
-                const IdPedido = await fetch(`http://192.168.31.3:8080/mesas/${args[1]}/${args[2][0]}`);
+                const IdPedido = await fetch(`http://192.168.31.35:8080/mesas/${args[1]}/${args[2][0]}`);
                 const RespostaId = await IdPedido.json()
                 const Body = {'operacao':2, 'id':RespostaId._id}
-                const Resposta =  await fetch(`http://192.168.31.3:8080/entrada/alteraMesa`, 
+                const Resposta =  await fetch(`http://192.168.31.35:8080/entrada/alteraMesa`, 
                                             {
                                                 method: 'PUT',
                                                 body:JSON.stringify(Body),
@@ -47,7 +47,7 @@ export async function removeElemnto(...args){
         const [IdP, Index] = args
         const bodY = {'id': IdP, 'index': Index}
 
-        const RETORNO_DADOS = await fetch(`http://192.168.31.3:8080/entrada/removerItemPedido`, {
+        const RETORNO_DADOS = await fetch(`http://192.168.31.35:8080/entrada/removerItemPedido`, {
             method: `PUT`,
             body: JSON.stringify(bodY),
             headers: {"Content-type": "application/json; charset=UTF-8"}

@@ -6,7 +6,7 @@ let keyConst = []
 export async function validar(...args){
     
     const [Mesa] = args
-    const RespostaKEY = await fetch(`http://192.168.31.3:8080/mesas/${Mesa}`)
+    const RespostaKEY = await fetch(`http://192.168.31.35:8080/mesas/${Mesa}`)
     const ResultKey = await RespostaKEY.json()
     return ResultKey
 
@@ -18,7 +18,7 @@ export async function libera(...args){
     const Body = {'operacao':1, 'id':Mesa}
 
     try {
-        const RespostaKEY = await fetch(`http://192.168.31.3:8080/entrada/ocuparMesa`, 
+        const RespostaKEY = await fetch(`http://192.168.31.35:8080/entrada/ocuparMesa`, 
                                     {
                                         method: 'PUT',
                                         body:JSON.stringify(Body),
@@ -54,7 +54,7 @@ export function carga(){
 async function carregaDados (x) {
 
     try {
-        const resposta = await fetch(`http://192.168.31.3:8080/${x}`);
+        const resposta = await fetch(`http://192.168.31.35:8080/${x}`);
 
         const RESULT = await resposta.json();
         localStorage.setItem(`${x}`, JSON.stringify(RESULT)); 
